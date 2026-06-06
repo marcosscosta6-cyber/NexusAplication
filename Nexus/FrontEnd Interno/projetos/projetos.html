@@ -39,7 +39,10 @@
         </nav>
         <div class="bottom-menu">
             <a href="../config/config.html"><i class="fa-solid fa-gear"></i><span>Configurações</span></a>
-            <a href="#"><i class="fa-solid fa-right-from-bracket"></i><span>Sair</span></a>
+            <button id="Sair" class="btn botaosair">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Sair</span>
+                </button>
         </div>
     </aside>
 
@@ -186,6 +189,19 @@
     </div>
 </div>
 
+<div class="overlay" id="overlay">
+
+    <div class="mesmosair">
+        <p>Certeza que você quer <span>sair?</span> </p>
+
+        <div class="sae">
+        <Button class="btn btn-sim" onclick=sim()>Sim</Button> 
+        <button class="btn btn-sair" onclick=nao()>Não</button>
+        </div>
+    </div>
+  </div> 
+
     <script src="../projetos/projetos.js"></script>
+    <script src="../sair.js"></script>
 </body>
 </html>
