@@ -276,18 +276,14 @@ ul{
 
 /* X FECHAR */
 .fechar{
-    position:absolute;
-    top:15px;
-    right:20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
 
-
-    cursor:pointer;
-    color:black;
-    font-size:1.4rem;
-    font-weight:500;
-    font-family: "Be Vietnam Pro",sans-serif;
-
-
+.fechar:focus{
+    box-shadow: none;
+    outline: none;
 }
 
 
