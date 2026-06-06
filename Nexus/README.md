@@ -1,2 +1,0 @@
-# NexusAplication
-App Nexus repository
