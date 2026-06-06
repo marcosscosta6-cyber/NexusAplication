@@ -407,3 +407,81 @@ header{
 }
 
 .versao span{color:#555;}
+
+/* para sair aqui */
+/* OVERLAY */
+.overlay{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+
+    background: rgba(0,0,0,0.6);
+
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+
+    opacity:0;
+    pointer-events:none;
+    transition:0.4s;
+}
+
+
+/* QUANDO ABRIR */
+.overlay.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.botaosair {
+    display: flex;
+    color: rgba(233, 70, 70, 0.747);
+    text-align: left;
+    gap: 10px;
+}
+
+.mesmosair {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-weight: 600;
+    width: 300px;
+    height: 200px;
+    border-radius: 8px;
+    color: rgb(255, 255, 255);
+    background-color:#0b1020;
+}
+
+.btn-sair {
+    color: rgba(255, 255, 255, 0.747);
+    background-color: rgba(192, 33, 33, 0.63);
+}
+
+.btn-sair:hover {
+    color: rgba(255, 0, 0, 0.747);
+    background-color: rgba(192, 33, 33, 0.63);
+}
+
+.btn-sim {
+    color: rgb(255, 255, 255);
+    background-color: green;
+}
+
+.btn-sim:hover {
+    color: rgb(7, 61, 7);
+    background-color: green;
+}
+
+.sae {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
