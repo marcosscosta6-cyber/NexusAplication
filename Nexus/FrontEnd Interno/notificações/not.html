@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="../notificações/not.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Nexus — Notificações</title>
+</head>
+<body>
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="../Img/NexusS.png" alt="" width="45px" height="45px">
+            <h2>Nexus</h2>
+        </div>
+        <br><br>
+        <div class="perfil-sidebar">
+            <img src="../Img/download 3.svg">
+            <div class="text-white">
+                <h5>Mariana Costa</h5>
+                <p>Engenheira mecânica</p>
+            </div>
+        </div>
+        <nav class="menu">
+            <a href="../home/home.html"><i class="fa-solid fa-house"></i><span>Início</span></a>
+            <a href="../explorar/explorar.html"><i class="fa-solid fa-magnifying-glass"></i><span>Explorar</span></a>
+            <a href="../conexões/conec.html"><i class="fa-solid fa-users"></i><span>Conexões</span></a>
+            <a href="../mensagens/mensagens.html"><i class="fa-solid fa-message"></i><span>Mensagens</span></a>
+            <a href="../projetos/projetos.html"><i class="fa-solid fa-folder"></i><span>Projetos</span></a>
+            <a href="../notificações/not.html" class="active"><i class="fa-solid fa-bell"></i><span>Notificações</span></a>
+            <a href="perfil.html"><i class="fa-solid fa-user"></i><span>Perfil</span></a>
+        </nav>
+        <div class="bottom-menu">
+            <a href="../config/config.html"><i class="fa-solid fa-gear"></i><span>Configurações</span></a>
+            <a href="#"><i class="fa-solid fa-right-from-bracket"></i><span>Sair</span></a>
+        </div>
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <div class="content">
+        <header>
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Buscar no Nexus...">
+            </div>
+            <div class="header-right">
+                <div class="notificacao"><i class="fa-solid fa-bell"></i></div>
+                <div class="user"><span>Olá, Arthur!</span></div>
+            </div>
+        </header>
+
+        <main class="main-content">
+
+            <div class="page-header">
+                <h1>Minhas notificações</h1>
+                <button class="btn-marcar" onclick="marcarTodasLidas()">Marcar todas como lidas</button>
+            </div>
+
+            <div class="notif-lista" id="lista-notif">
+
+                <!-- Notificação 1 — não lida -->
+                <div class="notif-card nao-lida" id="n1">
+                    <div class="dot-nao-lida"></div>
+                    <div class="notif-avatar">MC</div>
+                    <div class="notif-texto">
+                        <p><span>Marcos Costa</span> aceitou sua solicitação.</p>
+                        <p class="notif-tempo">Agora mesmo</p>
+                    </div>
+                    <button class="notif-fechar" onclick="fechar('n1')"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <!-- Notificação 2 — não lida -->
+                <div class="notif-card nao-lida" id="n2">
+                    <div class="dot-nao-lida"></div>
+                    <div class="notif-avatar">JL</div>
+                    <div class="notif-texto">
+                        <p><span>Juliana Lima</span> enviou uma solicitação de conexão.</p>
+                        <p class="notif-tempo">Há 10 minutos</p>
+                    </div>
+                    <button class="notif-fechar" onclick="fechar('n2')"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <!-- Notificação 3 — não lida -->
+                <div class="notif-card nao-lida" id="n3">
+                    <div class="dot-nao-lida"></div>
+                    <div class="notif-icon icon-projeto"><i class="fa-solid fa-folder"></i></div>
+                    <div class="notif-texto">
+                        <p>Você foi convidado para o projeto <span>Plataforma de ONGs</span>.</p>
+                        <p class="notif-tempo">Há 1 hora</p>
+                    </div>
+                    <button class="notif-fechar" onclick="fechar('n3')"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <!-- Notificação 4 — lida -->
+                <div class="notif-card lida" id="n4">
+                    <div class="dot-lida"></div>
+                    <div class="notif-avatar">RC</div>
+                    <div class="notif-texto">
+                        <p><span>Rafael Cruz</span> comentou no projeto <span>NovaFlow</span>.</p>
+                        <p class="notif-tempo">Há 3 horas</p>
+                    </div>
+                    <button class="notif-fechar" onclick="fechar('n4')"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <!-- Notificação 5 — lida -->
+                <div class="notif-card lida" id="n5">
+                    <div class="dot-lida"></div>
+                    <div class="notif-icon icon-mensagem"><i class="fa-solid fa-message"></i></div>
+                    <div class="notif-texto">
+                        <p><span>Ana Souza</span> enviou uma mensagem para você.</p>
+                        <p class="notif-tempo">Há 1 dia</p>
+                    </div>
+                    <button class="notif-fechar" onclick="fechar('n5')"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <!-- Notificação 6 — lida -->
+                <div class="notif-card lida" id="n6">
+                    <div class="dot-lida"></div>
+                    <div class="notif-icon icon-sistema"><i class="fa-solid fa-bell"></i></div>
+                    <div class="notif-texto">
+                        <p>Seu perfil foi visualizado <span>8 vezes</span> esta semana.</p>
+                        <p class="notif-tempo">Há 2 dias</p>
+                    </div>
+                    <button class="notif-fechar" onclick="fechar('n6')"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</div>
+
+<script src="../notificações/not.js"></script>
+</body>
+</html>

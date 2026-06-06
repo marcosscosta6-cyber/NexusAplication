@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../explorar/explorar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Belanosima:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Nexus — Explorar</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="../Img/NexusS.png" alt="" width="45px" height="45px">
+            <h2>Nexus</h2>
+        </div>
+        <br><br>
+        <div class="perfil-sidebar">
+            <img src="../Img/download 3.svg">
+            <div class="text-white">
+                <h5>Mariana Costa</h5>
+                <p>Engenheira mecânica</p>
+            </div>
+        </div>
+        
+        <nav class="menu">
+            <a href="../home/home.html">
+                <i class="fa-solid fa-house"></i><span>Início</span>
+            </a>
+            <a href="../explorar/explorar.html" class="active">
+                <i class="fa-solid fa-magnifying-glass"></i><span>Explorar</span>
+            </a>
+            <a href="../conexões/conec.html">
+                <i class="fa-solid fa-users"></i><span>Conexões</span>
+            </a>
+            <a href="../mensagens/mensagens.html">
+                <i class="fa-solid fa-message"></i><span>Mensagens</span>
+            </a>
+            <a href="../projetos/projetos.html">
+                <i class="fa-solid fa-folder"></i><span>Projetos</span>
+            </a>
+            <a href="../notificações/not.html">
+                <i class="fa-solid fa-bell"></i><span>Notificações</span>
+            </a>
+            <a href="perfil.html">
+                <i class="fa-solid fa-user"></i><span>Perfil</span>
+            </a>
+        </nav>
+        <div class="bottom-menu">
+            <a href="../config/config.html">
+                <i class="fa-solid fa-gear"></i><span>Configurações</span>
+            </a>
+            <a href="#">
+                <i class="fa-solid fa-right-from-bracket"></i><span>Sair</span>
+            </a>
+        </div>
+    </aside>
+
+    <div class="content">
+        <header>
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Buscar no Nexus...">
+            </div>
+            <div class="header-right">
+                <div class="notificacao"><i class="fa-solid fa-bell"></i></div>
+                <div class="user"><span>Olá, Arthur!</span></div>
+            </div>
+        </header>
+
+        <main class="main-content">
+
+            <div class="page-title">
+                <h1>Explorar</h1>
+                <p>Encontre pessoas incríveis para construir juntos</p>
+            </div>
+
+            <div class="filtros">
+                <div class="filtro-group">
+                    <label>Área</label>
+                    <select class="filtro-select">
+                        <option>Todas</option>
+                        <option>Tecnologia</option>
+                        <option>Mecânica</option>
+                        <option>Design</option>
+                        <option>Elétrica</option>
+                        <option>Administração</option>
+                    </select>
+                </div>
+                <div class="filtro-group">
+                    <label>Função</label>
+                    <select class="filtro-select">
+                        <option>Todas</option>
+                        <option>Desenvolvedor</option>
+                        <option>Designer</option>
+                        <option>Engenheiro</option>
+                        <option>Analista</option>
+                    </select>
+                </div>
+                <div class="filtro-group">
+                    <label>Nível</label>
+                    <select class="filtro-select">
+                        <option>Todos</option>
+                        <option>Iniciante</option>
+                        <option>Intermediário</option>
+                        <option>Avançado</option>
+                    </select>
+                </div>
+                <div class="filtro-group">
+                    <label>Disponibilidade</label>
+                    <select class="filtro-select">
+                        <option>Todas</option>
+                        <option>Disponível</option>
+                        <option>Ocupado</option>
+                    </select>
+                </div>
+                <div class="busca-habilidade">
+                    <div class="skill-search">
+                        <i class="fa-solid fa-tag"></i>
+                        <input type="text" placeholder="Buscar por habilidades">
+                    </div>
+                    <button class="btn-limpar">Limpar filtros</button>
+                </div>
+            </div>
+
+            <p class="resultado-info">Mostrando <span>24 talentos</span> encontrados</p>
+
+            <div class="talentos-grid">
+
+                <div class="talento-card">
+                    <div class="avatar-placeholder">MC</div>
+                    <p class="talento-nome">Marcos Costa</p>
+                    <p class="talento-cargo">Engenheiro Mecânico</p>
+                    <div class="talento-local"><i class="fa-solid fa-location-dot"></i>Curitiba, PR</div>
+                    <div class="talento-tags">
+                        <span class="tag">SolidWorks</span>
+                        <span class="tag">AutoCAD</span>
+                        <span class="tag">CNC</span>
+                    </div>
+                    <div class="disponivel"><span class="disponivel-dot"></span>Disponível</div>
+                    <div class="card-btns">
+                        <button class="btn-perfil">Perfil</button>
+                        <button class="btn-conectar">Conectar</button>
+                    </div>
+                </div>
+
+                <div class="talento-card">
+                    <div class="avatar-placeholder">JL</div>
+                    <p class="talento-nome">Juliana Lima</p>
+                    <p class="talento-cargo">Desenvolvedora Front-End</p>
+                    <div class="talento-local"><i class="fa-solid fa-location-dot"></i>São Paulo, SP</div>
+                    <div class="talento-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">Figma</span>
+                    </div>
+                    <div class="disponivel"><span class="disponivel-dot"></span>Disponível</div>
+                    <div class="card-btns">
+                        <button class="btn-perfil">Perfil</button>
+                        <button class="btn-conectar">Conectar</button>
+                    </div>
+                </div>
+
+                <div class="talento-card">
+                    <div class="avatar-placeholder">RC</div>
+                    <p class="talento-nome">Rafael Cruz</p>
+                    <p class="talento-cargo">Dev Full Stack</p>
+                    <div class="talento-local"><i class="fa-solid fa-location-dot"></i>Florianópolis, SC</div>
+                    <div class="talento-tags">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Docker</span>
+                    </div>
+                    <div class="disponivel ocupado"><span class="disponivel-dot ocupado-dot"></span>Ocupado</div>
+                    <div class="card-btns">
+                        <button class="btn-perfil">Perfil</button>
+                        <button class="btn-conectar">Conectar</button>
+                    </div>
+                </div>
+
+                <div class="talento-card">
+                    <div class="avatar-placeholder">AS</div>
+                    <p class="talento-nome">Ana Souza</p>
+                    <p class="talento-cargo">Designer UX/UI</p>
+                    <div class="talento-local"><i class="fa-solid fa-location-dot"></i>Recife, PE</div>
+                    <div class="talento-tags">
+                        <span class="tag">Figma</span>
+                        <span class="tag">Prototype</span>
+                        <span class="tag">Ilustração</span>
+                    </div>
+                    <div class="disponivel"><span class="disponivel-dot"></span>Disponível</div>
+                    <div class="card-btns">
+                        <button class="btn-perfil">Perfil</button>
+                        <button class="btn-conectar">Conectar</button>
+                    </div>
+                </div>
+
+                <div class="talento-card">
+                    <div class="avatar-placeholder">LM</div>
+                    <p class="talento-nome">Lucas Moraes</p>
+                    <p class="talento-cargo">Técnico em Elétrica</p>
+                    <div class="talento-local"><i class="fa-solid fa-location-dot"></i>Belo Horizonte, MG</div>
+                    <div class="talento-tags">
+                        <span class="tag">Arduino</span>
+                        <span class="tag">IoT</span>
+                        <span class="tag">PLC</span>
+                    </div>
+                    <div class="disponivel"><span class="disponivel-dot"></span>Disponível</div>
+                    <div class="card-btns">
+                        <button class="btn-perfil">Perfil</button>
+                        <button class="btn-conectar">Conectar</button>
+                    </div>
+                </div>
+
+                <div class="talento-card">
+                    <div class="avatar-placeholder">PF</div>
+                    <p class="talento-nome">Pedro Ferreira</p>
+                    <p class="talento-cargo">Dev Mobile</p>
+                    <div class="talento-local"><i class="fa-solid fa-location-dot"></i>Salvador, BA</div>
+                    <div class="talento-tags">
+                        <span class="tag">Flutter</span>
+                        <span class="tag">Dart</span>
+                        <span class="tag">Firebase</span>
+                    </div>
+                    <div class="disponivel ocupado"><span class="disponivel-dot ocupado-dot"></span>Ocupado</div>
+                    <div class="card-btns">
+                        <button class="btn-perfil">Perfil</button>
+                        <button class="btn-conectar">Conectar</button>
+                    </div>
+                </div>
+
+                <div class="talento-card">
+                    <div class="avatar-placeholder">BN</div>
+                    <p class="talento-nome">Beatriz Nunes</p>
+                    <p class="talento-cargo">Analista de Dados</p>
+                    <div class="talento-local"><i class="fa-solid fa-location-dot"></i>Porto Alegre, RS</div>
+                    <div class="talento-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Power BI</span>
+                    </div>
+                    <div class="disponivel"><span class="disponivel-dot"></span>Disponível</div>
+                    <div class="card-btns">
+                        <button class="btn-perfil">Perfil</button>
+                        <button class="btn-conectar">Conectar</button>
+                    </div>
+                </div>
+
+                <div class="talento-card">
+                    <div class="avatar-placeholder">GO</div>
+                    <p class="talento-nome">Gabriel Oliveira</p>
+                    <p class="talento-cargo">Engenheiro de Produção</p>
+                    <div class="talento-local"><i class="fa-solid fa-location-dot"></i>Campinas, SP</div>
+                    <div class="talento-tags">
+                        <span class="tag">Lean</span>
+                        <span class="tag">Six Sigma</span>
+                        <span class="tag">ERP</span>
+                    </div>
+                    <div class="disponivel"><span class="disponivel-dot"></span>Disponível</div>
+                    <div class="card-btns">
+                        <button class="btn-perfil">Perfil</button>
+                        <button class="btn-conectar">Conectar</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,401 @@
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+    background-color:#050816;
+    font-family:"Be Vietnam Pro",sans-serif;
+    overflow:hidden;
+}
+
+.layout{
+    display:flex;
+    min-height:100vh;
+}
+
+/* ── SIDEBAR ── */
+.sidebar{
+    width:260px;
+    height:100vh;
+    background-color:#0b1020;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    border-right:1px solid rgba(255,255,255,0.1);
+    position:fixed;
+    top:0;
+    left:0;
+}
+
+.perfil-sidebar{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:500;
+    margin-bottom:35px;
+}
+
+.perfil-sidebar img{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.perfil-sidebar h5{
+    font-size:17px;
+    color:white;
+}
+
+.perfil-sidebar p{
+    color:#9ca3af;
+    font-size:15px;
+}
+
+.logo{display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo h2{
+    color:white;
+    font-size:28px;
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:1px;
+}
+
+.sidebar a{
+    color:#bcbcbc;
+    font-weight:540;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.sidebar a:hover{
+    background-color:#050816;
+    color:white;
+}
+.sidebar .active{
+    background-color:#410874;
+    color:white;
+}
+
+.sidebar i{font-size:18px;}
+
+.bottom-menu{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:auto;
+}
+.bottom-menu a:hover{background-color:#050816;color:white;}
+
+/* ── CONTENT ── */
+.content{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    margin-left:260px;
+    height:100vh;
+    overflow-y:auto;
+    padding-top:20px;
+}
+
+/* HEADER */
+header{
+    width:100%;
+    height:100px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 50px;
+}
+
+.search-box{
+    width:439px;
+    height:59px;
+    display:flex;
+    align-items:center;
+    gap:17px;
+    padding:0 15px;
+    background-color:#05070F;
+    border-radius:12px;
+}
+
+.search-box i{
+    color:#737373;
+    font-size:23px;
+    padding:0 5px;
+}
+
+.search-box input{
+    width:100%;
+    height:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+    color:white;
+}
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:45px;
+}
+.notificacao{font-size:25px;color:#737373;}
+.user{
+    color:#737373;
+    font-size:17px;
+    font-weight:540;
+}
+
+/* ── MAIN ── */
+.main-content{flex:1;padding:20px 50px 40px;}
+
+/* TOPO DA PÁGINA */
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:28px;
+}
+.page-header h1{
+    color:white;
+    font-size:32px;
+    font-weight:700;
+}
+
+/* ABAS */
+.abas{
+    display:flex;
+    gap:6px;
+    background:#0b1020;
+    padding:6px;
+    border-radius:12px;
+    margin-bottom:28px;
+    width:fit-content;
+}
+
+.aba{
+    padding:10px 24px;
+    border-radius:8px;
+    border:none;
+    background:transparent;
+    color:#9a9a9a;
+    font-family:"Be Vietnam Pro",sans-serif;
+    font-size:14px;
+    font-weight:500;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.aba:hover{color:white;}
+.aba.active{background:#8b2cff;color:white;}
+
+/* BOTÃO NOVO PROJETO */
+.btn-novo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:#8b2cff;
+    border:none;
+    color:white;
+    padding:12px 20px;
+    border-radius:12px;
+    font-family:"Be Vietnam Pro",sans-serif;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.btn-novo:hover{background:#6c1ee6;}
+
+/* LISTA DE PROJETOS */
+.projetos-lista{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+/* CARD DE PROJETO */
+.projeto-card{
+    background:#0b1020;
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:16px;
+    padding:24px 28px;
+    display:flex;
+    align-items:center;
+    gap:24px;
+    transition:.3s;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+}
+
+.projeto-card::before{
+    content:"";
+    position:absolute;
+    left:0;top:0;bottom:0;width:3px;
+    background:linear-gradient(180deg,#8b2cff,#410874);
+    opacity:0;
+    transition:.3s;
+}
+
+.projeto-card:hover{border-color:#8b2cff;transform:translateX(4px);}
+.projeto-card:hover::before{opacity:1;}
+
+/* ÍCONE DO PROJETO */
+.projeto-icon{
+    width:56px;
+    height:56px;
+    background:rgba(139,44,255,.15);
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+}
+.projeto-icon i{color:#8b2cff;font-size:22px;}
+
+/* INFO DO PROJETO */
+.projeto-info{flex:1;}
+
+.projeto-info h3{
+    color:white;
+    font-size:17px;
+    font-weight:600;
+    margin-bottom:5px;
+}
+
+.projeto-info p{
+    color:#9a9a9a;
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+/* TAGS */
+.projeto-tags{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.tag{
+    background:rgba(139,44,255,.15);color:#a855f7;
+    font-size:11px;
+    font-weight:500;
+    padding:4px 12px;
+    border-radius:20px;
+    border:1px solid rgba(139,44,255,.2);
+}
+
+/* MEMBROS */
+.projeto-membros{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-shrink:0;
+}
+
+.membros-avatares{display:flex;}
+.membro-avatar{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#410874,#1a0a40);
+    border:2px solid #0b1020;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    font-weight:700;
+    color:#8b2cff;
+    margin-left:-8px;
+}
+
+.membro-avatar:first-child{margin-left:0;}
+.membros-mais{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    background:#1a1a2e;
+    border:2px solid #0b1020;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:11px;
+    color:#9a9a9a;
+    margin-left:-8px;
+}
+
+/* STATUS */
+.projeto-status{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:8px;
+    flex-shrink:0;
+}
+
+.status-badge{
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:500;
+}
+
+.status-ativo{
+    background:rgba(34,197,94,.15);
+    color:#22c55e;
+    border:1px solid rgba(34,197,94,.2);
+}
+
+.status-pausado{
+    background:rgba(245,158,11,.15);
+    color:#f59e0b;
+    border:1px solid rgba(245,158,11,.2);
+}
+
+.status-concluido{
+    background:rgba(99,102,241,.15);
+    color:#818cf8;
+    border:1px solid rgba(99,102,241,.2);
+}
+
+.projeto-data{color:#737373;font-size:12px;}
+
+/* CARD VAZIO (sem detalhes ainda) */
+.projeto-card.vazio .projeto-info p{color:#555;}
+.projeto-card.vazio .projeto-icon{background:rgba(255,255,255,.04);}
+.projeto-card.vazio .projeto-icon i{color:#444;}
+
+/* ÁREA VAZIA */
+.empty-state{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:60px 20px;
+    color:#555;
+    text-align:center;
+    gap:12px;
+}
+ 
+.empty-state i{
+    font-size:40px;
+    color:#2a2a40;
+}
+
+.empty-state p{font-size:15px;}

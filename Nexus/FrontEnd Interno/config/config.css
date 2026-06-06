@@ -1,0 +1,409 @@
+ *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background-color:#050816;
+    font-family:"Be Vietnam Pro",sans-serif;
+    overflow:hidden;
+}
+
+.layout{
+    display:flex;
+    min-height:100vh;
+}
+
+/* ── SIDEBAR ── */
+.sidebar{
+    width:260px;height:100vh;
+    background-color:#0b1020;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    border-right:1px solid rgba(255,255,255,0.1);
+    position:fixed;
+    top:0;
+    left:0;
+}
+
+.perfil-sidebar{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:500;
+    margin-bottom:35px;
+}
+
+.perfil-sidebar img{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.perfil-sidebar h5{
+    font-size:
+    17px;
+    color:white;
+}
+.perfil-sidebar p{
+    color:#9ca3af;
+    font-size:15px;
+}
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo h2{
+    color:white;
+    font-size:28px;
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:1px;
+}
+
+.sidebar a{
+    color:#bcbcbc;
+    font-weight:540;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.sidebar a:hover{
+    background-color:#050816;
+    color:white;
+}
+
+.sidebar .active{
+    background-color:#410874;
+    color:white;
+}
+.sidebar i{
+    font-size:18px;
+}
+
+.bottom-menu{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:auto;
+}
+
+.bottom-menu a:hover{
+    background-color:#050816;
+    color:white;
+}
+
+.bottom-menu .active{
+    background-color:#410874;
+    color:white;
+}
+
+/* ── CONTENT ── */
+.content{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    margin-left:260px;
+    height:100vh;
+    overflow-y:auto;
+    padding-top:20px;
+}
+
+/* HEADER */
+header{
+    width:100%;
+    height:100px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 50px;
+}
+
+.search-box{
+    width:439px;
+    height:59px;
+    display:flex;
+    align-items:center;
+    gap:17px;
+    padding:0 15px;
+    background-color:#05070F;
+    border-radius:12px;
+}
+.search-box i{
+    color:#737373;
+    font-size:23px;
+    padding:0 5px;
+}
+
+.search-box input{
+    width:100%;
+    height:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+    color:white;
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:45px;
+}
+
+.notificacao{
+    font-size:25px;
+    color:#737373;
+}
+.user{
+    color:#737373;
+    font-size:17px;
+    font-weight:540;
+}
+
+/* ── MAIN ── */
+.main-content{
+    flex:1;
+    padding:20px 50px 40px;
+}
+
+/* TOPO */
+.page-header{
+    margin-bottom:32px;
+}
+
+.page-header h1{
+    color:white;
+    font-size:32px;
+    font-weight:700;
+}
+
+.page-header p{
+    color:#9a9a9a;
+    font-size:15px;
+    margin-top:4px;
+}
+
+/* LAYOUT DE DUAS COLUNAS */
+.config-layout{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+    align-items:start;
+}
+
+/* SEÇÃO */
+.config-secao{
+    background:#0b1020;
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:18px;
+    overflow:hidden;
+}
+.config-secao-titulo{
+    padding:18px 22px;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    color:#9a9a9a;
+    font-size:12px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.8px;
+}
+
+/* ITEM DE CONFIGURAÇÃO */
+.config-item{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:18px 22px;
+    border-bottom:1px solid rgba(255,255,255,0.04);
+    cursor:pointer;
+    transition:.2s;
+}
+.config-item:last-child{
+    border-bottom:none;
+}
+
+.config-item:hover{
+    background:rgba(139,44,255,.06);
+}
+
+.config-item:hover .config-seta{
+    color:#8b2cff;
+}
+
+.config-icone{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:17px;
+    flex-shrink:0;
+}
+
+.ic-roxo{
+    background:rgba(139,44,255,.15);
+    color:#8b2cff;
+}
+
+.ic-azul{
+    background:rgba(59,130,246,.15);
+    color:#3b82f6;
+}
+
+.ic-verde{
+    background:rgba(34,197,94,.15);
+    color:#22c55e;
+}
+.ic-amarelo{
+    background:rgba(245,158,11,.15);
+    color:#f59e0b;
+}
+
+.ic-cinza{
+    background:rgba(156,163,175,.1);
+    color:#9ca3af;
+}
+
+.ic-vermelho{
+    background:rgba(239,68,68,.15);
+    color:#ef4444;
+}
+
+.config-texto{
+    flex:1;
+}
+
+.config-texto h4{
+    color:white;
+    font-size:15px;
+    font-weight:500;
+    margin-bottom:2px;
+}
+
+.config-texto p{
+    color:#737373;
+    font-size:13px;
+}
+
+.config-seta{
+    color:#555;
+    font-size:13px;
+    transition:.2s;
+}
+
+/* TOGGLE */
+.toggle-wrap{
+    display:flex;
+    align-items:center;
+}
+
+.toggle{
+    width:44px;
+    height:24px;
+    background:#1a1a30;
+    border-radius:20px;
+    position:relative;
+    cursor:pointer;
+    transition:.3s;
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.toggle.on{
+    background:#8b2cff;
+    border-color:#8b2cff;
+}
+
+.toggle::after{
+    content:"";
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:white;
+    position:absolute;
+    top:2px;
+    left:2px;
+    transition:.3s;
+}
+
+.toggle.on::after{left:22px;}
+
+/* PERFIL CARD */
+.perfil-config{
+    background:#0b1020;
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:18px;
+    padding:24px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-bottom:24px;
+}
+
+.perfil-config-avatar{
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#410874,#1a0a40);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    font-weight:700;
+    color:#8b2cff;
+    border:2px solid rgba(139,44,255,.4);
+    flex-shrink:0;
+}
+
+.perfil-config-info{flex:1;}
+
+.perfil-config-info h3{
+    color:white;
+    font-size:17px;
+    font-weight:600;
+    margin-bottom:3px;
+}
+
+.perfil-config-info p{color:#9a9a9a;font-size:13px;}
+
+.btn-editar-perfil{
+    background:#8b2cff;
+    border:none;
+    color:white;
+    padding:10px 18px;
+    border-radius:10px;
+    font-family:"Be Vietnam Pro",sans-serif;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.btn-editar-perfil:hover{background:#6c1ee6;}
+
+/* VERSÃO */
+.versao{
+    text-align:center;
+    color:#333;
+    font-size:12px;
+    margin-top:20px;
+}
+
+.versao span{color:#555;}

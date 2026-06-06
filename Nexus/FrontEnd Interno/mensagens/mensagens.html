@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagens</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="mensagens.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Belanosima:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body> 
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="../Img/NexusS.png" alt="" width="45" height="45">
+                <h2>Nexus</h2>
+            </div>
+
+            <br><br>
+
+            <div class="perfil-sidebar">
+                <img src="../Img/download 3.svg">
+                <div class="text-white">
+                    <h5>Mariana Costa</h5>
+                    <p>Engenheira mecânica</p>
+                </div>
+            </div>
+
+            <nav class="menu">
+                <a href="../home/home.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Início</span>
+                </a>
+
+                <a href="../explorar/explorar.html">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Explorar</span>
+                </a>
+
+                <a href="../conexões/conec.html">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Conexões</span>
+                </a>
+
+                <a href="../mensagens/mensagens.html" class="active">
+                    <i class="fa-solid fa-message"></i>
+                    <span>Mensagens</span>
+                </a>
+
+                <a href="../projetos/projetos.html">
+                    <i class="fa-solid fa-folder"></i>
+                    <span>Projetos</span>
+                </a>
+
+                <a href="../notificações/not.html">
+                    <i class="fa-solid fa-bell"></i>
+                    <span>Notificações</span>
+                </a>
+
+                <a href="../perfil/perfil.html">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Perfil</span>
+                </a>
+            </nav>
+
+            <div class="bottom-menu">
+                <a href="../config/config.html">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Configurações</span>
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO -->
+        <div class="content">
+
+            <!-- MENSAGENS -->
+            <main class="mensagens-container">
+
+                <!-- LISTA DE CONVERSAS -->
+                <section class="lista-conversas" id="listaConversas">
+
+                    <div class="titulo-conversas">
+                        <h2>Mensagens</h2>
+
+                        <button id="btn-novo-chat">
+                            <i class="fa-solid fa-plus"></i>    
+                        </button>
+                    </div>
+
+                    <div class="buscar-usuarios" id="buscarUsuarios">
+
+                        <input type="text" placeholder="Pesquisar usuário..." id="pesquisaUsuario">
+
+                        <div class="usuario-item">João Silva</div>
+                        <div class="usuario-item">Ana Costa</div>
+                        <div class="usuario-item">Carlos Lima</div>
+                        <div class="usuario-item">Mariana Costa</div>
+                    </div>
+
+                    <div id="listaChats">
+
+                        <div class="contato ativo">
+                            <img src="../Img/download 3.svg">
+                            <div>
+                                <h4>João Silva</h4>
+                                <p>Olá, tudo bem?</p>
+                            </div>
+                        </div>
+
+                        <div class="contato">
+                            <img src="../Img/download 3.svg">
+                            <div>
+                                <h4>Ana Souza</h4>
+                                <p>Projeto enviado!</p>
+                            </div>
+                        </div>
+
+                        <div class="contato">
+                            <img src="../Img/download 3.svg">
+                            <div>
+                                <h4>Carlos Lima</h4>
+                                <p>Vamos conversar?</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- CHAT -->
+                <section class="chat-area">
+
+                    <div class="chat-header">
+                        <img src="../Img/download 3.svg">
+                        <div>
+                            <h3>João Silva</h3>
+                            <span>Online</span>
+                        </div>
+                    </div>
+
+                    <div class="chat-mensagens">
+
+                        <div class="mensagem recebida">
+                            Olá Arthur!
+                        </div>
+
+                        <div class="mensagem enviada">
+                            Oi João, tudo certo?
+                        </div>
+
+                        <div class="mensagem recebida">
+                            Tudo sim! Como está o projeto?
+                        </div>
+
+                    </div>
+
+                    <div class="chat-input">
+
+                        <input
+                            type="text"
+                            placeholder="Digite sua mensagem..."
+                        >
+
+                        <button>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <script src="mensagens.js"></script>
+</body>
+</html>

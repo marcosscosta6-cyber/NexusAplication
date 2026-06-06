@@ -1,0 +1,695 @@
+/* css login */
+ul{
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+   list-style: none;
+   gap: 20px;
+   font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.roxo{
+   background-color: purple;
+   color: white;
+   font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.roxo:hover {
+   background-color: purple;
+   color: white;
+   font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.Logo {
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+
+
+}
+
+
+.Header1{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.Header1 a{
+    text-decoration: none;
+    color: white;
+    position: relative;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.Header1 a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+
+
+    width: 0%;
+    height: 2px;
+
+
+    background-color: white;
+    transition: 0.3s;
+}
+
+
+.Header1 a:hover::after{
+    width: 100%;
+}
+
+
+/* OVERLAY */
+.overlay{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+
+    background: rgba(0,0,0,0.6);
+
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+
+    opacity:0;
+    pointer-events:none;
+    transition:0.4s;
+}
+
+
+/* QUANDO ABRIR */
+.overlay.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+
+/* LOGIN BOX */
+.login-box{
+    background:#ffffff;
+    width:420px;
+    padding:40px 35px;
+    border-radius:25px;
+
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+
+    gap:15px;
+    position:relative;
+
+
+    transform:translateY(50px);
+    transition:0.4s;
+
+
+    box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+}
+
+
+/* ANIMAÇÃO */
+.overlay.active .login-box{
+    transform:translateY(0);
+}
+
+
+/* LOGO */
+.login-box img{
+    width:90px;
+    height:90px;
+    object-fit:contain;
+}
+
+
+/* TITULO */
+.login-box h2{
+    font-family: "Be Vietnam Pro",sans-serif;
+    font-size:2.2rem;
+    font-weight:900;
+    margin:10px 0 5px;
+    text-align:center;
+}
+
+
+.login-box p{
+    font-family: "Be Vietnam Pro",sans-serif;
+    color: rgba(0,0,0,0.75);
+    text-align:center;
+    margin-bottom:15px;
+}
+
+
+/* AREA DOS INPUTS */
+.loginIN{
+    width:100%;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+/* LABEL */
+.loginIN label{
+    display:block;
+    margin-bottom:8px;
+    font-size:1rem;
+    font-weight:500;
+    color:black;
+    font-family: "Be Vietnam Pro",sans-serif;
+}
+
+
+/* INPUTS */
+.login-box input{
+    background-color: rgba(36, 9, 72, 1);
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    outline:none;
+    width:100%;
+    color:white;
+    font-size:1rem;
+    margin-bottom:15px;
+    transition:0.3s;
+    font-family: "Be Vietnam Pro",sans-serif;
+}
+
+
+.login-box input::placeholder{
+    color: rgba(255,255,255,0.5);
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.login-box input:focus{
+    box-shadow: 0 0 0 3px rgba(85, 59, 179, 0.25);
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+/* LINK ESQUECEU SENHA */
+.esqueceu{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    color: rgba(0, 0, 0, 0.67);
+    margin:5px 0 20px;
+    transition:0.3s;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.esqueceu:hover{
+    color: rgba(85, 59, 179, 1);
+}
+
+
+/* BOTÃO */
+.BotEn{
+    background-color: rgba(85, 59, 179, 1);
+    border:none;
+    height:50px;
+    font-size:1rem;
+    font-weight:500;
+    transition:0.3s;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.BotEn:hover{
+    background-color: rgb(67, 44, 150);
+    color:white;
+    transform:translateY(-2px);
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+/* LINK CADASTRO */
+.text-purple{
+    color: purple;
+    text-decoration:none;
+    font-family: "Be Vietnam Pro",sans-serif;
+    font-weight:600;
+}
+
+
+.text-purple:hover{
+    text-decoration:none;
+    color: rgb(67, 44, 150);
+    font-family: "Be Vietnam Pro",sans-serif;
+}
+
+
+/* X FECHAR */
+.fechar{
+    position:absolute;
+    top:15px;
+    right:20px;
+
+
+    cursor:pointer;
+    color:black;
+    font-size:1.4rem;
+    font-weight:500;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+
+
+
+
+
+
+/* Css da página frente */
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+body{
+    background: #050816;
+    font-family: "Be Vietnam Pro",sans-serif;
+    color: white;
+}
+
+
+/* HEADER */
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 70px;
+}
+
+
+.Logo{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.Logo img{
+    width: 42px;
+    height: auto;
+}
+
+
+.nexus{
+    font-size: 27px;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    font-family: "Be Vietnam Pro",sans-serif;
+    line-height:1
+}
+
+
+.Header1{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+
+.Header1 ul{
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    margin: 0;
+}
+
+
+.Header1 a{
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.roxo{
+    background: #7b2cff;
+    color: white;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+/* MAIN */
+main{
+    padding: 50px 70px;
+}
+
+
+.hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+
+.hero-img img{
+    width: 740px;
+    height: auto;
+    max-width: 100%;
+}
+
+
+/* TEXTO INICIAL */
+.inicio h1{
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 1.1;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.futuro{
+    color: #7b2cff;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.inicio p{
+    width: 550px;
+    margin-top: 20px;
+    color: #b8b8b8;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+/* BUSCA */
+.area-busca{
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+    align-items: center;
+}
+
+
+.busca input{
+    width: 370px;
+    background: #11182B;
+    border: none;
+    outline: none;
+    padding: 16px;
+    border-radius: 12px;
+    color: white;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.como-funciona{
+    background: #11182B;
+    border: none;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+/* CARDS INFO */
+.desc{
+    display: flex;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+
+.card-desc{
+    background: #11182B;
+    border-radius: 15px;
+    padding: 25px;
+    flex: 1;
+}
+
+
+.card-desc h5{
+    margin-bottom: 10px;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.card-desc p{
+    color: #bcbcbc;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+/* TITULO */
+h2{
+    text-align: center;
+    margin: 70px 0 40px;
+    font-size: 38px;
+    font-weight: bold;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+h2 span{
+    color: #7b2cff;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+/* CARDS PROFISSIONAIS */
+.profissionais{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+
+.marcos,
+.mariana,
+.carlos{
+    background: white;
+    width: 260px;
+    border-radius: 18px;
+    padding: 20px;
+    color: black;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.profissionais > div img:first-child{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+}
+
+
+.nome{
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.habilidade{
+    color: #666;
+    font-size: 14px;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.localizacao{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+
+.localizacao p{
+    margin: 0;
+    font-size: 14px;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.mini-loc{
+    width: 14px !important;
+    height: 14px !important;
+}
+
+
+.especialidades{
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+
+.especialidades p{
+    background: #ead9ff;
+    color: #7b2cff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    margin: 0;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.ver-perfil{
+    width: 100%;
+    margin-top: 20px;
+    border: none;
+    background: #7b2cff;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+/* FOOTER */
+.footer{
+    background: #f3f3f3;
+    color: black;
+    margin-top: 90px;
+    padding: 40px 70px;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.footer-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.footer-info h3{
+    color: #7b2cff;
+    font-weight: bold;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.footer-info p{
+    width: 350px;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.footer-links a{
+    text-decoration: none;
+    color: #555;
+    font-family: "Be Vietnam Pro",sans-serif;
+
+
+}
+
+
+.footer hr{
+    margin: 30px 0;
+}
+
+
+.footer-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.footer-icons{
+    display: flex;
+    gap: 15px;
+}
+
+
+.footer-icons img{
+    width: 30px;
+}

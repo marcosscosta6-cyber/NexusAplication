@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="../projetos/projetos.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <title>Nexus — Projetos</title>
+</head>
+<body>
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="../Img/NexusS.png" alt="" width="45px" height="45px">
+            <h2>Nexus</h2>
+        </div>
+        <br><br>
+        <div class="perfil-sidebar">
+            <img src="../Img/download 3.svg">
+            <div class="text-white">
+                <h5>Mariana Costa</h5>
+                <p>Engenheira mecânica</p>
+            </div>
+        </div>
+        <nav class="menu">
+            <a href="../home/home.html"><i class="fa-solid fa-house"></i><span>Início</span></a>
+            <a href="../explorar/explorar.html"><i class="fa-solid fa-magnifying-glass"></i><span>Explorar</span></a>
+            <a href="../conexões/conec.html"><i class="fa-solid fa-users"></i><span>Conexões</span></a>
+            <a href="../mensagens/mensagens.html"><i class="fa-solid fa-message"></i><span>Mensagens</span></a>
+            <a href="../projetos/projetos.html" class="active"><i class="fa-solid fa-folder"></i><span>Projetos</span></a>
+            <a href="../notificações/not.html"><i class="fa-solid fa-bell"></i><span>Notificações</span></a>
+            <a href="perfil.html"><i class="fa-solid fa-user"></i><span>Perfil</span></a>
+        </nav>
+        <div class="bottom-menu">
+            <a href="../config/config.html"><i class="fa-solid fa-gear"></i><span>Configurações</span></a>
+            <a href="#"><i class="fa-solid fa-right-from-bracket"></i><span>Sair</span></a>
+        </div>
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <div class="content">
+        <header>
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Buscar no Nexus...">
+            </div>
+            <div class="header-right">
+                <div class="notificacao"><i class="fa-solid fa-bell"></i></div>
+                <div class="user"><span>Olá, Arthur!</span></div>
+            </div>
+        </header>
+
+        <main class="main-content">
+
+            <div class="page-header">
+                <h1>Projetos</h1>
+                <button class="btn-novo">
+                    <i class="fa-solid fa-plus"></i> Novo projeto
+                </button>
+            </div>
+
+            <!-- ABAS -->
+            <div class="abas">
+                <button class="aba active" onclick="trocarAba(this, 'meus')">Meus projetos</button>
+                <button class="aba" onclick="trocarAba(this, 'explorar')">Explorar</button>
+            </div>
+
+            <!-- LISTA -->
+            <div class="projetos-lista" id="lista-projetos">
+
+                <!-- Projeto 1 -->
+                 
+                <div class="projeto-card">
+                    <div class="projeto-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                    <div class="projeto-info">
+                        <h3>Plataforma de ONGs</h3>
+                        <p>Conectar ONGs e voluntários de forma simples e eficiente.</p>
+                        <div class="projeto-tags">
+                            <span class="tag">Web</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Figma</span>
+                        </div>
+                    </div>
+                    <div class="projeto-membros">
+                        <div class="membros-avatares">
+                            <div class="membro-avatar">MC</div>
+                            <div class="membro-avatar">JL</div>
+                            <div class="membro-avatar">RC</div>
+                            <div class="membros-mais">+2</div>
+                        </div>
+                    </div>
+                    <div class="projeto-status">
+                        <span class="status-badge status-ativo">● Ativo</span>
+                        <span class="projeto-data">Atualizado há 2 dias</span>
+                    </div>
+                </div>
+
+                <!-- Projeto 2 -->
+
+                <div class="projeto-card">
+                    <div class="projeto-icon"><i class="fa-solid fa-store"></i></div>
+                    <div class="projeto-info">
+
+                        <h3>NovaFlow</h3>
+
+                        <p>Loja virtual com foco em experiência do usuário.</p>
+
+                        <div class="projeto-tags">
+                            <span class="tag">E-commerce</span>
+                            <span class="tag">React</span>
+                            <span class="tag">UX</span>
+                        </div>
+                    </div>
+
+                    <div class="projeto-membros">
+                        <div class="membros-avatares">
+                            <div class="membro-avatar">AS</div>
+                            <div class="membro-avatar">PF</div>
+                        </div>
+                    </div>
+
+                    <div class="projeto-status">
+                        <span class="status-badge status-pausado">● Pausado</span>
+                        <span class="projeto-data">Atualizado há 1 semana</span>
+                    </div>
+                </div>
+
+                <!-- Projeto 3 -->
+                <div class="projeto-card">
+                    <div class="projeto-icon"><i class="fa-solid fa-leaf"></i></div>
+                    <div class="projeto-info">
+                        <h3>E-commerce sustentável</h3>
+                        <p>Marketplace focado em produtos ecológicos e sustentáveis.</p>
+                        <div class="projeto-tags">
+                            <span class="tag">Mobile</span>
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Firebase</span>
+                        </div>
+                    </div>
+                    <div class="projeto-membros">
+                        <div class="membros-avatares">
+                            <div class="membro-avatar">BN</div>
+                            <div class="membro-avatar">GO</div>
+                            <div class="membro-avatar">LM</div>
+                        </div>
+                    </div>
+                    <div class="projeto-status">
+                        <span class="status-badge status-ativo">● Ativo</span>
+                        <span class="projeto-data">Atualizado hoje</span>
+                    </div>
+                </div>
+
+                <!-- Projeto 4 -->
+                <div class="projeto-card">
+                    <div class="projeto-icon"><i class="fa-solid fa-people-group"></i></div>
+                    <div class="projeto-info">
+                        <h3>Comunitech</h3>
+                        <p>Plataforma de comunidades tecnológicas para estudantes.</p>
+                        <div class="projeto-tags">
+                            <span class="tag">Web</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                        </div>
+                    </div>
+                    <div class="projeto-membros">
+                        <div class="membros-avatares">
+                            <div class="membro-avatar">RC</div>
+                            <div class="membro-avatar">JL</div>
+                            <div class="membros-mais">+3</div>
+                        </div>
+                    </div>
+                    <div class="projeto-status">
+                        <span class="status-badge status-concluido">● Concluído</span>
+                        <span class="projeto-data">Finalizado há 1 mês</span>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</div>
+
+    <script src="../projetos/projetos.js"></script>
+</body>
+</html>

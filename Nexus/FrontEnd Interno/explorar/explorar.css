@@ -1,0 +1,470 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background-color:#050816;
+    font-family:"Be Vietnam Pro",sans-serif;
+    overflow:hidden;
+}
+
+.layout{
+    display:flex;
+    min-height:100vh;
+}
+
+/* ── SIDEBAR (idêntica ao home) ── */
+.sidebar{
+    width:260px;
+    height:100vh;
+    background-color:#0b1020;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    border-right:1px solid rgba(255,255,255,0.1);
+    position:fixed;
+    top:0;
+    left:0;
+}
+
+.perfil-sidebar{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:500;
+    margin-bottom:35px;
+}
+
+.perfil-sidebar img{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.perfil-sidebar h5{
+    font-size:17px;
+    color:white;
+}
+
+.perfil-sidebar p{
+    color:#9ca3af;
+    font-size:15px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo h2{
+    color:white;
+    font-size:28px;
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:1px;
+}
+
+.sidebar a{
+    color:#bcbcbc;
+    font-weight:540;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px;
+    border-radius:12px;
+    transition:0.3s;
+}
+
+.sidebar a:hover{
+    background-color:#050816;
+    color:white;
+}
+
+.sidebar .active{
+    background-color:#410874;
+    color:white;
+}
+
+.sidebar i{
+    font-size:18px;
+}
+
+.bottom-menu{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:auto;
+}
+
+.bottom-menu a:hover{
+    background-color:#050816;
+    color:white;
+}
+
+/* ── CONTENT ── */
+.content{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    margin-left:260px;
+    height:100vh;
+    overflow-y:auto;
+    padding-top:20px;
+}
+
+/* HEADER */
+header{
+    width:100%;
+    height:100px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 50px;
+}
+
+.search-box{
+    width:439px;
+    height:59px;
+    display:flex;
+    align-items:center;
+    gap:17px;
+    padding:0 15px;
+    background-color:#05070F;
+    border-radius:12px;
+}
+
+.search-box i{
+    color:#737373;
+    font-size:23px;
+    padding:0 5px;
+}
+
+.search-box input{
+    width:100%;
+    height:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+    color:white;
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:45px;
+}
+
+.notificacao{
+    font-size:25px;
+    color:#737373;
+}
+
+.user{
+    color:#737373;
+    font-size:17px;
+    font-weight:540;
+}
+
+/* ── MAIN ── */
+.main-content{
+    flex:1;
+    padding:20px 50px 40px;
+}
+
+/* PAGE TITLE */
+.page-title{
+    margin-bottom:28px;
+}
+
+.page-title h1{
+    color:white;
+    font-size:32px;
+    font-weight:700;
+}
+
+.page-title p{
+    color:#9a9a9a;
+    font-size:15px;
+    margin-top:4px;
+}
+
+/* FILTROS */
+.filtros{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-bottom:28px;
+    align-items:center;
+}
+
+.filtro-group{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.filtro-group label{
+    color:#9a9a9a;
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+}
+
+.filtro-select{
+    background:#0b1020;
+    border:1px solid rgba(255,255,255,0.1);
+    color:white;
+    padding:10px 36px 10px 14px;
+    border-radius:10px;
+    font-family:"Be Vietnam Pro",sans-serif;
+    font-size:14px;
+    cursor:pointer;
+    outline:none;
+    appearance:none;
+    -webkit-appearance:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238b2cff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 12px center;
+    transition:.2s;
+    min-width:130px;
+}
+
+.filtro-select:hover{border-color:#8b2cff;}
+.filtro-select option{background:#0b1020;}
+
+/* BUSCA POR HABILIDADES */
+.busca-habilidade{
+    display:flex;
+    align-items:flex-end;
+    gap:12px;
+    margin-left:auto;
+}
+
+.skill-search{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#0b1020;
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:10px;
+    padding:0 14px;
+    height:42px;
+    transition:.2s;
+}
+
+.skill-search:focus-within{border-color:#8b2cff;}
+.skill-search i{color:#8b2cff;font-size:16px;}
+
+.skill-search input{
+    background:transparent;
+    border:none;
+    outline:none;
+    color:white;
+    font-family:"Be Vietnam Pro",sans-serif;
+    font-size:14px;
+    width:180px;
+}
+
+.btn-limpar{
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.15);
+    color:#9a9a9a;
+    padding:10px 16px;
+    border-radius:10px;
+    font-family:"Be Vietnam Pro",sans-serif;
+    font-size:13px;
+    cursor:pointer;
+    transition:.2s;
+    height:42px;
+}
+
+.btn-limpar:hover{border-color:#8b2cff;color:#8b2cff;}
+
+/* GRID DE TALENTOS */
+
+.talentos-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:20px;
+}
+
+/* CARD DE TALENTO */
+
+.talento-card{
+    background:#0b1020;
+    border:1px solid rgba(255,255,255,0.05);
+    border-radius:18px;
+    padding:24px 20px 20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    transition:.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+.talento-card::before{
+    content:"";
+    position:absolute;
+    top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,#8b2cff,#410874);
+    opacity:0;
+    transition:.3s;
+}
+
+.talento-card:hover{
+    transform:translateY(-6px);
+    border-color:#8b2cff;
+}
+
+.talento-card:hover::before{opacity:1;}
+
+.talento-avatar{
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:14px;
+    border:2px solid rgba(139,44,255,.3);
+}
+
+.avatar-placeholder{
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#410874,#1a0a40);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    font-weight:700;
+    color:#8b2cff;
+    margin-bottom:14px;
+    border:2px solid rgba(139,44,255,.3);
+    flex-shrink:0;
+}
+
+.talento-nome{color:white;
+    font-size:15px;
+    font-weight:600;
+    text-align:center
+    ;margin-bottom:4px;
+}
+
+.talento-cargo{
+    color:#9a9a9a;
+    font-size:13px;
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.talento-local{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    color:#737373;
+    font-size:12px;
+    margin-bottom:14px;
+}
+
+.talento-local i{
+    color:#8b2cff;
+    font-size:12px;
+}
+
+/* TAGS DE HABILIDADES */
+
+.talento-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    justify-content:center;
+    margin-bottom:16px;
+}
+
+.tag{
+    background:rgba(139,44,255,.15);
+    color:#a855f7;
+    font-size:11px;
+    font-weight:500;
+    padding:4px 10px;
+    border-radius:20px;
+    border:1px solid rgba(139,44,255,.2);
+}
+
+/* DISPONIBILIDADE */
+
+.disponivel{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:12px;
+    color:#22c55e;
+    margin-bottom:18px;
+}
+
+.disponivel-dot{width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#22c55e;}
+
+.ocupado{color:#f59e0b;}
+
+.ocupado-dot{background:#f59e0b;}
+
+/* BOTÕES DO CARD */
+.card-btns{
+    display:flex;
+    gap:8px;
+    width:100%;}
+
+.btn-perfil{
+    flex:1;
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.15);
+    color:white;
+    padding:9px;
+    border-radius:10px;
+    font-family:"Be Vietnam Pro",sans-serif;font-size:13px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.btn-perfil:hover{border-color:white;}
+
+.btn-conectar{
+    flex:1;background:#8b2cff;
+    border:none;
+    color:white;
+    padding:9px;
+    border-radius:10px;
+    font-family:"Be Vietnam Pro",sans-serif;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.btn-conectar:hover{background:#6c1ee6;}
+
+/* RESULTADO COUNT */
+.resultado-info{
+    color:#737373;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.resultado-info span{
+    color:#8b2cff;
+    font-weight:600;
+}
