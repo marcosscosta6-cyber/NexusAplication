@@ -206,6 +206,7 @@ header{
     color:#737373;
     font-size:17px;
     font-weight: 540;
+    text-decoration: none;
 }
 
 /* MAIN */
@@ -316,6 +317,7 @@ header{
     padding:25px;
 
     border:1px solid rgba(255,255,255,0.05);
+    text-decoration: none;
 
     transition:0.3s;
 }
