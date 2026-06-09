@@ -88,28 +88,32 @@
             <div class="filtros">
                 <div class="filtro-group">
                     <label>Área</label>
-                    <select class="filtro-select">
-                        <option>Todas</option>
-                        <option>Tecnologia</option>
-                        <option>Mecânica</option>
-                        <option>Design</option>
-                        <option>Elétrica</option>
-                        <option>Administração</option>
+                    <select class="filtro-select" id="area">
+                        <option value="">Todas</option>
+                        <option value="aeronautica">Aeronáutica</option>
+                        <option value="gestao">Gestão</option>
+                        <option value="marketing">Marketing e Multimídia</option>
+                        <option value="cultural">Produção Cultural</option>
+                        <option value="eletro">Elétrica/Eletrotécnica</option>
+                        <option value="automacao">Automação</option>
+                        <option value="tecnologia">Tecnologia</option>
+                        <option value="mecanica">Mecânica e Mecatrônica</option>
+                        <option value="construcao">Construção e Infraestrutura</option>
+                        <option value="quimica">Química e Processos</option>
+                        <option value="refrigeracao">Refrigeração e Climatização</option>
+                        <option value="logistica">Logística e Gestão</option>
+                        <option value="seguranca">Segurança do Trabalho</option>
                     </select>
                 </div>
                 <div class="filtro-group">
                     <label>Função</label>
-                    <select class="filtro-select">
+                    <select class="filtro-select" id="funcao">
                         <option>Todas</option>
-                        <option>Desenvolvedor</option>
-                        <option>Designer</option>
-                        <option>Engenheiro</option>
-                        <option>Analista</option>
                     </select>
                 </div>
                 <div class="filtro-group">
                     <label>Nível</label>
-                    <select class="filtro-select">
+                    <select class="filtro-select" id="nivel">
                         <option>Todos</option>
                         <option>Iniciante</option>
                         <option>Intermediário</option>
@@ -118,7 +122,7 @@
                 </div>
                 <div class="filtro-group">
                     <label>Disponibilidade</label>
-                    <select class="filtro-select">
+                    <select class="filtro-select" id="disponibilidade">
                         <option>Todas</option>
                         <option>Disponível</option>
                         <option>Ocupado</option>
@@ -291,6 +295,7 @@
   </div> 
 
   <script src="../sair.js"></script>
+  <script src="explorar.js"></script>
 
 </body>
 </html>
