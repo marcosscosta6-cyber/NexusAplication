@@ -148,16 +148,23 @@ header{
     background:transparent;
     color:white;
 }
+
 .header-right{
     display:flex;
     align-items:center;
     gap:45px;
 }
-.notificacao{font-size:25px;color:#737373;}
+
+.notificacao{
+    font-size:25px;
+    color:#737373;
+}
+
 .user{
     color:#737373;
     font-size:17px;
     font-weight:540;
+    text-decoration:none;
 }
 
 /* ── MAIN ── */
