@@ -63,6 +63,9 @@ body{
 .logo h2{
     color:white;
     font-size:28px;
+    font-weight: 600;
+    margin:0;
+    line-height: 1;
 }
 
 .menu{
@@ -505,6 +508,9 @@ header{
     color: rgba(233, 70, 70, 0.747);
     text-align: left;
     gap: 10px;
+    line-height: 1;
+    font-weight: 540;
+    margin:0;
 }
 
 .mesmosair {
