@@ -31,10 +31,11 @@ body{
 
 .perfil-sidebar{
     display:flex;
-    align-items:center;
+    align-items:flex-start;
     gap:12px;
     font-weight:500;
-    margin-bottom:35px;
+    margin-bottom: 18px;
+    margin-top: 35px;
 }
 
 .perfil-sidebar img{
@@ -47,6 +48,9 @@ body{
 .perfil-sidebar h5{
     font-size:17px;
     color:white;
+    font-weight: 500;
+    margin-bottom:6px;
+    line-height: 1;
 }
 
 .perfil-sidebar p{
@@ -58,15 +62,17 @@ body{
     display:flex;
     align-items:center;
     gap:12px;
+    margin-bottom:15px;
 }
 
 .logo h2{
     color:white;
-    font-size:28px;
+    font-size:25px;
     font-weight: 600;
     margin:0;
     line-height: 1;
 }
+
 .menu{
     display:flex;
     flex-direction:column;
