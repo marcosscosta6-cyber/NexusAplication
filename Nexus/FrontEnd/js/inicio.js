@@ -27,7 +27,9 @@ function Cadastro() {
       window.location.href = "../cadastro/Cadastro.html";
     }
 
-    // Botão para levar para o DashBoard
-    function DashBoard() {
-      window.location.href = "../home/home.html";
-    }
+
+document.getElementById("btnEntrar").addEventListener("click", function(event) {
+    event.preventDefault();
+
+    window.location.href = "../../FrontEnd Interno/home/home.html";
+});
