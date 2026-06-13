@@ -13,5 +13,5 @@ function nao() {
 }
 
 function sim() {
-    window.location.href = "../.././FrontEnd/inicio/inicio.html"
+    window.location.href = "../.././FrontEnd/inicio/index.html"
 }
