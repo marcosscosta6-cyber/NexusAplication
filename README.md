@@ -75,5 +75,3 @@ NexusApplication-main/
   * Ana Clara Teixeira
   * Marcos Saulo Simões
   * Pedro Vinícius Marques
-
--
