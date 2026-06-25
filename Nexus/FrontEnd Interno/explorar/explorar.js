@@ -87,3 +87,11 @@ area.addEventListener("change", function () {
     });
 
 });
+
+const btnPerfil = document.querySelectorAll(".btn-perfil");
+
+btnPerfil.forEach(btnPerfil => {
+    btnPerfil.addEventListener("click", function (){
+        window.location.href = "../perfil/perfilUser.html";
+    })
+})

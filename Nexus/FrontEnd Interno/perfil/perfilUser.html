@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="perfilUser.css">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Nexus — Perfil</title>
+</head>
+<body>
+
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="../Img/NexusS.png" alt="" width="45px" height="45px">
+                <h2>Nexus</h2>
+            </div>
+
+            <div class="perfil-sidebar">
+                <img src="../Img/download 3.svg">
+                <div class="text-white">
+                    <h5>Mariana Costa</h5>
+                    <p>Técnica em Mecânica</p>
+                </div>
+            </div>
+            <nav class="menu">
+                <a href="../home/home.html"><i class="fa-solid fa-house"></i><span>Início</span></a>
+                <a href="../explorar/explorar.html"><i class="fa-solid fa-magnifying-glass"></i><span>Explorar</span></a>
+                <a href="../conexões/conec.html"><i class="fa-solid fa-users"></i><span>Conexões</span></a>
+                <a href="../mensagens/mensagens.html"><i class="fa-solid fa-message"></i><span>Mensagens</span></a>
+                <a href="../projetos/projetos.html"><i class="fa-solid fa-folder"></i><span>Projetos</span></a>
+                <a href="../notificações/not.html"><i class="fa-solid fa-bell"></i><span>Notificações</span></a>
+                <a href="../perfil/perfil.html"><i class="fa-solid fa-user"></i><span>Perfil</span></a>
+            </nav>
+            <div class="bottom-menu">
+                <a href="../config/config.html"><i class="fa-solid fa-gear"></i><span>Configurações</span></a>
+                <button id="Sair" class="btn botaosair">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Sair</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO -->
+        <div class="content">
+            <header>
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Buscar no Nexus...">
+                </div>
+                <div class="header-right">
+                    <a class="notificacao" href="../notificações/not.html">
+                        <i class="fa-solid fa-bell"></i>
+                    </a>
+                    <a class="user" href="../perfil/perfil.html">
+                        <span>Olá, Mariana!</span>
+                    </a>
+                </div>
+            </header>
+
+            <main class="main-content">
+
+                <!-- BANNER -->
+                <div class="banner"></div>
+
+                <!-- CARD PRINCIPAL -->
+                <div class="perfil-card">
+                    <div class="perfil-avatar-wrap">
+                        <div class="perfil-avatar">MC</div>
+                        <div class="perfil-acoes">
+                            <button class="btn-compartilhar"><i class="fa-solid fa-share-nodes"></i> Compartilhar</button>
+                        </div>
+                    </div>
+
+                    <h2 class="perfil-nome">Mariana Costa</h2>
+                    <p class="perfil-cargo">Técnica em Mecânica · SENAI</p>
+                    <div class="perfil-local">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Salvador, BA</span>
+                    </div>
+                    <p class="perfil-bio">
+                        Estudante de Técnico em Mecânica apaixonada por projetos de automação e manufatura. Buscando colaborar em projetos inovadores e conectar com profissionais de diversas áreas para criar soluções reais.
+                    </p>
+
+                    <div class="perfil-stats">
+                        <div class="stat"><h3>12</h3><p>Conexões</p></div>
+                        <div class="stat"><h3>4</h3><p>Projetos</p></div>
+                        <div class="stat"><h3>38</h3><p>Visualizações</p></div>
+                        <div class="stat"><h3>7</h3><p>Habilidades</p></div>
+                    </div>
+                </div>
+
+                <!-- COLUNAS -->
+                <div class="perfil-cols">
+
+                    <!-- COLUNA ESQUERDA -->
+                    <div>
+                        <!-- HABILIDADES -->
+                        <div class="secao">
+                            <div class="secao-titulo"><i class="fa-solid fa-star"></i> Habilidades</div>
+                            <div class="habilidades-wrap">
+                                <span class="habilidade-tag">SolidWorks</span>
+                                <span class="habilidade-tag">AutoCAD</span>
+                                <span class="habilidade-tag">CNC</span>
+                                <span class="habilidade-tag">Manufatura</span>
+                                <span class="habilidade-tag">Lean Manufacturing</span>
+                                <span class="habilidade-tag">Arduino</span>
+                                <span class="habilidade-tag">Python</span>
+                            </div>
+                        </div>
+
+                        <!-- EXPERIÊNCIA -->
+                        <div class="secao">
+                            <div class="secao-titulo"><i class="fa-solid fa-briefcase"></i> Experiência</div>
+                            <div class="exp-item">
+                                <div class="exp-dot"></div>
+                                <div class="exp-info">
+                                    <h4>Estagiária em Automação</h4>
+                                    <p>Indústria Mecânica BR</p>
+                                    <span>Jan 2024 – atual</span>
+                                </div>
+                            </div>
+                            <div class="exp-item">
+                                <div class="exp-dot"></div>
+                                <div class="exp-info">
+                                    <h4>Monitora de Laboratório</h4>
+                                    <p>SENAI Salvador</p>
+                                    <span>Mar 2023 – Dez 2023</span>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <!-- COLUNA DIREITA -->
+                    <div>
+                        <!-- PROJETOS -->
+                        <div class="secao">
+                            <div class="secao-titulo"><i class="fa-solid fa-folder"></i> Projetos</div>
+                            <div class="projeto-item">
+                                <div class="projeto-icone"><i class="fa-solid fa-earth-americas"></i></div>
+                                <div class="projeto-item-info">
+                                    <h4>Plataforma de ONGs</h4>
+                                    <p>Web · Node.js · Figma</p>
+                                </div>
+                                <span class="projeto-status-badge ativo">● Ativo</span>
+                            </div>
+                            <div class="projeto-item">
+                                <div class="projeto-icone"><i class="fa-solid fa-store"></i></div>
+                                <div class="projeto-item-info">
+                                    <h4>NovaFlow</h4>
+                                    <p>E-commerce · React</p>
+                                </div>
+                                <span class="projeto-status-badge pausado">● Pausado</span>
+                            </div>
+                            <div class="projeto-item">
+                                <div class="projeto-icone"><i class="fa-solid fa-leaf"></i></div>
+                                <div class="projeto-item-info">
+                                    <h4>E-commerce sustentável</h4>
+                                    <p>Mobile · Flutter</p>
+                                </div>
+                                <span class="projeto-status-badge ativo">● Ativo</span>
+                            </div>
+                        </div>
+
+                        <!-- CONEXÕES -->
+                        <div class="secao">
+                            <div class="secao-titulo"><i class="fa-solid fa-users"></i> Conexões recentes</div>
+                            <div class="conexoes-recentes">
+                                <div class="conexao-mini">
+                                    <div class="conexao-mini-avatar">JL</div>
+                                    <div class="conexao-mini-info">
+                                        <h4>Juliana Lima</h4>
+                                        <p>Desenvolvedora Front-End</p>
+                                    </div>
+                                    <button class="btn-msg-mini">Mensagem</button>
+                                </div>
+                                <div class="conexao-mini">
+                                    <div class="conexao-mini-avatar">RC</div>
+                                    <div class="conexao-mini-info">
+                                        <h4>Rafael Cruz</h4>
+                                        <p>Dev Full Stack</p>
+                                    </div>
+                                    <button class="btn-msg-mini">Mensagem</button>
+                                </div>
+                                <div class="conexao-mini">
+                                    <div class="conexao-mini-avatar">AS</div>
+                                    <div class="conexao-mini-info">
+                                        <h4>Ana Souza</h4>
+                                        <p>Designer UX/UI</p>
+                                    </div>
+                                    <button class="btn-msg-mini">Mensagem</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+
+        <div class="mesmosair">
+            <p>Certeza que você quer <span>sair?</span> </p>
+
+            <div class="sae">
+            <Button class="btn btn-sim" onclick=sim()>Sim</Button> 
+            <button class="btn btn-sair" onclick=nao()>Não</button>
+            </div>
+        </div>
+    </div> 
+        
+        <script src="perfil.js"></script>
+        <script src="../sair.js"></script>
+
+</body>
+</html>
