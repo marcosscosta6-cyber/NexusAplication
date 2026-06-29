@@ -93,5 +93,13 @@ const btnPerfil = document.querySelectorAll(".btn-perfil");
 btnPerfil.forEach(btnPerfil => {
     btnPerfil.addEventListener("click", function (){
         window.location.href = "../perfil/perfilUser.html";
-    })
-})
+    });
+});
+
+const btnConectar = document.querySelectorAll(".btn-conectar");
+
+btnConectar.forEach(btnConectar=> {
+    btnConectar.addEventListener("click", function (){
+        window.location.href = "../conexões/conec.html";
+    });
+});
