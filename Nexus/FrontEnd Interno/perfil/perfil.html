@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="perfil.css">
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
+
     <title>Nexus — Perfil</title>
 </head>
 <body>
@@ -75,7 +78,7 @@
                         <div class="perfil-avatar">MC</div>
                         <div class="perfil-acoes">
                             <button class="btn-compartilhar"><i class="fa-solid fa-share-nodes"></i> Compartilhar</button>
-                            <button class="btn-editar"><i class="fa-solid fa-pen"></i> Editar perfil</button>
+                            <button type="button" id="btnEditar" class="btn-editar"><i class="fa-solid fa-pen"></i> Editar perfil</button>
                         </div>
                     </div>
 
@@ -203,6 +206,146 @@
 
                 </div>
             </main>
+        </div>
+    </div>
+
+    <div class="overlayEditar" id="overlayEditar">
+        <div class="modalEditar">
+
+            <div class="modalHeader">
+                <h2>Editar Perfil</h2>
+
+                <button type="button" id="btnFechar">
+                    <i class="btn-close"></i>
+                </button>
+            </div>
+
+            <div class="modalBody">
+
+                <div class="ladoEsquerdo">
+                    <div class="fotoPerfil">
+                        <h4>Foto de perfil</h4>
+
+                        <label for="inputFotoPerfil" class="btnAlterar">
+                            <img src="../Img/icons8-usuário-30.png" id="previewFoto" alt="">
+                        </label>
+
+                        <input type="file" id="inputFotoPerfil" accept="image/*" hidden>
+
+                    </div>
+
+                    <!--TERMINAR!!(opcao de cores para a capa e o perfil)-->
+                    <div class="corPerfil">
+                        <h4>Cor do perfil</h4>
+
+
+                    </div>
+                </div>
+
+                <div class="ladoDireito">
+                    <form>
+                        <label for="nome">
+                            Nome Completo
+                        </label>
+                        <input type="text" name="nome" id="nomeComp">
+
+                        <label for="curso">
+                            Curso Técnico
+                        </label>
+                        <select class="cursoTec" name="curso" id="curso">
+                            <option value="" disabled selected>Selecione um curso</option>
+                            <option value="administracao">Técnico em Administração</option>
+                            <option value="automacao_industrial">Técnico em Automação Industrial</option>
+                            <option value="desenvolvimento_de_sistemas">Técnico em Desenvolvimento de Sistemas</option>
+                            <option value="edificacoes">Técnico em Edificações</option>
+                            <option value="eletromecanica">Técnico em Eletromecânica</option>
+                            <option value="eletrotecnica">Técnico em Eletrotécnica</option>
+                            <option value="logistica">Técnico em Logística</option>
+                            <option value="manutencao_aeronautica_em_celula">Técnico em Manutenção Aeronáutica em Célula</option>
+                            <option value="manutencao_automotiva">Técnico em Manutenção Automotiva</option>
+                            <option value="manutencao_de_maquinas_industriais">Técnico em Manutenção de Máquinas Industriais</option>
+                            <option value="mecanica">Técnico em Mecânica</option>
+                            <option value="mecatronica">Técnico em Mecatrônica</option>
+                            <option value="marketing">Técnico em Marketing</option>
+                            <option value="multimidia">Técnico em Multimídia</option>
+                            <option value="petroquimica">Técnico em Petroquímica</option>
+                            <option value="planejamento_e_controle_da_producao">Técnico em Planejamento e Controle da Produção</option>
+                            <option value="producao_cultural">Técnico em Produção Cultural</option>
+                            <option value="qualidade">Técnico em Qualidade</option>
+                            <option value="quimica">Técnico em Química</option>
+                            <option value="rede_de_computadores">Técnico em Rede de Computadores</option>
+                            <option value="refrigeracao_e_climatizacao">Técnico em Refrigeração e Climatização</option>
+                            <option value="seguranca_do_trabalho">Técnico em Segurança do Trabalho</option>
+                            <option value="sistemas_de_energia_renovavel">Técnico em Sistemas de Energia Renovável</option>
+                        </select>   
+
+                        <label for="localizacao">
+                            Localização
+                        </label>
+                        <select class="localizacao" name="localizacao" id="localizacao">
+                            <option value="" disabled selected>Selecione um estado</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+
+                        <label for="bio">
+                            Bio
+                        </label>
+                        <textarea id="bio" name="bio" placeholder="Fale um pouco sobre você..."></textarea>
+
+                        <div class="containerHabilidades">
+
+                            <label for="habilidades">Habilidades</label>
+
+                            <div class="inputSkill">
+
+                                <input
+                                    type="text"
+                                    id="txtSkill"
+                                    name="habilidades"
+                                    placeholder="Digite uma habilidade">
+
+                                <button id="btnHabilidade">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+
+                            </div>
+
+                            <div id="skills"></div>
+                        </div>
+
+                        <div class="acoesEditar">
+                            <button type="button" class="btnCancelar">Cancelar</button>
+                            <button type="submit" class="btnSalvar">Salvar alterações</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 

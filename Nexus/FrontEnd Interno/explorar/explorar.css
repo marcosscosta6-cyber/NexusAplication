@@ -322,17 +322,8 @@ header{
     overflow:hidden;
 }
 
-.talento-card::before{
-    content:"";
-    position:absolute;
-    top:0;left:0;right:0;height:3px;
-    background:linear-gradient(90deg,#8b2cff,#410874);
-    opacity:0;
-    transition:.3s;
-}
 
 .talento-card:hover{
-    transform:translateY(-6px);
     border-color:#8b2cff;
 }
 
