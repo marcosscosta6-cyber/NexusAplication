@@ -1,16 +1,26 @@
 const overlayEditar = document.getElementById("overlayEditar");
 const editar = document.getElementById("btnEditar");
 const fechar = document.getElementById("btnFechar");
+const cancelar = document.getElementById("btnCancelar");
+const salvar = document.getElementById("btnSalvar");
 
 editar.addEventListener("click", () => {
     overlayEditar.style.display = "flex";
     overlayEditar.classList.add("active");
-
+    document.body.style.overflow = "hidden";
 });
 
-fechar.addEventListener("click", () => {
+function fecharEditar(){
+    overlayEditar.style.display = "none";
     overlayEditar.classList.remove("active");
-});
+    document.body.style.overflow = "auto";
+}
+
+cancelar.addEventListener("click", fecharEditar);
+fechar.addEventListener("click", fecharEditar);
+
+
+
 
 // ===============================
 // FOTO DE PERFIL
