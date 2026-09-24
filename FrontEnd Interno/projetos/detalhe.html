@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="detalhe.css" />
+    <title>Plataforma de ONGs — Nexus</title>
+  </head>
+
+<body>
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="../Img/nexusUPDATE.png" alt="">
+        </div>
+        
+        <div class="perfil-sidebar">
+            <img src="../Img/download 3.svg">
+            <div class="text-white">
+                <h5>Mariana Costa</h5>
+                <p>Técnica em Mecânica</p>
+            </div>
+        </div>
+        <nav class="menu">
+            <a href="../home/home.html"><i class="fa-solid fa-house"></i><span>Início</span></a>
+            <a href="../explorar/explorar.html"><i class="fa-solid fa-magnifying-glass"></i><span>Explorar</span></a>
+            <a href="../conexões/conec.html"><i class="fa-solid fa-users"></i><span>Conexões</span></a>
+            <a href="../mensagens/mensagens.html"><i class="fa-solid fa-message"></i><span>Mensagens</span></a>
+            <a href="../projetos/projetos.html" class="active"><i class="fa-solid fa-folder"></i><span>Projetos</span></a>
+            <a href="../notificações/not.html"><i class="fa-solid fa-bell"></i><span>Notificações</span></a>
+            <a href="../perfil/perfil.html"><i class="fa-solid fa-user"></i><span>Perfil</span></a>
+        </nav>
+        <div class="bottom-menu">
+            <a href="../config/config.html"><i class="fa-solid fa-gear"></i><span>Configurações</span></a>
+            <button id="Sair" class="btn botaosair">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Sair</span>
+                </button>
+        </div>
+    </aside>
+
+      <div class="content">
+        <header>
+          <a class="back-link" href="projetos.html"
+            ><i class="fa-solid fa-arrow-left"></i> Voltar aos projetos</a
+          >
+          <div class="header-right">
+            <a href="../notificações/not.html" aria-label="Notificações"
+              ><i class="fa-regular fa-bell"></i></a
+            ><a href="../perfil/perfil.html">Olá, Mariana!</a>
+          </div>
+        </header>
+        <main class="main-content">
+          <div class="project-heading">
+            <div class="project-mark">
+              <i class="fa-solid fa-earth-americas"></i>
+            </div>
+            <div class="heading-copy">
+              <div class="eyebrow">
+                <span class="status-dot"></span>Projeto ativo
+                <span class="separator">·</span> Criado em 12 mar 2025
+              </div>
+              <h1>Plataforma de ONGs</h1>
+              <p>
+                Conectando organizações sociais a pessoas que querem fazer a
+                diferença.
+              </p>
+            </div>
+            <button class="button secondary" id="editProject">
+              <i class="fa-solid fa-pen"></i> Editar projeto
+            </button>
+          </div>
+          <div class="project-grid">
+            <div class="primary-column">
+              <section class="panel description-panel">
+                <div class="panel-title">
+                  <div>
+                    <span class="section-kicker">VISÃO GERAL</span>
+                    <h2>Sobre o projeto</h2>
+                  </div>
+                  <button
+                    class="icon-button"
+                    id="editDescription"
+                    aria-label="Editar descrição"
+                  >
+                    <i class="fa-solid fa-pen"></i>
+                  </button>
+                </div>
+                <div id="descriptionView">
+                  <p class="lead">
+                    Uma plataforma digital para aproximar ONGs de voluntários,
+                    doadores e parceiros, tornando mais fácil encontrar
+                    oportunidades de impacto social.
+                  </p>
+                  <p>
+                    O projeto reúne organizações verificadas em um só lugar.
+                    Cada ONG pode apresentar suas causas, publicar ações e
+                    compartilhar necessidades. Do outro lado, voluntários
+                    encontram iniciativas alinhadas aos seus interesses e
+                    acompanham o impacto de sua participação.
+                  </p>
+                  <p>
+                    Estamos construindo uma experiência acessível e acolhedora,
+                    com foco em facilitar o primeiro passo de quem quer
+                    contribuir com a comunidade.
+                  </p>
+                </div>
+                <div class="project-facts">
+                  <div>
+                    <i class="fa-solid fa-bullseye"></i
+                    ><span
+                      ><b>Objetivo</b>Ampliar o alcance de iniciativas sociais
+                      locais.</span
+                    >
+                  </div>
+                  <div>
+                    <i class="fa-regular fa-calendar"></i
+                    ><span><b>Prazo estimado</b>Dezembro de 2025</span>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-globe"></i
+                    ><span><b>Formato</b>Remoto · Brasil</span>
+                  </div>
+                </div>
+              </section>
+              <section class="panel">
+                <div class="panel-title">
+                  <div>
+                    <span class="section-kicker">TECNOLOGIAS E ÁREAS</span>
+                    <h2>Tags do projeto</h2>
+                  </div>
+                  <span class="muted small"
+                    >Visíveis para quem explorar o projeto</span
+                  >
+                </div>
+                <div class="tags-list" id="tagsList">
+                  <span class="tag"
+                    >Web
+                    <button aria-label="Remover Web" data-remove="Web">
+                      ×
+                    </button></span
+                  ><span class="tag"
+                    >Node.js
+                    <button aria-label="Remover Node.js" data-remove="Node.js">
+                      ×
+                    </button></span
+                  ><span class="tag"
+                    >Figma
+                    <button aria-label="Remover Figma" data-remove="Figma">
+                      ×
+                    </button></span
+                  ><span class="tag"
+                    >Impacto social
+                    <button
+                      aria-label="Remover Impacto social"
+                      data-remove="Impacto social"
+                    >
+                      ×
+                    </button></span
+                  >
+                </div>
+                <form class="add-tag" id="tagForm">
+                  <label class="sr-only" for="tagInput">Adicionar tag</label
+                  ><i class="fa-solid fa-tag"></i
+                  ><input
+                    id="tagInput"
+                    maxlength="24"
+                    placeholder="Adicionar uma tag"
+                  /><button type="submit">
+                    <i class="fa-solid fa-plus"></i> Adicionar
+                  </button>
+                </form>
+                <p class="helper-text">
+                  Use tags para descrever tecnologias, áreas de atuação ou
+                  competências.
+                </p>
+              </section>
+              <section class="panel">
+                <div class="panel-title">
+                  <div>
+                    <span class="section-kicker">ACOMPANHAMENTO</span>
+                    <h2>Próximos passos</h2>
+                  </div>
+                  <button class="text-button" id="addMilestone">
+                    <i class="fa-solid fa-plus"></i> Nova etapa
+                  </button>
+                </div>
+                <div class="milestone">
+                  <span class="milestone-check done"
+                    ><i class="fa-solid fa-check"></i
+                  ></span>
+                  <div>
+                    <b>Pesquisa com organizações parceiras</b
+                    ><small>Concluída em 18 mar</small>
+                  </div>
+                  <span class="milestone-status done-text">Concluída</span>
+                </div>
+                <div class="milestone">
+                  <span class="milestone-check done"
+                    ><i class="fa-solid fa-check"></i
+                  ></span>
+                  <div>
+                    <b>Protótipo da experiência</b
+                    ><small>Concluído em 02 abr</small>
+                  </div>
+                  <span class="milestone-status done-text">Concluída</span>
+                </div>
+                <div class="milestone">
+                  <span class="milestone-check"></span>
+                  <div>
+                    <b>Desenvolvimento da plataforma</b
+                    ><small>Em andamento · responsável: Rafael</small>
+                  </div>
+                  <span class="milestone-status progress-text"
+                    >Em andamento</span
+                  >
+                </div>
+              </section>
+            </div>
+            <aside class="side-column">
+              <section class="panel team-panel">
+                <div class="panel-title">
+                  <div>
+                    <span class="section-kicker">PESSOAS</span>
+                    <h2>Integrantes <span class="count">5</span></h2>
+                  </div>
+                  <button
+                    class="icon-button"
+                    id="inviteMember"
+                    aria-label="Convidar integrante"
+                  >
+                    <i class="fa-solid fa-user-plus"></i>
+                  </button>
+                </div>
+                <p class="muted team-intro">
+                  Pessoas que constroem este projeto com você.
+                </p>
+                <div class="member">
+                  <div class="avatar violet">MC</div>
+                  <div class="member-info">
+                    <b>Mariana Costa <span class="you-label">Você</span></b
+                    ><small>Proprietária · Produto</small>
+                  </div>
+                  <button class="more-button" aria-label="Opções de Mariana">
+                    <i class="fa-solid fa-ellipsis"></i>
+                  </button>
+                </div>
+                <div class="member">
+                  <div class="avatar blue">JL</div>
+                  <div class="member-info">
+                    <b>Juliana Lima</b><small>Design UX/UI</small>
+                  </div>
+                  <button class="more-button" aria-label="Opções de Juliana">
+                    <i class="fa-solid fa-ellipsis"></i>
+                  </button>
+                </div>
+                <div class="member">
+                  <div class="avatar green">RC</div>
+                  <div class="member-info">
+                    <b>Rafael Cruz</b><small>Desenvolvimento</small>
+                  </div>
+                  <button class="more-button" aria-label="Opções de Rafael">
+                    <i class="fa-solid fa-ellipsis"></i>
+                  </button>
+                </div>
+                <div class="member">
+                  <div class="avatar amber">AS</div>
+                  <div class="member-info">
+                    <b>Ana Souza</b><small>Comunicação</small>
+                  </div>
+                  <button class="more-button" aria-label="Opções de Ana">
+                    <i class="fa-solid fa-ellipsis"></i>
+                  </button>
+                </div>
+                <div class="member">
+                  <div class="avatar pink">PF</div>
+                  <div class="member-info">
+                    <b>Pedro Ferreira</b><small>Desenvolvimento</small>
+                  </div>
+                  <button class="more-button" aria-label="Opções de Pedro">
+                    <i class="fa-solid fa-ellipsis"></i>
+                  </button>
+                </div>
+                <button class="invite-button" id="inviteMemberBottom">
+                  <i class="fa-solid fa-plus"></i> Convidar integrante
+                </button>
+              </section>
+              <section class="panel details-panel">
+                <div class="panel-title">
+                  <div>
+                    <span class="section-kicker">CONFIGURAÇÕES</span>
+                    <h2>Detalhes</h2>
+                  </div>
+                  <button
+                    class="icon-button"
+                    id="editDetails"
+                    aria-label="Editar detalhes"
+                  >
+                    <i class="fa-solid fa-pen"></i>
+                  </button>
+                </div>
+                <div class="detail-row">
+                  <span>Visibilidade</span
+                  ><b><i class="fa-solid fa-earth-americas"></i> Público</b>
+                </div>
+                <div class="detail-row">
+                  <span>Categoria</span><b>Impacto social</b>
+                </div>
+                <div class="detail-row">
+                  <span>Última atualização</span><b>Hoje, 10:42</b>
+                </div>
+                <div class="detail-row">
+                  <span>Link do projeto</span
+                  ><a href="#project-link"
+                    >nexus.app/p/ongs
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i
+                  ></a>
+                </div>
+              </section>
+              <section class="owner-note">
+                <i class="fa-solid fa-shield-halved"></i>
+                <p>
+                  <b>Você é a proprietária</b><br />Somente você pode alterar as
+                  configurações e remover este projeto.
+                </p>
+              </section>
+            </aside>
+          </div>
+        </main>
+      </div>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <div class="overlay" id="overlay">
+      <div class="mesmosair">
+        <p>Certeza que você quer <span>sair?</span> </p>
+
+        <div class="sae">
+        <Button class="btn btn-sim" onclick=sim()>Sim</Button> 
+        <button class="btn btn-sair" onclick=nao()>Não</button>
+      </div>
+    </div>
+  </div>
+  <script src="detalhe.js"></script>
+  <script src="../sair.js"></script>
+</body>
+</html>
