@@ -69,20 +69,22 @@ body{
 
 /* LOGO */
 
-.logo{
+.logo {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-family: "Be Vietnam Pro", sans-serif;
-    margin-bottom:15px;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
-.logo h2{
-    color: white;
-    font-size: 25px;
-    font-weight: 600;
-    margin:0;
-    line-height: 1;
+.logo img {
+    margin-top: 10px;
+    width: 150px;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    display: block;
+    object-fit: contain;
 }
 
 /* MENU */

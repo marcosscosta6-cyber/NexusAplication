@@ -32,13 +32,16 @@ ul{
 
 .Logo {
     display: flex;
-   justify-content: center;
-   align-items: center;
-   gap: 20px;
-
-
+    justify-content: center;
+    align-items: center;
 }
 
+.Logo img {
+    width: 180px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
 
 .Header1{
     display: flex;
@@ -322,18 +325,18 @@ header{
 }
 
 
-.Logo{
+.Logo {
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 12px;
 }
 
-
-.Logo img{
-    width: 42px;
+.Logo img {
+    margin: 15px;
+    width: 180px;
     height: auto;
+    display: block;
 }
-
 
 .nexus{
     font-size: 27px;
