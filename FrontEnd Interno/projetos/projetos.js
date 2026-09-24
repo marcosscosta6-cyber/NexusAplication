@@ -1,4 +1,8 @@
 
+function abrirProjeto() {
+    window.location.href = 'detalhe.html';
+}
+
   function trocarAba(el, aba) {
         document.querySelectorAll('.aba').forEach(a => a.classList.remove('active'));
         el.classList.add('active');

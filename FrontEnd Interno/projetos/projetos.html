@@ -17,8 +17,7 @@
     <!-- SIDEBAR -->
     <aside class="sidebar">
         <div class="logo">
-            <img src="../Img/NexusS.png" alt="" width="45px" height="45px">
-            <h2>Nexus</h2>
+            <img src="../Img/nexusUPDATE.png" alt="">
         </div>
         
         <div class="perfil-sidebar">
@@ -85,7 +84,7 @@
 
                 <!-- Projeto 1 -->
                  
-                <div class="projeto-card">
+                <div class="projeto-card" onclick="abrirProjeto()" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();abrirProjeto()}">
                     <div class="projeto-icon"><i class="fa-solid fa-earth-americas"></i></div>
                     <div class="projeto-info">
                         <h3>Plataforma de ONGs</h3>
@@ -112,7 +111,7 @@
 
                 <!-- Projeto 2 -->
 
-                <div class="projeto-card">
+                <div class="projeto-card" onclick="abrirProjeto()" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();abrirProjeto()}">
                     <div class="projeto-icon"><i class="fa-solid fa-store"></i></div>
                     <div class="projeto-info">
 
@@ -141,7 +140,7 @@
                 </div>
 
                 <!-- Projeto 3 -->
-                <div class="projeto-card">
+                <div class="projeto-card" onclick="abrirProjeto()" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();abrirProjeto()}">
                     <div class="projeto-icon"><i class="fa-solid fa-leaf"></i></div>
                     <div class="projeto-info">
                         <h3>E-commerce sustentável</h3>
@@ -166,7 +165,7 @@
                 </div>
 
                 <!-- Projeto 4 -->
-                <div class="projeto-card">
+                <div class="projeto-card" onclick="abrirProjeto()" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();abrirProjeto()}">
                     <div class="projeto-icon"><i class="fa-solid fa-people-group"></i></div>
                     <div class="projeto-info">
                         <h3>Comunitech</h3>
@@ -196,16 +195,14 @@
 </div>
 
 <div class="overlay" id="overlay">
-
     <div class="mesmosair">
         <p>Certeza que você quer <span>sair?</span> </p>
 
         <div class="sae">
         <Button class="btn btn-sim" onclick=sim()>Sim</Button> 
         <button class="btn btn-sair" onclick=nao()>Não</button>
-        </div>
     </div>
-  </div> 
+</div>
 
     <script src="../projetos/projetos.js"></script>
     <script src="../sair.js"></script>
