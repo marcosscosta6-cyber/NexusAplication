@@ -8,7 +8,8 @@ body{
     background-color:#050816;
     color: white;
     font-family:"Be Vietnam Pro",sans-serif;
-    overflow:hidden;
+     overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .layout{
