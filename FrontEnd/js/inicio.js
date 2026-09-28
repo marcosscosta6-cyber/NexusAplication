@@ -6,6 +6,8 @@ const fechar = document.getElementById("fechar");
 
 const cadastrar = document.getElementById("Cadastro");
 
+const sairCadastro = document.getElementById("sair");
+
 // ABRIR
 entrar.addEventListener("click", () => {
 
@@ -33,3 +35,9 @@ document.getElementById("btnEntrar").addEventListener("click", function(event) {
 
     window.location.href = "../../FrontEnd Interno/home/home.html";
 });
+
+// botão de sair da tela de cadastro 
+
+function voltar() {
+     window.location.href = "../inicio/index.html";
+}

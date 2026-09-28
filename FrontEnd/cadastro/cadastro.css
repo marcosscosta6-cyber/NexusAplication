@@ -171,3 +171,20 @@
       transform:scale(1.03);
       background:#6b1ff0;
     }
+
+    .sair {
+      width: fit-content + 0;
+      height: fit-content + 10;
+      background-color: #111;
+    }
+
+    .saindoCadastro {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+
+    .sair:hover {
+      transform: scale(1.03);
+      background:#000000;
+    }
