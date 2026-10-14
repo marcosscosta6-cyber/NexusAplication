@@ -75,3 +75,6 @@ NexusApplication-main/
   * Ana Clara Teixeira
   * Marcos Saulo Simões
   * Pedro Vinícius Marques
+
+  comando para instalar o necessario do site:
+  npm install express zod bcryptjs jsonwebtoken dotenv cors @prisma/client@7 @prisma/adapter-mariadb
