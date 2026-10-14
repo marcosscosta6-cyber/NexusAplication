@@ -1,0 +1,37 @@
+{
+  "name": "nexusaplication",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Plataforma criada por alunos do SENAI para conectar estudantes, facilitar a comunicação e impulsionar projetos colaborativos.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcosscosta6-cyber/NexusAplication.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcosscosta6-cyber/NexusAplication/issues"
+  },
+  "homepage": "https://github.com/marcosscosta6-cyber/NexusAplication#readme",
+  "keywords": [],
+  "dependencies": {
+    "@prisma/adapter-mariadb": "^7.10.0",
+    "@prisma/client": "^7.10.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.7",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14",
+    "prisma": "^7.10.0"
+  }
+}
