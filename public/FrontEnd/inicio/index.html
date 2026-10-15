@@ -2,313 +2,262 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-    rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="inicio.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Belanosima:wght@400;600;700&display=swap" rel="stylesheet">
-    <title>Nexus page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&family=Belanosima:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <title>Nexus | Conectando Talentos</title>
 </head>
 <body>
 
-
-<!-- Header -->
-<header>
-  <div class="Logo">
-    <img src="../img/nexusUPDATE.png" alt="Logo Nexus">
-  </div>
-
+  <!-- HEADER -->
+  <header>
+    <div class="Logo">
+      <img src="../img/nexusUPDATE.png" alt="Logo Nexus">
+    </div>
 
     <div class="Header1">
-    <ul>
-      <li> <a href="">Recursos </a> </li>
-      <li> <a href="">Depoimentos </a> </li>
-      <li> <a href="">Blog </a> </li>
-    </ul>
+      <ul>
+        <li><a href="#recursos">Recursos</a></li>
+        <li><a href="#planos">Planos</a></li>
+        <li><a href="#rodape">Sobre o Nexus</a></li>
+      </ul>
 
-
-    <button class="btn btn-light" id="Entrar">Entrar</button>
-    <button class= "btn roxo" id="Cadastro" onclick=Cadastro() >Cadastrar</button>
-
-
-</div>
-</header>
-
-
-
-
-<!-- Main -->
-<main>
-  <div class="hero">
-
-
-  <div class="inicio">
-    <h1>Conectando Talentos.</h1>
-    <h1>Construindo o <span class="futuro">Futuro.</span></h1>
-
-
-    <p>
-      A plataforma oficial para alunos e ex-alunos do SENAI colaborarem,
-      desenvolverem projetos e transformarem ideias em soluções reais.
-    </p>
-
-
-    <div class="area-busca">
-
-
-      <div class="busca">
-        <input type="text" placeholder="Buscar por área, habilidade...">
-      </div>
-
-
-      <button class="como-funciona">
-        <i class="fa-solid fa-play"></i>
-        Saiba como funciona
-      </button>
-
-
+      <button class="btn btn-light" id="Entrar" type="button">Entrar</button>
+      <button class="btn roxo" id="Cadastro" type="button" onclick="Cadastro()">Cadastrar</button>
     </div>
+  </header>
 
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main>
+    <section class="hero">
+      <div class="inicio">
+        <h1>Conectando Talentos.</h1>
+        <h1>Construindo o <span class="futuro">Futuro.</span></h1>
 
-  </div>
+        <p>
+          A plataforma oficial para alunos e ex-alunos do SENAI colaborarem,
+          desenvolverem projetos e transformarem ideias em soluções reais.
+        </p>
 
+        <div class="area-busca">
+          <div class="busca">
+            <input type="text" placeholder="Buscar por área, habilidade..." aria-label="Buscar por área ou habilidade">
+          </div>
 
-  <div class="hero-img">
-    <img src="../img/img inicio.png" alt="Equipe de profissionais conectados">
-  </div>
-
-
-  </div>
- 
-  <div class="desc">
-
-
-  <div class="card-desc">
-    <h5>Match inteligente</h5>
-    <p>Encontre pessoas compatíveis com seus objetivos e habilidades.</p>
-  </div>
-
-
-  <div class="card-desc">
-    <h5>Times completos</h5>
-    <p>Monte seu time com todas as áreas que seu projeto precisa.</p>
-  </div>
-
-
-  <div class="card-desc">
-    <h5>Conexões seguras</h5>
-    <p>Ambiente seguro e profissional para criar relações reais.</p>
-  </div>
-
-
-  </div>
-
-
-  <h2>Profissionais em <span>destaque</span></h2>
-
-
-  <div class="profissionais">
-    <div class="marcos">
-      <img src="../img/download 3.svg" alt="Mulher com foto estilo profissional">
-      <P class="nome">Marcos Silva</P>
-      <p class="habilidade">Desenvolvedor Full Stack</p>
-      <div class="localizacao">
-        <img class="mini-loc" src="../img/localizacao 1.svg" alt="">
-        <p>São Paulo, SP</p>
+          <a class="como-funciona" href="#recursos">
+            <i class="fa-solid fa-play"></i>
+            Saiba como funciona
+          </a>
+        </div>
       </div>
-      <div class="especialidades">
-        <p class="react">react</p>
-        <p class="node.js">node.js</p>
-        <p class="python">python</p>
+
+      <div class="hero-img">
+        <img src="../img/img inicio.png" alt="Equipe de estudantes e profissionais colaborando">
       </div>
-      <button class="ver-perfil">
-        Ver Perfil
-      </button>
-    </div>
+    </section>
 
-
-    <div class="mariana">
-      <img src="../img/download 3.svg" alt="Mulher com foto estilo profissional">
-      <p class="nome">Mariana Costa</P>
-      <p class="habilidade">Engenharia mecânica</p>
-      <div class="localizacao">
-        <img class="mini-loc" src="../img/localizacao 1.svg" alt="">
-        <p>Belo Horizonte, MG</p>
+    <!-- RECURSOS -->
+    <section class="desc" id="recursos" aria-label="Recursos do Nexus">
+      <div class="card-desc">
+        <h5>Match inteligente</h5>
+        <p>Encontre pessoas compatíveis com seus objetivos e habilidades.</p>
       </div>
-      <div class="especialidades">
-        <p class="CAD">CAD</p>
-        <p class="projeto">projeto</p>
-        <p class="manufatura">manufatura</p>
+
+      <div class="card-desc">
+        <h5>Times completos</h5>
+        <p>Monte seu time com todas as áreas que seu projeto precisa.</p>
       </div>
-      <button class="ver-perfil">
-        Ver Perfil
-      </button>
-    </div>
 
-
-    <div class="carlos">
-      <img src="../img/download 3.svg" alt="Mulher com foto estilo profissional">
-      <p class="nome">Carlos Alves</P>
-        <p class="habilidade">Técnico em eletrônica</p>
-      <div class="localizacao">
-        <img class="mini-loc" src="../img/localizacao 1.svg" alt="">
-        <p>Belo Horizonte, MG</p>
+      <div class="card-desc">
+        <h5>Conexões seguras</h5>
+        <p>Ambiente seguro e profissional para criar relações reais.</p>
       </div>
-      <div class="especialidades">
-        <p class="arduino">arduino</p>
-        <p class="iot">IOT</p>
-        <p class="circuitos">circuitos</p>
+    </section>
+
+    <!-- PLANOS DE ASSINATURA -->
+    <section class="secao-planos" id="planos">
+      <div class="titulo-planos">
+        <h2>Planos para o seu <span>futuro</span></h2>
+        <p>
+          Escolha o plano ideal para ampliar suas conexões
+          e transformar suas ideias em projetos.
+        </p>
       </div>
-      <button class="ver-perfil">
-        Ver Perfil
-      </button>
-    </div>
-  </div>
-</main>
 
+      <div class="profissionais">
 
-<!-- Footer -->
-<footer class="footer">
+        <!-- PLANO INICIAL -->
+        <article class="plano-card">
+          <div class="plano-topo">
+            <span class="plano-categoria">Para começar</span>
+            <h3>Inicial</h3>
+            <p class="plano-descricao">Dê os primeiros passos no seu networking.</p>
+          </div>
+
+          <div class="plano-preco">
+            <strong>R$ 5,00</strong>
+            <span>/mês</span>
+          </div>
+
+          <ul class="plano-recursos">
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Perfil personalizado</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Explorar outros estudantes</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Até 20 conexões</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Participar de até 2 projetos</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Mensagens entre conexões</li>
+          </ul>
+
+          <a href="../cadastro/Cadastro.html" class="botao-plano">Começar agora</a>
+        </article>
+
+        <!-- PLANO BÁSICO -->
+        <article class="plano-card plano-popular">
+          <span class="selo-popular">Mais escolhido</span>
+
+          <div class="plano-topo">
+            <span class="plano-categoria">Para evoluir</span>
+            <h3>Básico</h3>
+            <p class="plano-descricao">Amplie sua rede e participe de mais projetos.</p>
+          </div>
+
+          <div class="plano-preco">
+            <strong>R$ 19,90</strong>
+            <span>/mês</span>
+          </div>
+
+          <ul class="plano-recursos">
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Tudo do plano Inicial</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Até 100 conexões</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Até 10 projetos simultâneos</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Criar e gerenciar projetos</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Busca por curso e habilidades</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Grupos de conversa</li>
+          </ul>
+
+          <a href="../cadastro/Cadastro.html" class="botao-plano">Escolher Básico</a>
+        </article>
+
+        <!-- PLANO PROFISSIONAL -->
+        <article class="plano-card">
+          <div class="plano-topo">
+            <span class="plano-categoria">Para ir além</span>
+            <h3>Profissional</h3>
+            <p class="plano-descricao">Aproveite todo o potencial da plataforma.</p>
+          </div>
+
+          <div class="plano-preco">
+            <strong>R$ 39,90</strong>
+            <span>/mês</span>
+          </div>
+
+          <ul class="plano-recursos">
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Tudo do plano Básico</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Conexões ilimitadas</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Projetos ilimitados</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Filtros avançados</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Organização de tarefas</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Estatísticas do perfil</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Recursos avançados de comunicação</li>
+          </ul>
+
+          <a href="../cadastro/Cadastro.html" class="botao-plano">Ser Profissional</a>
+        </article>
+
+      </div>
+
+      <p class="aviso-planos">
+        Todos os planos são pensados para conectar talentos, incentivar a colaboração
+        e facilitar o desenvolvimento de projetos.
+      </p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="rodape">
     <div class="footer-top"></div>
 
-
     <div class="footer-content">
-        <div class="footer-info">
-            <h3>Nexus</h3>
-            <p>
-                Conectando estudantes e profissionais do SENAI para criar projetos incríveis juntos.
-            </p>
-        </div>
+      <div class="footer-info">
+        <h3>Nexus</h3>
+        <p>
+          Conectando estudantes e profissionais do SENAI para criar projetos incríveis juntos.
+        </p>
+      </div>
 
-
-        <div class="footer-links">
-            <a href="#">Política de Privacidade</a>
-        </div>
+      <div class="footer-links">
+        <a href="#">Política de Privacidade</a>
+      </div>
     </div>
-
 
     <hr>
 
-
     <div class="footer-bottom">
-        <p>© 2026 Nexus. Todos os direitos reservados.</p>
+      <p>© 2026 Nexus. Todos os direitos reservados.</p>
 
-
-        <div class="footer-icons">
-            <a href="#">
-                <img src="../img/linkedin 1.svg" alt="LinkedIn">
-            </a>
-
-
-            <a href="#">
-                <img src="../img/o-email 1.svg" alt="Email">
-            </a>
-        </div>
+      <div class="footer-icons">
+        <a href="#" aria-label="LinkedIn">
+          <img src="../img/linkedin 1.svg" alt="LinkedIn">
+        </a>
+        <a href="#" aria-label="E-mail">
+          <img src="../img/o-email 1.svg" alt="E-mail">
+        </a>
+      </div>
     </div>
-</footer>
+  </footer>
 
+  <!-- MODAL DE LOGIN -->
+  <div class="overlay" id="overlay">
+    <form class="login-box">
+      <img src="../img/Nnexus.png" alt="Logo Nexus" width="100" height="100">
 
+      <button type="button" class="btn-close fechar" id="fechar" aria-label="Fechar"></button>
 
+      <h2 class="text-black">Bem-vindo de volta</h2>
+      <p class="text-black">Faça login para acessar sua conta</p>
 
-<!-- Aqui é a parte do botão de Login -->
-<div class="overlay" id="overlay">
+      <div class="loginIN">
+        <label for="usuario" class="text-black">Usuário:</label>
+        <input
+          class="text-white"
+          type="text"
+          id="usuario"
+          name="usuario"
+          placeholder="Ex: Marcos07"
+          autocomplete="username"
+          required>
 
+        <label for="senha" class="text-black">Senha:</label>
+        <input
+          class="text-white"
+          type="password"
+          id="senha"
+          name="senha"
+          placeholder="********"
+          autocomplete="current-password"
+          required>
 
-  <form class="login-box">
-   
-    <img src="../img/Nnexus.png"
-         alt="Logo Nexus"
-         width="100"
-         height="100">
+        <a href="../redsenha/redsenha.html" class="esqueceu">Esqueceu sua senha?</a>
+      </div>
 
-    <button
-      type="button"
-      class="btn-close fechar"
-      id="fechar"
-      aria-label="Close">
-    </button>
+      <button type="submit" id="btnEntrar" class="btn w-100 text-white rounded-pill BotEn">
+        Entrar
+      </button>
 
-      
-    <h2 class="text-black">Bem-vindo de volta</h2>
-    <p class="text-black">
-      Faça login para acessar sua conta
-    </p>
-
-
-    <div class="loginIN">
-
-
-      <label for="usuario" class="text-black">
-        Usuário:
-      </label>
-      <input
-        class="text-white"
-        type="text"
-        id="usuario"
-        name="usuario"
-        placeholder="Ex: Marcos07"
-        autocomplete="email"
-        required>
-
-
-      <label for="senha" class="text-black">
-        Senha:
-      </label>
-
-
-      <input
-        class="text-white"
-        type="password"
-        id="senha"
-        name="senha"
-        placeholder="********"
-        autocomplete="current-password"
-        required>
-
-
-      <a href="../redsenha/redsenha.html" class="esqueceu">
-        Esqueceu sua senha?
-      </a>
-
-
-    </div>
-
-
-    <br>
-
-
-    <button
-      type="submit" id="btnEntrar"
-      class="btn w-100 text-white rounded-pill BotEn">
-      Entrar
-    </button>
-
-
-    <p class="text-black">
-      Não tem uma conta?
-
-
-      <a href="../cadastro/Cadastro.html" class="text-purple">
-        Cadastre-se
-      </a>
-    </p>
-
-
-  </form>
-
-
+      <p class="text-black">
+        Não tem uma conta?
+        <a href="../cadastro/Cadastro.html" class="text-purple">Cadastre-se</a>
+      </p>
+    </form>
   </div>
 
-
- 
   <script src="../js/inicio.js"></script>
-
-
- 
 </body>
 </html>
