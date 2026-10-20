@@ -35,9 +35,3 @@ document.getElementById("btnEntrar").addEventListener("click", function(event) {
 
     window.location.href = "../../FrontEnd Interno/home/home.html";
 });
-
-// botão de sair da tela de cadastro 
-
-function voltar() {
-     window.location.href = "../inicio/index.html";
-}

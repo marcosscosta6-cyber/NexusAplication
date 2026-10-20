@@ -11,15 +11,23 @@ datasource db {
   provider = "mysql"
 }
 
+
 model Usuario {
   id           Int      @id @default(autoincrement())
-  nome         String
-  email        String   @unique
-  senha        String
-  curso        String
-  area         String
-  funcao       String
+  nome         String   @db.VarChar(120)
+  usuario      String?  @unique @db.VarChar(50)
+  email        String   @unique @db.VarChar(191)
+  senha        String   @db.VarChar(255)
+
+  dataNasc     DateTime?
+  escolaridade String?  @db.VarChar(100)
+  comprovante  String?  @db.VarChar(255)
+
+  curso        String?  @db.VarChar(100)
+  area         String?  @db.VarChar(100)
+  funcao       String?  @db.VarChar(100)
   biografia    String?  @db.Text
-  fotoPerfil   String   @db.VarChar(255)
+  fotoPerfil   String?  @db.VarChar(255)
+
   dataCadastro DateTime @default(now())
 }

@@ -26,12 +26,13 @@
       <p class="subtitle">Junte-se à comunidade Nexus</p>
 
 
-      <form>
+      <form id="FormCadastro">
 
 
         <div class="input-group">
           <label for="nome">Nome completo</label>
           <input
+          id="nome"
           type="text"
           name="nome"
           required>
@@ -41,6 +42,7 @@
         <div class="input-group">
           <label for="email">E-mail</label>
           <input type="email"
+          id="email"
           name="email"
           required>
         </div>
@@ -49,14 +51,15 @@
         <div class="input-group">
           <label for="dataNasc">Data de nascimento</label>
           <input type="date"
+          id="dataNasc"
           name="dataNasc"
           required>
         </div>
 
 
         <div class="input-group">
-          <label>Escolaridade</label>
-          <select>
+          <label for="escolaridade">Escolaridade</label>
+          <select id="escolaridade" name="escolaridade" required>
             <option value="" disabled selected>Selecione</option>
             <option value="fundamentalCom">Ensino Fundamental completo</option>
             <option value="fundamentalAn">Ensino Fundamental em andamento</option>
@@ -75,6 +78,7 @@
         <div class="input-group">
           <label for="usuario">Usuário</label>
           <input type="text"
+          id="usuario"
           name="usuario"
           required>
         </div>
@@ -83,6 +87,7 @@
         <div class="input-group">
           <label for="senha">Senha</label>
           <input type="password"
+          id="senha"
           name="senha"
           required>
         </div>
@@ -91,27 +96,31 @@
         <div class="input-group">
           <label for="confirm">Confirmar senha</label>
           <input type="password"
+          id="confirm"
           name="confirm"
           required>
         </div>
 
 
         <div class="input-group">
-          <label>Comprovante de matrícula SENAI</label>
+          <label for="arquivo">Comprovante de matrícula SENAI</label>
           <p class="info">Caso for ex-aluno, certificado de conclusão de curso</p>
 
 
           <label class="upload-box">
             Clique para enviar arquivo
             <input type="file"
+            id="arquivo"
+            name="Comprovante"
+            accept=".pdf,.jpg,.jpeg,.png"
             hidden
             required>
           </label>
         </div>
 
         <div class="saindoCadastro">
-        <button class="btn">Cadastrar</button>
-         <button class="btn sair" onclick=voltar()>inicio</button>
+        <button id="cadastrar" type="submit" class="btn">Cadastrar</button>
+         <button type="button" class="btn sair" onclick=voltar()>inicio</button>
     </div>
 
       </form>
@@ -120,6 +129,6 @@
     </div>
   </div>    
 
-  <script src="../js/inicio.js"></script>
+  <script src="../js/cadastro.js"></script>
 </body>
 </html>
