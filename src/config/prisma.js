@@ -11,8 +11,6 @@ const adapter = new PrismaMariaDb({
   database: process.env.DATABASE_NAME,
 });
 
-const prisma = new PrismaClient({
+export const prisma = new PrismaClient({
   adapter,
 });
-
-export default prisma;

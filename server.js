@@ -1,43 +1,45 @@
 
-import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import prisma from "./src/config/prisma.js";
+import usuarioRoutes from "./src/routes/usuarioRoutes.js";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// Permite receber requisições de outras origens.
 app.use(cors());
-
-// Permite receber dados em JSON.
 app.use(express.json());
-// TUDO TESTE FAZNEDO COM IA POR ENQUANTO.
-// Teste para verificar se a API está funcionando.
-app.get("/", (req, res) => {
-  res.status(200).json({
-    mensagem: "API do Nexus funcionando!",
+app.use(express.urlencoded({ extended: true }));
+
+app.get("/api/health", (_req, res) => {
+  res.json({ mensagem: "API NEXUS funcionando!" });
+});
+
+app.use("/api/usuarios", usuarioRoutes);
+
+app.use((erro, _req, res, _next) => {
+  console.error(erro.message);
+
+  if (erro.code === "LIMIT_FILE_SIZE") {
+    return res.status(400).json({
+      mensagem: "O comprovante deve ter no máximo 5 MB.",
+    });
+  }
+
+  if (erro.code === "LIMIT_UNEXPECTED_FILE") {
+    return res.status(400).json({
+      mensagem: "Envie apenas um comprovante no campo correto.",
+    });
+  }
+
+  return res.status(erro.status || 500).json({
+    mensagem:
+      erro.status && erro.status < 500
+        ? erro.message
+        : "Erro interno do servidor.",
   });
 });
 
-// Teste para verificar a conexão com o banco.
-app.get("/api/health", async (req, res) => {
-  try {
-    await prisma.$queryRaw`SELECT 1`;
+const PORT = process.env.PORT || 3000;
 
-    res.status(200).json({
-      mensagem: "API funcionando e banco conectado!",
-    });
-  } catch (erro) {
-    console.error("Erro ao conectar ao banco:", erro);
-
-    res.status(500).json({
-      mensagem: "A API está funcionando, mas houve um erro ao acessar o banco.",
-    });
-  }
-});
-
-// Inicia o servidor.
 app.listen(PORT, () => {
-  console.log(`Nexus rodando em http://localhost:${PORT}`);
+  console.log(`API NEXUS rodando na porta ${PORT}`);
 });
