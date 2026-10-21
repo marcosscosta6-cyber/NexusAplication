@@ -20,6 +20,7 @@ model Usuario {
   senha        String   @db.VarChar(255)
 
   dataNasc     DateTime?
+   situacao     String  @default("PENDENTE") @db.VarChar(20)
   escolaridade String?  @db.VarChar(100)
   comprovante  String?  @db.VarChar(255)
 
