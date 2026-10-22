@@ -42,7 +42,7 @@ header {
 
 .Logo img {
     margin: 0;
-    width: 180px;
+    width: 210px;
     height: auto;
     display: block;
     object-fit: contain;
@@ -569,9 +569,9 @@ h2 span {
     transform: translateY(0);
 }
 
-.login-box > img {
-    width: 90px;
-    height: 90px;
+.login-box img {
+    width: 130px;
+    height: auto;
     object-fit: contain;
 }
 
