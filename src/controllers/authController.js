@@ -2,11 +2,7 @@
 import "dotenv/config";
 import { z } from "zod";
 import { realizarLogin } from "../services/authService.js";
-
-const loginSchema = z.object({
-  identificador: z.string().trim().min(1, "Informe seu e-mail ou usuário."),
-  senha: z.string().min(1, "Informe sua senha."),
-});
+import { loginSchema } from "../schemas/authSchema.js";
 
 const producao = process.env.NODE_ENV === "production";
 
