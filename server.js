@@ -1,3 +1,4 @@
+
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
@@ -5,6 +6,7 @@ import cookieParser from "cookie-parser";
 
 import usuarioRoutes from "./src/routes/usuarioRoutes.js";
 import authRoutes from "./src/routes/authRoutes.js";
+import conexaoRoutes from "./src/routes/conexaoRoutes.js";
 
 const app = express();
 
@@ -33,6 +35,9 @@ app.use("/api/usuarios", usuarioRoutes);
 
 // Rotas de login e logout
 app.use("/api/auth", authRoutes);
+
+// Rotas de conexões entre usuários
+app.use("/api/conexoes", conexaoRoutes);
 
 // Tratamento de erros
 app.use((erro, _req, res, _next) => {

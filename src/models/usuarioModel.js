@@ -39,4 +39,14 @@ export const usuarioModel = {
       },
     });
   },
+
+  buscarSituacaoPorId(id) {
+    return prisma.usuario.findUnique({
+      where: { id },
+      select: {
+        id: true,
+        situacao: true,
+      },
+    });
+  },
 };
