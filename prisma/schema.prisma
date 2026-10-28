@@ -1,7 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
   provider = "prisma-client-js"
@@ -11,6 +7,11 @@ datasource db {
   provider = "mysql"
 }
 
+enum StatusConexao {
+  PENDENTE
+  ACEITA
+  RECUSADA
+}
 
 model Usuario {
   id           Int      @id @default(autoincrement())
@@ -20,7 +21,7 @@ model Usuario {
   senha        String   @db.VarChar(255)
 
   dataNasc     DateTime?
-   situacao     String  @default("PENDENTE") @db.VarChar(20)
+  situacao     String   @default("PENDENTE") @db.VarChar(20)
   escolaridade String?  @db.VarChar(100)
   comprovante  String?  @db.VarChar(255)
 
@@ -31,4 +32,23 @@ model Usuario {
   fotoPerfil   String?  @db.VarChar(255)
 
   dataCadastro DateTime @default(now())
+
+  conexoesEnviadas   Conexao[] @relation("SolicitanteConexoes")
+  conexoesRecebidas  Conexao[] @relation("DestinatarioConexoes")
+}
+
+model Conexao {
+  id             Int           @id @default(autoincrement())
+  solicitanteId  Int
+  destinatarioId Int
+  status         StatusConexao @default(PENDENTE)
+  dataCriacao    DateTime      @default(now())
+  dataAtualizacao DateTime     @updatedAt
+
+  solicitante  Usuario @relation("SolicitanteConexoes", fields: [solicitanteId], references: [id], onDelete: Cascade)
+  destinatario Usuario @relation("DestinatarioConexoes", fields: [destinatarioId], references: [id], onDelete: Cascade)
+
+  @@index([solicitanteId, status])
+  @@index([destinatarioId, status])
+  @@map("conexoes")
 }
