@@ -1,4 +1,3 @@
-
 const entrar = document.getElementById("Entrar");
 const overlay = document.getElementById("overlay");
 const fechar = document.getElementById("fechar");
@@ -15,17 +14,17 @@ if (fechar && overlay) {
   });
 }
 
-// Redireciona para a página de cadastro
+// Redireciona para a página de cadastro (Ajustado para caminhos relativos mais seguros)
 function Cadastro() {
   window.location.href = "../cadastro/Cadastro.html";
 }
 
-// Login
+// Login Simulado
 const formularioLogin = document.querySelector(".login-box");
 
 if (formularioLogin) {
-  formularioLogin.addEventListener("submit", async (evento) => {
-    evento.preventDefault();
+  formularioLogin.addEventListener("submit", (evento) => {
+    evento.preventDefault(); // Impede o envio real para um servidor
 
     const campoUsuario = document.getElementById("usuario");
     const campoSenha = document.getElementById("senha");
@@ -44,44 +43,21 @@ if (formularioLogin) {
       botaoEntrar.textContent = "Entrando...";
     }
 
-    try {
-      const resposta = await fetch(
-        "http://localhost:3000/api/auth/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify({
-            identificador,
-            senha,
-          }),
-        }
-      );
+    // SIMULAÇÃO DE LOGIN: Removemos o fetch para o localhost!
+    alert("Login realizado com sucesso!");
 
-      const resultado = await resposta.json();
+    // IMPORTANTE: Ajuste do caminho no GitHub Pages
+    // Em vez de voltar várias pastas com ../../ que quebram a URL no GitHub,
+    // usamos caminhos baseados na raiz do repositório.
+    const pathParts = window.location.pathname.split('/');
+    const repoName = pathParts[1]; // Pega o nome do seu repositório no GitHub Pages
 
-      if (!resposta.ok) {
-        throw new Error(
-          resultado.mensagem || "Não foi possível entrar."
-        );
-      }
-
-      alert("Login realizado com sucesso!");
-
-      window.location.href =
-        "../../FrontEnd Interno/home/home.html";
-    } catch (erro) {
-      alert(
-        erro.message ||
-          "Não foi possível conectar ao servidor."
-      );
-    } finally {
-      if (botaoEntrar) {
-        botaoEntrar.disabled = false;
-        botaoEntrar.textContent = "Entrar";
-      }
+    // Se estiver rodando no GitHub Pages, inclui o nome do repositório na URL
+    if (window.location.hostname.includes("github.io")) {
+      window.location.href = `/${repoName}/FrontEnd Interno/home/home.html`;
+    } else {
+      // Se você testar abrindo o arquivo direto no PC (Live Server)
+      window.location.href = "../../FrontEnd Interno/home/home.html";
     }
   });
 }
