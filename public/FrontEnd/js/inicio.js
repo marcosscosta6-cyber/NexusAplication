@@ -14,17 +14,17 @@ if (fechar && overlay) {
   });
 }
 
-// Redireciona para a página de cadastro (Ajustado para caminhos relativos mais seguros)
+// Redireciona para a página de cadastro
 function Cadastro() {
   window.location.href = "../cadastro/Cadastro.html";
 }
 
-// Login Simulado
+// Login Simulado - Código Corrigido para o GitHub Pages
 const formularioLogin = document.querySelector(".login-box");
 
 if (formularioLogin) {
   formularioLogin.addEventListener("submit", (evento) => {
-    evento.preventDefault(); // Impede o envio real para um servidor
+    evento.preventDefault(); // Impede o envio real para o localhost
 
     const campoUsuario = document.getElementById("usuario");
     const campoSenha = document.getElementById("senha");
@@ -43,20 +43,17 @@ if (formularioLogin) {
       botaoEntrar.textContent = "Entrando...";
     }
 
-    // SIMULAÇÃO DE LOGIN: Removemos o fetch para o localhost!
     alert("Login realizado com sucesso!");
 
-    // IMPORTANTE: Ajuste do caminho no GitHub Pages
-    // Em vez de voltar várias pastas com ../../ que quebram a URL no GitHub,
-    // usamos caminhos baseados na raiz do repositório.
+    // Pega o nome do repositório dinamicamente no GitHub Pages
     const pathParts = window.location.pathname.split('/');
-    const repoName = pathParts[1]; // Pega o nome do seu repositório no GitHub Pages
+    const repoName = pathParts[1]; 
 
-    // Se estiver rodando no GitHub Pages, inclui o nome do repositório na URL
     if (window.location.hostname.includes("github.io")) {
-      window.location.href = `/${repoName}/FrontEnd Interno/home/home.html`;
+      // O encodeURI corrige o espaço em "FrontEnd Interno" para "FrontEnd%20Interno"
+      window.location.href = encodeURI(`/${repoName}/FrontEnd Interno/home/home.html`);
     } else {
-      // Se você testar abrindo o arquivo direto no PC (Live Server)
+      // Se você estiver testando localmente na sua máquina (Live Server)
       window.location.href = "../../FrontEnd Interno/home/home.html";
     }
   });
