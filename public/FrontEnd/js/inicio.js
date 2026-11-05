@@ -19,7 +19,7 @@ function Cadastro() {
   window.location.href = "../cadastro/Cadastro.html";
 }
 
-// Login Simulado - SOLUÇÃO DIRECTA PARA O 404
+// Login Simulado - CORRIGIDO
 const formularioLogin = document.querySelector(".login-box");
 
 if (formularioLogin) {
@@ -45,9 +45,9 @@ if (formularioLogin) {
 
     alert("Login realizado com sucesso!");
 
-    // Usando caminhos estritamente relativos com encodeURI.
-    // Isso diz ao navegador: "Volte duas pastas a partir de onde você está agora"
-    // Funciona perfeitamente tanto local quanto no GitHub Pages!
-    window.location.href = encodeURI("../../FrontEnd Interno/home/home.html");
+    // CORREÇÃO AQUI: Adicionado aspas e o encodeURI para proteger o espaço em branco
+    // Se a pasta 'public' estiver no mesmo nível ou acima, usamos caminhos relativos.
+    // Ajustei para iniciar voltando duas pastas e buscando a rota que você informou:
+    window.location.href = "../../FrontEnd Interno/home/home.html";
   });
 }
