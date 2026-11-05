@@ -19,12 +19,12 @@ function Cadastro() {
   window.location.href = "../cadastro/Cadastro.html";
 }
 
-// Login Simulado - Código Corrigido para o GitHub Pages
+// Login Simulado - SOLUÇÃO DIRECTA PARA O 404
 const formularioLogin = document.querySelector(".login-box");
 
 if (formularioLogin) {
   formularioLogin.addEventListener("submit", (evento) => {
-    evento.preventDefault(); // Impede o envio real para o localhost
+    evento.preventDefault(); 
 
     const campoUsuario = document.getElementById("usuario");
     const campoSenha = document.getElementById("senha");
@@ -45,16 +45,9 @@ if (formularioLogin) {
 
     alert("Login realizado com sucesso!");
 
-    // Pega o nome do repositório dinamicamente no GitHub Pages
-    const pathParts = window.location.pathname.split('/');
-    const repoName = pathParts[1]; 
-
-    if (window.location.hostname.includes("github.io")) {
-      // O encodeURI corrige o espaço em "FrontEnd Interno" para "FrontEnd%20Interno"
-      window.location.href = encodeURI(`/${repoName}/FrontEnd Interno/home/home.html`);
-    } else {
-      // Se você estiver testando localmente na sua máquina (Live Server)
-      window.location.href = "../../FrontEnd Interno/home/home.html";
-    }
+    // Usando caminhos estritamente relativos com encodeURI.
+    // Isso diz ao navegador: "Volte duas pastas a partir de onde você está agora"
+    // Funciona perfeitamente tanto local quanto no GitHub Pages!
+    window.location.href = encodeURI("../../FrontEnd Interno/home/home.html");
   });
 }
