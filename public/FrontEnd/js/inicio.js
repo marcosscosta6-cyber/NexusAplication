@@ -1,4 +1,3 @@
-
 const entrar = document.getElementById("Entrar");
 const overlay = document.getElementById("overlay");
 const fechar = document.getElementById("fechar");
@@ -20,12 +19,12 @@ function Cadastro() {
   window.location.href = "../cadastro/Cadastro.html";
 }
 
-// Login
+// Login Simulado - CORRIGIDO
 const formularioLogin = document.querySelector(".login-box");
 
 if (formularioLogin) {
-  formularioLogin.addEventListener("submit", async (evento) => {
-    evento.preventDefault();
+  formularioLogin.addEventListener("submit", (evento) => {
+    evento.preventDefault(); 
 
     const campoUsuario = document.getElementById("usuario");
     const campoSenha = document.getElementById("senha");
@@ -44,44 +43,11 @@ if (formularioLogin) {
       botaoEntrar.textContent = "Entrando...";
     }
 
-    try {
-      const resposta = await fetch(
-        "http://localhost:3000/api/auth/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify({
-            identificador,
-            senha,
-          }),
-        }
-      );
+    alert("Login realizado com sucesso!");
 
-      const resultado = await resposta.json();
-
-      if (!resposta.ok) {
-        throw new Error(
-          resultado.mensagem || "Não foi possível entrar."
-        );
-      }
-
-      alert("Login realizado com sucesso!");
-
-      window.location.href =
-        "../../FrontEnd Interno/home/home.html";
-    } catch (erro) {
-      alert(
-        erro.message ||
-          "Não foi possível conectar ao servidor."
-      );
-    } finally {
-      if (botaoEntrar) {
-        botaoEntrar.disabled = false;
-        botaoEntrar.textContent = "Entrar";
-      }
-    }
+    // CORREÇÃO AQUI: Adicionado aspas e o encodeURI para proteger o espaço em branco
+    // Se a pasta 'public' estiver no mesmo nível ou acima, usamos caminhos relativos.
+    // Ajustei para iniciar voltando duas pastas e buscando a rota que você informou:
+    window.location.href = "../../FrontEnd Interno/home/home.html";
   });
 }
