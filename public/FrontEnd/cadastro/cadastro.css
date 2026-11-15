@@ -188,3 +188,16 @@
       transform: scale(1.03);
       background:#000000;
     }
+.campo-ajuda { color: #555; font-size: 12px; line-height: 1.5; margin-top: 7px; }
+.campo-erro { color: #a51c30; font-size: 13px; line-height: 1.5; margin-top: 7px; font-weight: 600; }
+[aria-invalid="true"] { outline: 2px solid #b42338; outline-offset: 2px; }
+.upload-box { position: relative; overflow-wrap: anywhere; height: auto; min-height: 100px; }
+.upload-box:has([aria-invalid="true"]) { outline: 2px solid #b42338; }
+input:focus-visible, select:focus-visible, .upload-box:focus-within { outline: 3px solid #9860ed; outline-offset: 3px; }
+.arquivo-input { position: absolute; width: 1px; height: 1px; padding: 0; clip-path: inset(50%); overflow: hidden; }
+.form-aviso { padding: 12px; border-radius: 8px; margin-bottom: 18px; font-size: 14px; line-height: 1.5; background: #fff0f1; color: #8d1729; }
+.form-aviso[data-tipo="sucesso"] { background: #e8f7ed; color: #175c32; }
+.form-aviso[data-tipo="enviando"] { background: #f0e8ff; color: #452075; }
+.form-aviso a { color: inherit; font-weight: 700; }
+.btn:disabled { opacity: .65; cursor: wait; }
+@media (max-width: 460px) { body { padding: 16px; } .container { padding: 24px 20px; } .saindoCadastro .btn { width: 100%; font-size: 18px; } }

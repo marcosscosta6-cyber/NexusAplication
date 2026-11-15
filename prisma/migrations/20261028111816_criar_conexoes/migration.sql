@@ -1,5 +1,5 @@
 -- AlterTable
-ALTER TABLE `usuario` ADD COLUMN `situacao` VARCHAR(20) NOT NULL DEFAULT 'PENDENTE';
+ALTER TABLE `Usuario` ADD COLUMN `situacao` VARCHAR(20) NOT NULL DEFAULT 'PENDENTE';
 
 -- CreateTable
 CREATE TABLE `conexoes` (

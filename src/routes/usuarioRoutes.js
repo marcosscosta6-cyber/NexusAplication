@@ -7,7 +7,16 @@ const router = Router();
 
 router.post(
   "/",
-  uploadComprovante.single("Comprovante"),
+  (req, res, next) => uploadComprovante.single("Comprovante")(req, res, erro => {
+    if (!erro) return next();
+    if (erro.status === 400 || erro.name === "MulterError") {
+      const mensagem = erro.code === "LIMIT_FILE_SIZE" ? "O comprovante deve ter no máximo 5 MB."
+        : erro.code === "LIMIT_UNEXPECTED_FILE" || erro.code === "LIMIT_FILE_COUNT" ? "Envie somente um comprovante."
+        : erro.message;
+      return res.status(400).json({ mensagem, erros: [{ campo: "Comprovante", mensagem }] });
+    }
+    return next(erro);
+  }),
   cadastrarUsuarioController
 );
 

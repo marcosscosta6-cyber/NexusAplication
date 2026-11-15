@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-sessao="carregando">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title>Nexus — Configurações</title>
+<link rel="stylesheet" href="/FrontEnd%20Interno/app.css">
+<link rel="stylesheet" href="/shared/modais.css">
 </head>
-<body>
+<body data-pagina="config">
 <div class="layout">
 
     <!-- SIDEBAR -->
@@ -19,14 +21,8 @@
         <div class="logo">
             <img src="../Img/nexusRetoNav.png">
         </div>
-        
-        <div class="perfil-sidebar">
-            <img src="../Img/download 3.svg">
-            <div class="text-white">
-                <h5>Mariana Costa</h5>
-                <p>Técnica em Mecânica</p>
-            </div>
-        </div>
+
+        <div class="perfil-sidebar"><img data-usuario-foto alt="" hidden><div class="text-white"><h5 data-usuario-nome></h5><p data-usuario-cargo></p></div></div>
         <nav class="menu">
             <a href="../home/home.html">
                 <i class="fa-solid fa-house"></i><span>Início</span>
@@ -50,7 +46,7 @@
                 <i class="fa-solid fa-user"></i><span>Perfil</span>
             </a>
         </nav>
-        
+
         <div class="bottom-menu">
             <a href="../config/config.html" class="active">
                 <i class="fa-solid fa-gear"></i><span>Configurações</span>
@@ -75,13 +71,13 @@
                 </a>
 
                 <a class="user" href="../perfil/perfil.html">
-                    <span>Olá, Mariana!</span>
+                    <span data-saudacao></span>
                 </a>
             </div>
-        
+
         </header>
 
-        <main class="main-content">
+        <p id="aviso-app" class="aviso-app" role="alert" hidden></p><main class="main-content">
 
             <div class="page-header">
                 <h1>Configurações</h1>
@@ -90,11 +86,8 @@
 
             <!-- PERFIL RÁPIDO -->
             <div class="perfil-config">
-                <div class="perfil-config-avatar">MC</div>
-                <div class="perfil-config-info">
-                    <h3>Mariana Costa</h3>
-                    <p>Técnica em Mecânica · mariana.costa@senai.br</p>
-                </div>
+                <div class="perfil-config-avatar"></div>
+                <div class="perfil-config-info"><h3 data-usuario-nome></h3><p id="conta-email"></p></div>
                 <button class="btn-editar-perfil">
                     <i class="fa-solid fa-pen"></i> Editar perfil
                 </button>
@@ -108,6 +101,7 @@
                     <!-- CONTA -->
                     <div class="config-secao">
                         <div class="config-secao-titulo">Conta</div>
+<div class="config-item" data-config="atuacao" role="button" tabindex="0"><div class="config-icone ic-roxo"><i class="fa-solid fa-briefcase"></i></div><div class="config-texto"><h4>Disponibilidade e atuação</h4><p id="resumo-atuacao">Área, função e disponibilidade</p></div><i class="fa-solid fa-chevron-right config-seta"></i></div>
 
                         <div class="config-item">
                             <div class="config-icone ic-roxo"><i class="fa-solid fa-user-pen"></i></div>
@@ -146,10 +140,10 @@
                             <div class="config-icone ic-amarelo"><i class="fa-solid fa-bell"></i></div>
                             <div class="config-texto">
                                 <h4>Notificações push</h4>
-                                <p>Conexões e mensagens</p>
+                                <p>Conexões e mensagens — em breve</p>
                             </div>
                             <div class="toggle-wrap">
-                                <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+                                <div class="toggle" aria-disabled="true" title="Recurso ainda não disponível"></div>
                             </div>
                         </div>
 
@@ -157,10 +151,10 @@
                             <div class="config-icone ic-azul"><i class="fa-solid fa-envelope"></i></div>
                             <div class="config-texto">
                                 <h4>E-mail</h4>
-                                <p>Resumo semanal de atividades</p>
+                                <p>Resumo semanal de atividades — em breve</p>
                             </div>
                             <div class="toggle-wrap">
-                                <div class="toggle" onclick="this.classList.toggle('on')"></div>
+                                <div class="toggle" aria-disabled="true" title="Recurso ainda não disponível"></div>
                             </div>
                         </div>
 
@@ -173,13 +167,13 @@
 
                     <!-- PREFERÊNCIAS -->
                     <div class="config-secao">
-                        <div class="config-secao-titulo">Preferências</div>
+                        <div class="config-secao-titulo">Preferências</div><div class="config-item"><div class="config-icone ic-azul"><i class="fa-solid fa-comment-dots"></i></div><div class="config-texto"><h4>Mensagens de qualquer pessoa</h4><p>Desativado: apenas conexões aceitas</p></div><div class="toggle-wrap"><div id="mensagens-publicas" class="toggle" role="switch" tabindex="0" aria-label="Receber mensagens de qualquer pessoa" aria-checked="false"></div></div></div>
 
                         <div class="config-item">
                             <div class="config-icone ic-cinza"><i class="fa-solid fa-circle-half-stroke"></i></div>
                             <div class="config-texto">
                                 <h4>Acessibilidade</h4>
-                                <p>Tema, tamanho de fonte e contraste</p>
+                                <p>Tamanho do texto</p>
                             </div>
                             <i class="fa-solid fa-chevron-right config-seta"></i>
                         </div>
@@ -197,7 +191,7 @@
                             <div class="config-icone ic-verde"><i class="fa-solid fa-comment-dots"></i></div>
                             <div class="config-texto">
                                 <h4>Enviar comentários</h4>
-                                <p>Ajude a melhorar o Nexus</p>
+                                <p>Envio de comentários — em breve</p>
                             </div>
                             <i class="fa-solid fa-chevron-right config-seta"></i>
                         </div>
@@ -212,12 +206,12 @@
                             <div class="config-icone ic-cinza"><i class="fa-solid fa-circle-info"></i></div>
                             <div class="config-texto">
                                 <h4>Sobre</h4>
-                                <p>Versão, termos e política de privacidade</p>
+                                <p>Informações sobre o Nexus</p>
                             </div>
                             <i class="fa-solid fa-chevron-right config-seta"></i>
                         </div>
 
-                        <div class="config-item" onclick="confirmarSair()">
+                        <div class="config-item" onclick="document.getElementById('overlay').classList.add('active')">
                             <div class="config-icone ic-vermelho"><i class="fa-solid fa-right-from-bracket"></i></div>
                             <div class="config-texto">
                                 <h4 style="color:#ef4444;">Sair</h4>
@@ -243,21 +237,17 @@
         <p>Certeza que você quer <span>sair?</span> </p>
 
         <div class="sae">
-        <Button class="btn btn-sim" onclick=sim()>Sim</Button> 
+        <Button class="btn btn-sim" onclick=sim()>Sim</Button>
         <button class="btn btn-sair" onclick=nao()>Não</button>
         </div>
     </div>
-  </div> 
+  </div>
 
-<script>
-    function confirmarSair() {
-        if (confirm('Tem certeza que deseja sair?')) {
-            window.location.href = '#';
-        }
-    }
-</script>
 
-<script src="../sair.js"></script>
 
+
+
+<script src="/FrontEnd%20Interno/sair.js"></script>
+<script type="module" src="/FrontEnd%20Interno/app.js"></script>
 </body>
 </html>

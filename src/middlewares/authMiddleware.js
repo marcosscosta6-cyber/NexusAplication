@@ -45,7 +45,7 @@ export async function authMiddleware(req, res, next) {
       },
     });
 
-    if (!usuario || usuario.situacao !== "APROVADO") {
+    if (!usuario) {
       return res.status(403).json({
         mensagem: "Sua conta não está autorizada a acessar este recurso.",
       });

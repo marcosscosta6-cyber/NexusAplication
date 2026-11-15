@@ -19,11 +19,11 @@ function Cadastro() {
   window.location.href = "../cadastro/Cadastro.html";
 }
 
-// Login Simulado - CORRIGIDO
+// Login com sessão autenticada na API
 const formularioLogin = document.querySelector(".login-box");
 
 if (formularioLogin) {
-  formularioLogin.addEventListener("submit", (evento) => {
+  formularioLogin.addEventListener("submit", async (evento) => {
     evento.preventDefault(); 
 
     const campoUsuario = document.getElementById("usuario");
@@ -43,11 +43,19 @@ if (formularioLogin) {
       botaoEntrar.textContent = "Entrando...";
     }
 
-    alert("Login realizado com sucesso!");
-
-    // CORREÇÃO AQUI: Adicionado aspas e o encodeURI para proteger o espaço em branco
-    // Se a pasta 'public' estiver no mesmo nível ou acima, usamos caminhos relativos.
-    // Ajustei para iniciar voltando duas pastas e buscando a rota que você informou:
-    window.location.href = "../../FrontEnd Interno/home/home.html";
+    try {
+      const resposta = await fetch("/api/auth/login", {
+        method: "POST", credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ identificador, senha }),
+      });
+      const resultado = await resposta.json();
+      if (!resposta.ok) throw new Error(resultado.mensagem);
+      window.location.href = "../../FrontEnd Interno/home/home.html";
+    } catch (erro) {
+      alert(erro.message || "Não foi possível conectar à API.");
+    } finally {
+      if (botaoEntrar) { botaoEntrar.disabled = false; botaoEntrar.textContent = "Entrar"; }
+    }
   });
 }

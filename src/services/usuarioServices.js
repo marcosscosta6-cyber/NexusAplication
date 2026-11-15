@@ -6,6 +6,7 @@ export async function cadastrarUsuario(dados, arquivo) {
   if (!arquivo) {
     const erro = new Error("O comprovante é obrigatório.");
     erro.status = 400;
+    erro.campo = "Comprovante";
     throw erro;
   }
 
@@ -17,6 +18,7 @@ export async function cadastrarUsuario(dados, arquivo) {
   if (usuarioExistente) {
     const erro = new Error("Este nome de usuário já está cadastrado.");
     erro.status = 409;
+    erro.campo = "usuario";
     throw erro;
   }
 
@@ -25,6 +27,7 @@ export async function cadastrarUsuario(dados, arquivo) {
   if (emailExistente) {
     const erro = new Error("Este e-mail já está cadastrado.");
     erro.status = 409;
+    erro.campo = "email";
     throw erro;
   }
 

@@ -33,6 +33,18 @@ export async function cadastrarUsuarioController(req, res, next) {
     });
   } catch (erro) {
     await apagarArquivo(req.file);
+    if (erro.campo) {
+      return res.status(erro.status || 400).json({
+        mensagem: "Confira os dados do cadastro.",
+        erros: [{ campo: erro.campo, mensagem: erro.message }],
+      });
+    }
+    if (erro.code === "P2002") {
+      return res.status(409).json({
+        mensagem: "E-mail ou usuário já cadastrado. Confira esses dois campos ou entre na sua conta.",
+        erros: ["email", "usuario"].map(campo => ({ campo, mensagem: "Este e-mail ou usuário já está cadastrado. Confira os dois campos." })),
+      });
+    }
     next(erro);
   }
 }

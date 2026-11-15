@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-sessao="carregando">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +12,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Belanosima:wght@400;600;700&display=swap" rel="stylesheet">
     <title>Nexus Home</title>
+<link rel="stylesheet" href="/FrontEnd%20Interno/app.css">
 </head>
-<body>
+<body data-pagina="home">
 
     <!-- ESTRUTURA DA PÁGINA DIVIDIDA -->
     <div class="layout">
@@ -28,16 +29,7 @@
 
              <!-- Perfil -->
 
-             <div class="perfil-sidebar">
-
-                <img src="../Img/download 3.svg">
-
-                <div class="text-white">
-                    <h5>Mariana Costa</h5>
-                    <p>Técnica em Mecânica</p>
-                </div>
-
-            </div>
+             <div class="perfil-sidebar"><img data-usuario-foto alt="" hidden><div class="text-white"><h5 data-usuario-nome></h5><p data-usuario-cargo></p></div></div>
 
             <!-- MENU -->
             <nav class="menu">
@@ -95,30 +87,30 @@
 
         </aside>
 
-        
+
         <!-- INÍCIO DO CONTEÚDO (direita)) -->
-        <div class="content"> 
+        <div class="content">
             <!-- HEADER (BUSCAR/NOTS/OLA) -->
             <header>
                 <div class="search-box">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" placeholder="Buscar no Nexus...">
                 </div>
-            
+
                 <div class="header-right">
                     <a class="notificacao" href="../notificações/not.html">
                         <i class="fa-solid fa-bell"></i>
                     </a>
 
                     <a class="user" href="../perfil/perfil.html">
-                        <span>Olá, Mariana!</span>
+                        <span data-saudacao></span>
                     </a>
                 </div>
-            
+
             </header>
 
             <!--CONTEÚDO PRINCIPAL -->
-            <main class="main-content">
+            <p id="aviso-app" class="aviso-app" role="alert" hidden></p><main class="main-content">
             <section class="hero">
                 <div class="hero-text">
                     <h1>Bem-vindo <span>de volta!</span></h1>
@@ -189,7 +181,7 @@
                         <i class="fa-solid fa-users"></i>
 
                         <div>
-                            <h3>12</h3>
+                            <h3>0</h3>
                             <p>Conexões ativas</p>
                         </div>
                     </div>
@@ -198,7 +190,7 @@
                         <i class="fa-solid fa-folder"></i>
 
                         <div>
-                            <h3>4</h3>
+                            <h3>0</h3>
                             <p>Projetos em andamento</p>
                         </div>
                     </div>
@@ -207,7 +199,7 @@
                         <i class="fa-solid fa-message"></i>
 
                         <div>
-                            <h3>3</h3>
+                            <h3>0</h3>
                             <p>Mensagens não lidas</p>
                         </div>
                     </div>
@@ -216,7 +208,7 @@
                         <i class="fa-solid fa-user-plus"></i>
 
                         <div>
-                            <h3>2</h3>
+                            <h3>0</h3>
                             <p>Solicitações de conexão</p>
                         </div>
                     </div>
@@ -230,66 +222,25 @@
                 <div class="atv-recentes">
                     <h3>Atividade recente</h3>
 
-                    <div class="atividade">
-                        <img src="../img/juliana-lima.jpg">
 
-                        <div class="texto">
-                            <h5><span>Juliana Lima</span> aceitou sua conexão</h5>
-                            <p>Desenvolvedora Front-End</p> 
-                        </div>
-                    </div>
 
-                    <div class="atividade">
-                        <i class="fa-solid fa-folder"></i>
 
-                        <div class="texto">
-                            <h5><span>Novo Projeto</span> publicado</h5>
-                            <p>ConectaTech Plataforma Mobile</p>
-                        </div>
-                    </div>
 
-                    <div class="atividade">
-                        <img src="../Img/rafael.avif">
 
-                        <div class="texto">
-                            <h5><span>Rafael Cruz</span> enviou uma mensagem</h5>
-                            <p>Sobre o projeto ConectaTech</p>
-                        </div>
-                    </div>
 
-                    <button id="verAtvds" class="ver-atvds">Ver todas as notificações</button>
+                    <div id="atividades"><p>Nenhuma atividade ainda.</p></div>
+<button id="verAtvds" class="ver-atvds">Ver todas as notificações</button>
 
                 </div>
 
                     <div class="recomendados">
-                        <h3>Recomendado para você</h3>
+                        <h3>Recomendado para você</h3><p>Nenhuma recomendação ainda.</p>
 
-                        <div class="projeto-reco">
-                            <i class="fa-solid fa-folder"></i>
 
-                            <div class="texto">
-                                <h5><span>Projeto: </span>Sistema de monitoramento</h5>
-                                <p>Buscando profissionais de mecânica</p>
-                            </div>
-                        </div>
 
-                        <div class="projeto-reco">
-                            <i class="fa-solid fa-folder"></i>
 
-                            <div class="texto">
-                                <h5><span>Projeto: </span>Delivery Fast</h5>
-                                <p>Buscando desenvolvedores Front-End</p>
-                            </div>
-                        </div>
 
-                        <div class="projeto-reco">
-                            <i class="fa-solid fa-folder"></i>
 
-                            <div class="texto">
-                                <h5><span>Projeto: </span>Menos Fila</h5>
-                                <p>Buscando profissionais de Mecânica</p>
-                            </div> 
-                        </div>
                     </div>
             </section>
 
@@ -312,13 +263,15 @@
         <p>Certeza que você quer <span>sair?</span> </p>
 
         <div class="sae">
-        <Button class="btn btn-sim" onclick=sim()>Sim</Button> 
+        <Button class="btn btn-sim" onclick=sim()>Sim</Button>
         <button class="btn btn-sair" onclick=nao()>Não</button>
         </div>
     </div>
-  </div> 
+  </div>
 
-<script src="../sair.js"></script>
- <script src="home.js"></script>
+
+
+<script src="/FrontEnd%20Interno/sair.js"></script>
+<script type="module" src="/FrontEnd%20Interno/app.js"></script>
 </body>
 </html>

@@ -52,9 +52,9 @@ export const uploadComprovante = multer({
       !tiposPermitidos.has(file.mimetype) ||
       !extensoesPermitidas.has(extensao)
     ) {
-      return callback(
-        new Error("Envie somente arquivos PDF, JPG, JPEG ou PNG.")
-      );
+      const erro = new Error("Envie somente arquivos PDF, JPG, JPEG ou PNG.");
+      erro.status = 400;
+      return callback(erro);
     }
 
     callback(null, true);

@@ -1,6 +1,7 @@
 
 import { conexaoModel } from "../models/conexaoModel.js";
-import { usuarioModel } from "../models/usuarioModel.js";
+import { prisma } from "../config/prisma.js";
+import { visivelPara } from "../utils/perfil.js";
 
 function criarErro(mensagem, status = 400) {
   const erro = new Error(mensagem);
@@ -11,7 +12,7 @@ function criarErro(mensagem, status = 400) {
 export const conexaoService = {
   async solicitarConexao(solicitanteId, destinatarioId) {
     // Verifica se o ID recebido é válido.
-    if (!Number.isSafeInteger(destinatarioId) || destinatarioId <= 0) {
+    if (!Number.isSafeInteger(destinatarioId) || destinatarioId <= 0 || destinatarioId > 2147483647) {
       throw criarErro("ID do usuário destinatário inválido.");
     }
 
@@ -21,19 +22,13 @@ export const conexaoService = {
     }
 
     // Verifica se o destinatário existe.
-    const destinatario = await usuarioModel.buscarPorId(destinatarioId);
+    const destinatario = await prisma.usuario.findFirst({
+      where: { AND: [{ id: destinatarioId }, visivelPara(solicitanteId)] },
+      select: { id: true },
+    });
 
     if (!destinatario) {
       throw criarErro("Usuário não encontrado.", 404);
-    }
-
-    // Verifica se o destinatário já foi aprovado.
-    const dadosSituacao = await usuarioModel.buscarSituacaoPorId(
-      destinatarioId
-    );
-
-    if (!dadosSituacao || dadosSituacao.situacao !== "APROVADO") {
-      throw criarErro("Este usuário ainda não está aprovado.", 403);
     }
 
     // Verifica se já existe uma solicitação ou conexão entre os usuários.
@@ -54,10 +49,11 @@ export const conexaoService = {
         throw criarErro("Vocês já estão conectados.", 409);
       }
 
-      throw criarErro(
-        "Já existe uma solicitação anterior entre vocês. Não é possível enviar outra.",
-        409
-      );
+      const reaberta = await conexaoModel.reabrir(conexaoExistente.id, solicitanteId, destinatarioId);
+      if (!reaberta) {
+        throw criarErro("Esta solicitação já foi alterada. Atualize a lista.", 409);
+      }
+      return reaberta;
     }
 
     // Cria a solicitação.
@@ -78,7 +74,7 @@ export const conexaoService = {
 
   async responderSolicitacao(conexaoId, usuarioId, decisao) {
     // Valida o ID da solicitação.
-    if (!Number.isSafeInteger(conexaoId) || conexaoId <= 0) {
+    if (!Number.isSafeInteger(conexaoId) || conexaoId <= 0 || conexaoId > 2147483647) {
       throw criarErro("ID da solicitação inválido.");
     }
 
@@ -100,7 +96,21 @@ export const conexaoService = {
       );
     }
 
-    // Atualiza o status da solicitação.
-    return conexaoModel.atualizarStatus(conexaoId, decisao);
+    // O banco também verifica o estado para impedir respostas simultâneas.
+    const resultado = await conexaoModel.atualizarStatus(conexaoId, usuarioId, decisao);
+    if (!resultado.count) {
+      throw criarErro("Esta solicitação já foi respondida ou removida.", 409);
+    }
+    return { id: conexaoId, status: decisao };
+  },
+
+  async remover(conexaoId, usuarioId) {
+    if (!Number.isInteger(conexaoId) || conexaoId <= 0 || conexaoId > 2147483647) {
+      throw criarErro("ID da conexão inválido.");
+    }
+    const resultado = await conexaoModel.remover(conexaoId, usuarioId);
+    if (!resultado.count) {
+      throw criarErro("Conexão não encontrada ou ação não permitida.", 404);
+    }
   },
 };

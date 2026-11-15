@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-sessao="carregando">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +11,10 @@
     <link rel="stylesheet" href="mensagens.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/FrontEnd%20Interno/app.css">
 </head>
 
-<body> 
+<body data-pagina="mensagens">
     <div class="layout">
 
         <!-- SIDEBAR -->
@@ -22,13 +23,7 @@
                 <img src="../Img/nexusRetoNav.png" alt="">
             </div>
 
-            <div class="perfil-sidebar">
-                <img src="../Img/download 3.svg">
-                <div class="text-white">
-                    <h5>Mariana Costa</h5>
-                    <p>Técnica em Mecânica</p>
-                </div>
-            </div>
+            <div class="perfil-sidebar"><img data-usuario-foto alt="" hidden><div class="text-white"><h5 data-usuario-nome></h5><p data-usuario-cargo></p></div></div>
 
             <nav class="menu">
                 <a href="../home/home.html">
@@ -84,7 +79,7 @@
         <div class="content">
 
             <!-- MENSAGENS -->
-            <main class="mensagens-container">
+            <p id="aviso-app" class="aviso-app" role="alert" hidden></p><main class="mensagens-container">
 
                 <!-- LISTA DE CONVERSAS -->
                 <section class="lista-conversas" id="listaConversas">
@@ -93,88 +88,42 @@
                         <h2>Mensagens</h2>
 
                         <button id="btn-novo-chat">
-                            <i class="fa-solid fa-plus"></i>    
+                            <i class="fa-solid fa-plus"></i>
                         </button>
                     </div>
 
-                    <div class="buscar-usuarios" id="buscarUsuarios">
+                    <div class="buscar-usuarios" id="buscarUsuarios" hidden>
 
-                        <input type="text" placeholder="Pesquisar usuário..." id="pesquisaUsuario">
+                        <input type="text" placeholder="Pesquisar usuário..." id="pesquisaUsuario"><div id="pessoas-chat"></div>
 
-                        <div class="usuario-item">João Silva</div>
-                        <div class="usuario-item">Ana Costa</div>
-                        <div class="usuario-item">Carlos Lima</div>
-                        <div class="usuario-item">Mariana Costa</div>
-                    </div>
 
-                    <div id="listaChats">
 
-                        <div class="contato ativo">
-                            <img src="../Img/download 3.svg">
-                            <div>
-                                <h4>João Silva</h4>
-                                <p>Olá, tudo bem?</p>
-                            </div>
-                        </div>
 
-                        <div class="contato">
-                            <img src="../Img/download 3.svg">
-                            <div>
-                                <h4>Ana Souza</h4>
-                                <p>Projeto enviado!</p>
-                            </div>
-                        </div>
-
-                        <div class="contato">
-                            <img src="../Img/download 3.svg">
-                            <div>
-                                <h4>Carlos Lima</h4>
-                                <p>Vamos conversar?</p>
-                            </div>
-                        </div>
 
                     </div>
+
+                    <div id="listaChats"><p>Nenhuma conversa ainda.</p></div>
                 </section>
 
                 <!-- CHAT -->
                 <section class="chat-area">
 
-                    <div class="chat-header">
-                        <img src="../Img/download 3.svg">
-                        <div>
-                            <h3>João Silva</h3>
-                            <span>Online</span>
-                        </div>
-                    </div>
+                    <div class="chat-header" id="chat-cabecalho"><img id="foto-chat" alt="" hidden><div><h3>Selecione uma conversa</h3><span></span></div></div>
 
-                    <div class="chat-mensagens">
+                    <button id="mensagens-anteriores" hidden>Carregar anteriores</button><div class="chat-mensagens" id="chat-mensagens"></div>
 
-                        <div class="mensagem recebida">
-                            Olá Arthur!
-                        </div>
-
-                        <div class="mensagem enviada">
-                            Oi João, tudo certo?
-                        </div>
-
-                        <div class="mensagem recebida">
-                            Tudo sim! Como está o projeto?
-                        </div>
-
-                    </div>
-
-                    <div class="chat-input">
+                    <form class="chat-input" id="enviar-mensagem">
 
                         <input
-                            type="text"
+                            type="text" name="texto" maxlength="2000" disabled
                             placeholder="Digite sua mensagem..."
                         >
 
-                        <button>
+                        <button disabled aria-label="Enviar mensagem">
                             <i class="fa-solid fa-paper-plane"></i>
                         </button>
 
-                    </div>
+                    </form>
 
                 </section>
 
@@ -190,13 +139,15 @@
         <p>Certeza que você quer <span>sair?</span> </p>
 
         <div class="sae">
-        <Button class="btn btn-sim" onclick=sim()>Sim</Button> 
+        <Button class="btn btn-sim" onclick=sim()>Sim</Button>
         <button class="btn btn-sair" onclick=nao()>Não</button>
         </div>
     </div>
-  </div> 
+  </div>
 
-    <script src="mensagens.js"></script>
-    <script src="../sair.js"></script>
+
+
+<script src="/FrontEnd%20Interno/sair.js"></script>
+<script type="module" src="/FrontEnd%20Interno/app.js"></script>
 </body>
 </html>

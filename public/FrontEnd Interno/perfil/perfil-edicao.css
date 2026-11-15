@@ -1,0 +1,14 @@
+/* Edição compacta; a página e a paleta originais permanecem. */
+#overlayEditar .modalEditar{width:760px}
+#overlayEditar .modalBody{padding:24px;gap:28px}
+#overlayEditar .ladoEsquerdo{width:140px;flex-shrink:0;gap:16px}
+#overlayEditar .btnAlterar,#overlayEditar .editar-avatar{width:112px;height:112px;font-size:36px}
+#overlayEditar .ladoEsquerdo h4{font-size:15px;text-align:center}
+#overlayEditar .ladoDireito form{gap:12px}
+#overlayEditar .ladoDireito textarea{min-height:85px;resize:vertical}
+#mais-dados-perfil summary{cursor:pointer;color:#b49ce6;font-size:14px;padding:8px 0}
+#mais-dados-perfil small{font-size:12px;color:#9a9a9a}
+.perfil-opcionais{display:flex;flex-direction:column;gap:12px;padding-top:12px}
+#erro-perfil{color:#ffb4c0;font-size:13px;margin:0;white-space:pre-wrap}
+#overlayEditar .acoesEditar{margin-top:8px;gap:10px}
+@media(max-width:600px){#overlayEditar .modalBody{flex-direction:column;gap:16px;padding:18px}#overlayEditar .ladoEsquerdo{width:100%}#overlayEditar .btnAlterar,#overlayEditar .editar-avatar{width:80px;height:80px;font-size:28px}#overlayEditar .modalHeader{padding:16px 18px}#overlayEditar .modalHeader h2{font-size:20px}#overlayEditar .acoesEditar button{flex:1;padding:10px}}

@@ -9,7 +9,7 @@
 
 */
 -- AlterTable
-ALTER TABLE `usuario` ADD COLUMN `comprovante` VARCHAR(255) NULL,
+ALTER TABLE `Usuario` ADD COLUMN `comprovante` VARCHAR(255) NULL,
     ADD COLUMN `dataNasc` DATETIME(3) NULL,
     ADD COLUMN `escolaridade` VARCHAR(100) NULL,
     ADD COLUMN `usuario` VARCHAR(50) NULL,

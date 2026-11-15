@@ -3,13 +3,12 @@ import "dotenv/config";
 import { PrismaClient } from "@prisma/client";
 import { PrismaMariaDb } from "@prisma/adapter-mariadb";
 
-const adapter = new PrismaMariaDb({
-  host: process.env.DATABASE_HOST,
-  port: Number(process.env.DATABASE_PORT || 3306),
-  user: process.env.DATABASE_USER,
-  password: process.env.DATABASE_PASSWORD,
-  database: process.env.DATABASE_NAME,
-});
+if (!process.env.DATABASE_URL) {
+  throw new Error("DATABASE_URL não foi configurada.");
+}
+
+// A API e as migrations sempre usam o mesmo banco.
+const adapter = new PrismaMariaDb(process.env.DATABASE_URL);
 
 export const prisma = new PrismaClient({
   adapter,

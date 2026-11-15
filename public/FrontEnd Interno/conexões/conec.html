@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-sessao="carregando">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus — Conexões</title> 
+    <title>Nexus — Conexões</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -11,9 +11,10 @@
     <link rel="stylesheet" href="conec.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+
+<link rel="stylesheet" href="/FrontEnd%20Interno/app.css">
 </head>
-<body>
+<body data-pagina="conexoes">
     <div class="layout">
 
         <!-- SIDEBAR -->
@@ -22,14 +23,8 @@
             <img src="../Img/nexusRetoNav.png" alt="">
 
             </div>
-            
-            <div class="perfil-sidebar">
-                <img src="../Img/download 3.svg">
-                <div class="text-white">
-                    <h5>Mariana Costa</h5>
-                    <p>Técnica em Mecânica</p>
-                </div>
-            </div>
+
+            <div class="perfil-sidebar"><img data-usuario-foto alt="" hidden><div class="text-white"><h5 data-usuario-nome></h5><p data-usuario-cargo></p></div></div>
             <nav class="menu">
                 <a href="../home/home.html">
                     <i class="fa-solid fa-house"></i><span>Início</span>
@@ -53,7 +48,7 @@
                     <i class="fa-solid fa-user"></i><span>Perfil</span>
                 </a>
             </nav>
-            
+
             <div class="bottom-menu">
                 <a href="../config/config.html">
                     <i class="fa-solid fa-gear"></i><span>Configurações</span>
@@ -78,13 +73,13 @@
                     </a>
 
                     <a class="user" href="../perfil/perfil.html">
-                        <span>Olá, Mariana!</span>
+                        <span data-saudacao></span>
                     </a>
                 </div>
-            
+
             </header>
 
-            <main class="main-content">
+            <p id="aviso-app" class="aviso-app" role="alert" hidden></p><main class="main-content">
 
                 <div class="page-header">
                     <h1>Minhas Conexões</h1>
@@ -93,15 +88,13 @@
 
                 <!-- ABAS -->
                 <div class="abas">
-                    <button class="aba" onclick="trocarAba(this,'todos')">Todos <span class="badge-count">12</span></button>
-                    <button class="aba active" onclick="trocarAba(this,'solicitacoes')">Solicitações <span class="badge-count">2</span></button>
+                    <button class="aba" onclick="trocarAba(this,'todos')">Todos <span class="badge-count">0</span></button>
+                    <button class="aba active" onclick="trocarAba(this,'solicitacoes')">Solicitações <span class="badge-count">0</span></button>
                     <button class="aba" onclick="trocarAba(this,'enviados')">Enviados</button>
                 </div>
 
                 <!-- CONTEÚDO DAS ABAS -->
-                <div class="conexoes-lista" id="lista-conexoes">
-                    <!-- preenchido pelo JS ao carregar -->
-                </div>
+                <div class="conexoes-lista" id="lista-conexoes"><p>Nenhuma conexão ainda.</p></div>
 
             </main>
         </div>
@@ -113,13 +106,15 @@
             <p>Certeza que você quer <span>sair?</span> </p>
 
             <div class="sae">
-            <Button class="btn btn-sim" onclick=sim()>Sim</Button> 
+            <Button class="btn btn-sim" onclick=sim()>Sim</Button>
             <button class="btn btn-sair" onclick=nao()>Não</button>
             </div>
         </div>
-    </div> 
-        
-        <script src="conec.js"></script>
-        <script src="../sair.js"></script>
+    </div>
+
+
+
+<script src="/FrontEnd%20Interno/sair.js"></script>
+<script type="module" src="/FrontEnd%20Interno/app.js"></script>
 </body>
 </html>

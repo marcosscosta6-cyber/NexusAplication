@@ -22,11 +22,35 @@ export const conexaoModel = {
 
   // Cria uma solicitação de conexão.
   criar(solicitanteId, destinatarioId) {
-    return prisma.conexao.create({
+    return prisma.$transaction(async (tx) => {
+      const conexao = await tx.conexao.create({
       data: {
         solicitanteId,
         destinatarioId,
+        parMenorId: Math.min(solicitanteId, destinatarioId),
+        parMaiorId: Math.max(solicitanteId, destinatarioId),
       },
+      });
+      await tx.notificacao.create({ data: { usuarioId: destinatarioId, atorId: solicitanteId, tipo: "SOLICITACAO" } });
+      return conexao;
+    });
+  },
+
+  // Reabre uma solicitação recusada de forma atômica.
+  reabrir(id, solicitanteId, destinatarioId) {
+    return prisma.$transaction(async (tx) => {
+      const resultado = await tx.conexao.updateMany({
+        where: { id, status: "RECUSADA" },
+        data: {
+          solicitanteId,
+          destinatarioId,
+          status: "PENDENTE",
+          dataCriacao: new Date(),
+        },
+      });
+      if (!resultado.count) return null;
+      await tx.notificacao.create({ data: { usuarioId: destinatarioId, atorId: solicitanteId, tipo: "SOLICITACAO" } });
+      return tx.conexao.findUnique({ where: { id } });
     });
   },
 
@@ -92,13 +116,35 @@ export const conexaoModel = {
   },
 
   // Atualiza o status de uma solicitação.
-  atualizarStatus(conexaoId, status) {
-    return prisma.conexao.update({
+  atualizarStatus(conexaoId, usuarioId, status) {
+    return prisma.$transaction(async (tx) => {
+      const conexao = await tx.conexao.findFirst({ where: { id: conexaoId, destinatarioId: usuarioId, status: "PENDENTE" } });
+      if (!conexao) return { count: 0 };
+      const resultado = await tx.conexao.updateMany({
       where: {
         id: conexaoId,
+        destinatarioId: usuarioId,
+        status: "PENDENTE",
       },
       data: {
         status,
+      },
+      });
+      if (resultado.count && status === "ACEITA") {
+        await tx.notificacao.create({ data: { usuarioId: conexao.solicitanteId, atorId: usuarioId, tipo: "CONEXAO_ACEITA" } });
+      }
+      return resultado;
+    });
+  },
+
+  remover(conexaoId, usuarioId) {
+    return prisma.conexao.deleteMany({
+      where: {
+        id: conexaoId,
+        OR: [
+          { solicitanteId: usuarioId, status: "PENDENTE" },
+          { status: "ACEITA", OR: [{ solicitanteId: usuarioId }, { destinatarioId: usuarioId }] },
+        ],
       },
     });
   },

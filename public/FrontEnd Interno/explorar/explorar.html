@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-sessao="carregando">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,25 +11,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Belanosima:wght@400;600;700&display=swap" rel="stylesheet">
     <title>Nexus — Explorar</title>
     <style>
-        
+
     </style>
+<link rel="stylesheet" href="/FrontEnd%20Interno/app.css">
 </head>
-<body>
+<body data-pagina="explorar">
 <div class="layout">
 
     <aside class="sidebar">
         <div class="logo">
             <img src="../Img/nexusRetoNav.png" alt="">
         </div>
-        
-        <div class="perfil-sidebar">
-            <img src="../Img/download 3.svg">
-            <div class="text-white">
-                <h5>Mariana Costa</h5>
-                <p>Técnica em Mecânica</p>
-            </div>
-        </div>
-        
+
+        <div class="perfil-sidebar"><img data-usuario-foto alt="" hidden><div class="text-white"><h5 data-usuario-nome></h5><p data-usuario-cargo></p></div></div>
+
         <nav class="menu">
             <a href="../home/home.html">
                 <i class="fa-solid fa-house"></i><span>Início</span>
@@ -53,7 +48,7 @@
                 <i class="fa-solid fa-user"></i><span>Perfil</span>
             </a>
         </nav>
-        
+
         <div class="bottom-menu">
             <a href="../config/config.html">
                 <i class="fa-solid fa-gear"></i><span>Configurações</span>
@@ -77,14 +72,14 @@
                     <i class="fa-solid fa-bell"></i>
                 </a>
                 <a class="user" href="../perfil/perfil.html">
-                    <span>Olá, Mariana!</span>
+                    <span data-saudacao></span>
                 </a>
             </div>
         </header>
 
 
         <!--CONTEÚDO PRINCIPAL-->
-        <main class="main-content">
+        <p id="aviso-app" class="aviso-app" role="alert" hidden></p><main class="main-content">
 
             <div class="page-title">
                 <h1>Explorar</h1>
@@ -143,148 +138,21 @@
                 </div>
             </div>
 
-            <p class="resultado-info">Mostrando <span>24 talentos</span> encontrados</p>
+            <p class="resultado-info">Mostrando <span>0 talentos</span> encontrados</p>
 
-            <div class="talentos-grid">
-
-                <div class="talento-card">
-                    <div class="avatar-placeholder">MC</div>
-                    <p class="talento-nome">Marcos Costa</p>
-                    <p class="talento-cargo">Engenheiro Mecânico</p>
-                    <div class="talento-local"><i class="fa-solid fa-location-dot"></i>Curitiba, PR</div>
-                    <div class="talento-tags">
-                        <span class="tag">SolidWorks</span>
-                        <span class="tag">AutoCAD</span>
-                        <span class="tag">CNC</span>
-                    </div>
-                    <div class="disponivel"><span class="disponivel-dot"></span>Disponível</div>
+            <div class="talentos-grid"><p class="empty-state">Nenhuma pessoa encontrada.</p></div>
+        <template id="talento-template"><div class="talento-card">
+                    <div class="avatar-placeholder"></div>
+                    <p class="talento-nome"></p>
+                    <p class="talento-cargo"></p>
+                    <div class="talento-local"></div>
+                    <div class="talento-tags"></div>
+                    <div class="disponivel"><span class="disponivel-dot"></span></div>
                     <div class="card-btns">
                         <button class="btn-perfil">Perfil</button>
                         <button class="btn-conectar">Conectar</button>
                     </div>
-                </div>
-
-                <div class="talento-card">
-                    <div class="avatar-placeholder">JL</div>
-                    <p class="talento-nome">Juliana Lima</p>
-                    <p class="talento-cargo">Desenvolvedora Front-End</p>
-                    <div class="talento-local"><i class="fa-solid fa-location-dot"></i>São Paulo, SP</div>
-                    <div class="talento-tags">
-                        <span class="tag">React</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">Figma</span>
-                    </div>
-                    <div class="disponivel"><span class="disponivel-dot"></span>Disponível</div>
-                    <div class="card-btns">
-                        <button class="btn-perfil">Perfil</button>
-                        <button class="btn-conectar">Conectar</button>
-                    </div>
-                </div>
-
-                <div class="talento-card">
-                    <div class="avatar-placeholder">RC</div>
-                    <p class="talento-nome">Rafael Cruz</p>
-                    <p class="talento-cargo">Dev Full Stack</p>
-                    <div class="talento-local"><i class="fa-solid fa-location-dot"></i>Florianópolis, SC</div>
-                    <div class="talento-tags">
-                        <span class="tag">Node.js</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">Docker</span>
-                    </div>
-                    <div class="disponivel ocupado"><span class="disponivel-dot ocupado-dot"></span>Ocupado</div>
-                    <div class="card-btns">
-                        <button class="btn-perfil">Perfil</button>
-                        <button class="btn-conectar">Conectar</button>
-                    </div>
-                </div>
-
-                <div class="talento-card">
-                    <div class="avatar-placeholder">AS</div>
-                    <p class="talento-nome">Ana Souza</p>
-                    <p class="talento-cargo">Designer UX/UI</p>
-                    <div class="talento-local"><i class="fa-solid fa-location-dot"></i>Recife, PE</div>
-                    <div class="talento-tags">
-                        <span class="tag">Figma</span>
-                        <span class="tag">Prototype</span>
-                        <span class="tag">Ilustração</span>
-                    </div>
-                    <div class="disponivel"><span class="disponivel-dot"></span>Disponível</div>
-                    <div class="card-btns">
-                        <button class="btn-perfil">Perfil</button>
-                        <button class="btn-conectar">Conectar</button>
-                    </div>
-                </div>
-
-                <div class="talento-card">
-                    <div class="avatar-placeholder">LM</div>
-                    <p class="talento-nome">Lucas Moraes</p>
-                    <p class="talento-cargo">Técnico em Elétrica</p>
-                    <div class="talento-local"><i class="fa-solid fa-location-dot"></i>Belo Horizonte, MG</div>
-                    <div class="talento-tags">
-                        <span class="tag">Arduino</span>
-                        <span class="tag">IoT</span>
-                        <span class="tag">PLC</span>
-                    </div>
-                    <div class="disponivel"><span class="disponivel-dot"></span>Disponível</div>
-                    <div class="card-btns">
-                        <button class="btn-perfil">Perfil</button>
-                        <button class="btn-conectar">Conectar</button>
-                    </div>
-                </div>
-
-                <div class="talento-card">
-                    <div class="avatar-placeholder">PF</div>
-                    <p class="talento-nome">Pedro Ferreira</p>
-                    <p class="talento-cargo">Dev Mobile</p>
-                    <div class="talento-local"><i class="fa-solid fa-location-dot"></i>Salvador, BA</div>
-                    <div class="talento-tags">
-                        <span class="tag">Flutter</span>
-                        <span class="tag">Dart</span>
-                        <span class="tag">Firebase</span>
-                    </div>
-                    <div class="disponivel ocupado"><span class="disponivel-dot ocupado-dot"></span>Ocupado</div>
-                    <div class="card-btns">
-                        <button class="btn-perfil">Perfil</button>
-                        <button class="btn-conectar">Conectar</button>
-                    </div>
-                </div>
-
-                <div class="talento-card">
-                    <div class="avatar-placeholder">BN</div>
-                    <p class="talento-nome">Beatriz Nunes</p>
-                    <p class="talento-cargo">Analista de Dados</p>
-                    <div class="talento-local"><i class="fa-solid fa-location-dot"></i>Porto Alegre, RS</div>
-                    <div class="talento-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">Power BI</span>
-                    </div>
-                    <div class="disponivel"><span class="disponivel-dot"></span>Disponível</div>
-                    <div class="card-btns">
-                        <button class="btn-perfil">Perfil</button>
-                        <button class="btn-conectar">Conectar</button>
-                    </div>
-                </div>
-
-                <div class="talento-card">
-                    <div class="avatar-placeholder">GO</div>
-                    <p class="talento-nome">Gabriel Oliveira</p>
-                    <p class="talento-cargo">Engenheiro de Produção</p>
-                    <div class="talento-local"><i class="fa-solid fa-location-dot"></i>Campinas, SP</div>
-                    <div class="talento-tags">
-                        <span class="tag">Lean</span>
-                        <span class="tag">Six Sigma</span>
-                        <span class="tag">ERP</span>
-                    </div>
-                    <div class="disponivel"><span class="disponivel-dot"></span>Disponível</div>
-                    <div class="card-btns">
-                        <button class="btn-perfil">Perfil</button>
-                        <button class="btn-conectar">Conectar</button>
-                    </div>
-                </div>
-
-            </div>
-        </main>
+                </div></template><nav id="paginacao" aria-label="Páginas" hidden></nav></main>
     </div>
 </div>
 
@@ -294,14 +162,16 @@
         <p>Certeza que você quer <span>sair?</span> </p>
 
         <div class="sae">
-        <Button class="btn btn-sim" onclick=sim()>Sim</Button> 
+        <Button class="btn btn-sim" onclick=sim()>Sim</Button>
         <button class="btn btn-sair" onclick=nao()>Não</button>
         </div>
     </div>
-  </div> 
+  </div>
 
-  <script src="../sair.js"></script>
-  <script src="explorar.js"></script>
 
+
+
+<script src="/FrontEnd%20Interno/sair.js"></script>
+<script type="module" src="/FrontEnd%20Interno/app.js"></script>
 </body>
 </html>

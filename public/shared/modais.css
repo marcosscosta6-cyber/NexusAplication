@@ -1,0 +1,19 @@
+/* Componentes adicionais usam a paleta, bordas e botões do modal de perfil existente. */
+.nexus-modal{padding:0;width:min(580px,92vw);max-height:90vh;overflow:auto;margin:auto;background:#050816;color:white;border:1px solid #7c3aed;border-radius:18px;font-family:"Be Vietnam Pro",sans-serif;box-shadow:0 0 35px rgba(124,58,237,.25)}
+.nexus-modal::backdrop{background:rgba(0,0,0,.55);backdrop-filter:blur(8px)}
+.nexus-modal-cabecalho{display:flex;align-items:center;justify-content:space-between;padding:22px 28px;border-bottom:1px solid rgba(255,255,255,.08)}
+.nexus-modal-cabecalho h2{font-size:22px;margin:0;color:white}
+.nexus-modal-cabecalho button{width:36px;height:36px;border:0;border-radius:50%;background:#23263a;color:white;font-size:24px;cursor:pointer}
+.nexus-modal-campos{padding:24px 28px;display:flex;flex-direction:column;gap:16px}
+.nexus-modal label{display:flex;flex-direction:column;gap:8px;font-size:14px;color:white}
+.nexus-modal input,.nexus-modal textarea,.nexus-modal select{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #31344d;background:#20243a;color:white;font:inherit;box-sizing:border-box}
+.nexus-modal textarea{min-height:120px;resize:vertical}
+.nexus-modal :is(input,textarea,select):focus{outline:none;border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,.2)}
+.nexus-modal small,.nexus-modal p{color:#9a9a9a;font-size:13px;margin:0}
+.nexus-modal-acoes{display:flex;gap:12px;justify-content:flex-end;padding:0 28px 24px}
+.nexus-modal-acoes button{padding:11px 20px;border-radius:12px;cursor:pointer;font:inherit;font-size:14px}
+.nexus-cancelar{background:transparent;border:1px solid #444;color:white}
+.nexus-salvar{background:#7c3aed;border:0;color:white;font-weight:600}
+.nexus-modal button:disabled{opacity:.6;cursor:wait}
+.nexus-modal .nexus-modal-erro{margin:0 28px 18px;color:#ffb4c0;white-space:pre-wrap}
+.nexus-modal [aria-invalid="true"]{border-color:#ffb4c0}

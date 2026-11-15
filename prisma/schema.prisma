@@ -1,4 +1,3 @@
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -14,41 +13,159 @@ enum StatusConexao {
 }
 
 model Usuario {
-  id           Int      @id @default(autoincrement())
-  nome         String   @db.VarChar(120)
-  usuario      String?  @unique @db.VarChar(50)
-  email        String   @unique @db.VarChar(191)
-  senha        String   @db.VarChar(255)
+  id      Int     @id @default(autoincrement())
+  nome    String  @db.VarChar(120)
+  usuario String? @unique @db.VarChar(50)
+  email   String  @unique @db.VarChar(191)
+  senha   String  @db.VarChar(255)
 
   dataNasc     DateTime?
-  situacao     String   @default("PENDENTE") @db.VarChar(20)
-  escolaridade String?  @db.VarChar(100)
-  comprovante  String?  @db.VarChar(255)
+  situacao     String    @default("PENDENTE") @db.VarChar(20)
+  escolaridade String?   @db.VarChar(100)
+  comprovante  String?   @db.VarChar(255)
 
-  curso        String?  @db.VarChar(100)
-  area         String?  @db.VarChar(100)
-  funcao       String?  @db.VarChar(100)
-  biografia    String?  @db.Text
-  fotoPerfil   String?  @db.VarChar(255)
+  curso      String? @db.VarChar(100)
+  area       String? @db.VarChar(100)
+  funcao     String? @db.VarChar(100)
+  biografia  String? @db.Text
+  fotoPerfil String? @db.VarChar(255)
 
-  dataCadastro DateTime @default(now())
+  localizacao        String?               @db.VarChar(2)
+  nivel              String?               @db.VarChar(20)
+  disponibilidade    String?               @db.VarChar(20)
+  perfilPublico      Boolean               @default(true)
+  mensagensPublicas  Boolean               @default(false)
+  tema               String                @default("escuro") @db.VarChar(10)
+  fonteAmpliada      Boolean               @default(false)
+  habilidades        Habilidade[]
+  mensagensEnviadas  Mensagem[]            @relation("MensagensEnviadas")
+  mensagensRecebidas Mensagem[]            @relation("MensagensRecebidas")
+  notificacoes       Notificacao[]         @relation("NotificacoesRecebidas")
+  atividades         Notificacao[]         @relation("AtorNotificacao")
+  visitasRecebidas   VisitaPerfil[]        @relation("PerfilVisitado")
+  visitasFeitas      VisitaPerfil[]        @relation("VisitantePerfil")
+  dataCadastro       DateTime              @default(now())
+  projetos           Projeto[]
+  participacoes      ParticipacaoProjeto[]
 
-  conexoesEnviadas   Conexao[] @relation("SolicitanteConexoes")
-  conexoesRecebidas  Conexao[] @relation("DestinatarioConexoes")
+  conexoesEnviadas  Conexao[] @relation("SolicitanteConexoes")
+  conexoesRecebidas Conexao[] @relation("DestinatarioConexoes")
 }
 
 model Conexao {
-  id             Int           @id @default(autoincrement())
-  solicitanteId  Int
-  destinatarioId Int
-  status         StatusConexao @default(PENDENTE)
-  dataCriacao    DateTime      @default(now())
-  dataAtualizacao DateTime     @updatedAt
+  id              Int           @id @default(autoincrement())
+  solicitanteId   Int
+  destinatarioId  Int
+  parMenorId      Int
+  parMaiorId      Int
+  status          StatusConexao @default(PENDENTE)
+  dataCriacao     DateTime      @default(now())
+  dataAtualizacao DateTime      @updatedAt
 
   solicitante  Usuario @relation("SolicitanteConexoes", fields: [solicitanteId], references: [id], onDelete: Cascade)
   destinatario Usuario @relation("DestinatarioConexoes", fields: [destinatarioId], references: [id], onDelete: Cascade)
 
+  @@unique([parMenorId, parMaiorId])
   @@index([solicitanteId, status])
   @@index([destinatarioId, status])
   @@map("conexoes")
+}
+
+model Habilidade {
+  id        Int     @id @default(autoincrement())
+  usuarioId Int
+  nome      String  @db.VarChar(30)
+  usuario   Usuario @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+
+  @@unique([usuarioId, nome])
+  @@map("habilidades")
+}
+
+model Mensagem {
+  id             Int       @id @default(autoincrement())
+  remetenteId    Int
+  destinatarioId Int
+  texto          String    @db.Text
+  dataCriacao    DateTime  @default(now())
+  lidaEm         DateTime?
+  remetente      Usuario   @relation("MensagensEnviadas", fields: [remetenteId], references: [id], onDelete: Cascade)
+  destinatario   Usuario   @relation("MensagensRecebidas", fields: [destinatarioId], references: [id], onDelete: Cascade)
+
+  @@index([remetenteId, destinatarioId, id])
+  @@index([destinatarioId, lidaEm, id])
+  @@map("mensagens")
+}
+
+model Notificacao {
+  projetoId   Int?
+  projeto     Projeto?  @relation(fields: [projetoId], references: [id], onDelete: Cascade)
+  id          Int       @id @default(autoincrement())
+  usuarioId   Int
+  atorId      Int
+  tipo        String    @db.VarChar(30)
+  dataCriacao DateTime  @default(now())
+  lidaEm      DateTime?
+  usuario     Usuario   @relation("NotificacoesRecebidas", fields: [usuarioId], references: [id], onDelete: Cascade)
+  ator        Usuario   @relation("AtorNotificacao", fields: [atorId], references: [id], onDelete: Cascade)
+
+  @@index([usuarioId, lidaEm, id])
+  @@map("notificacoes")
+}
+
+model VisitaPerfil {
+  id              Int      @id @default(autoincrement())
+  usuarioId       Int
+  visitanteId     Int
+  dataAtualizacao DateTime @updatedAt
+  usuario         Usuario  @relation("PerfilVisitado", fields: [usuarioId], references: [id], onDelete: Cascade)
+  visitante       Usuario  @relation("VisitantePerfil", fields: [visitanteId], references: [id], onDelete: Cascade)
+
+  @@unique([usuarioId, visitanteId])
+  @@map("visitas_perfil")
+}
+
+model Projeto {
+  id              Int                   @id @default(autoincrement())
+  proprietarioId  Int
+  nome            String                @db.VarChar(120)
+  descricao       String                @db.Text
+  publico         Boolean               @default(true)
+  status          String                @default("ATIVO") @db.VarChar(20)
+  tags            Json
+  dataCriacao     DateTime              @default(now())
+  dataAtualizacao DateTime              @updatedAt
+  proprietario    Usuario               @relation(fields: [proprietarioId], references: [id], onDelete: Cascade)
+  participantes   ParticipacaoProjeto[]
+  etapas          EtapaProjeto[]
+  notificacoes    Notificacao[]
+
+  @@index([proprietarioId, status])
+  @@index([publico, dataAtualizacao])
+  @@map("projetos")
+}
+
+model ParticipacaoProjeto {
+  id          Int      @id @default(autoincrement())
+  projetoId   Int
+  usuarioId   Int
+  aceita      Boolean  @default(false)
+  dataCriacao DateTime @default(now())
+  projeto     Projeto  @relation(fields: [projetoId], references: [id], onDelete: Cascade)
+  usuario     Usuario  @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+
+  @@unique([projetoId, usuarioId])
+  @@index([usuarioId, aceita])
+  @@map("participacoes_projeto")
+}
+
+model EtapaProjeto {
+  id          Int      @id @default(autoincrement())
+  projetoId   Int
+  titulo      String   @db.VarChar(160)
+  concluida   Boolean  @default(false)
+  dataCriacao DateTime @default(now())
+  projeto     Projeto  @relation(fields: [projetoId], references: [id], onDelete: Cascade)
+
+  @@index([projetoId, id])
+  @@map("etapas_projeto")
 }

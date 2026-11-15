@@ -2,14 +2,28 @@
 import { conexaoService } from "../services/conexaoService.js";
 
 function responderErro(res, erro) {
-  const status = erro.status || 500;
+  const mensagensPrisma = {
+    P2002: "Já existe uma solicitação ou conexão entre vocês.",
+    P2003: "Usuário não encontrado.",
+  };
+  const status = erro.code === "P2003" ? 404
+    : mensagensPrisma[erro.code] ? 409 : erro.status || 500;
 
   return res.status(status).json({
     mensagem:
       status < 500
-        ? erro.message
+        ? mensagensPrisma[erro.code] || erro.message
         : "Erro interno do servidor.",
   });
+}
+
+export async function removerConexaoController(req, res) {
+  try {
+    await conexaoService.remover(Number(req.params.id), req.usuario.id);
+    return res.status(204).end();
+  } catch (erro) {
+    return responderErro(res, erro);
+  }
 }
 
 export async function solicitarConexaoController(req, res) {

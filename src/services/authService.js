@@ -15,19 +15,7 @@ export async function realizarLogin(identificador, senha) {
     throw erro;
   }
 
-  if (usuario.situacao !== "APROVADO") {
-    const mensagens = {
-      PENDENTE: "Seu cadastro ainda está aguardando aprovação.",
-      REJEITADO: "Seu cadastro não foi aprovado.",
-    };
-
-    const erro = new Error(
-      mensagens[usuario.situacao] || "Sua conta não está liberada."
-    );
-
-    erro.status = 403;
-    throw erro;
-  }
+  // A aprovação de comprovantes será implementada em uma próxima etapa.
 
   if (!process.env.JWT_SECRET) {
     throw new Error("JWT_SECRET não foi configurado no .env.");

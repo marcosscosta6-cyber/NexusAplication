@@ -9,6 +9,7 @@ import {
   listarEnviadasController,
   listarConexoesController,
   responderSolicitacaoController,
+  removerConexaoController,
 } from "../controllers/conexaoController.js";
 
 const router = Router();
@@ -30,5 +31,6 @@ router.get("/", listarConexoesController);
 
 // Aceitar ou recusar uma solicitação específica.
 router.patch("/:id/responder", responderSolicitacaoController);
+router.delete("/:id", removerConexaoController);
 
 export default router;

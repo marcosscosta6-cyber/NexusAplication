@@ -1,125 +1,43 @@
-const overlayEditar = document.getElementById("overlayEditar");
-const editar = document.getElementById("btnEditar");
-const fechar = document.getElementById("btnFechar");
-const cancelar = document.getElementById("btnCancelar");
-const salvar = document.getElementById("btnSalvar");
-
-editar.addEventListener("click", () => {
-    overlayEditar.style.display = "flex";
-    overlayEditar.classList.add("active");
-    document.body.style.overflow = "hidden";
-});
-
-function fecharEditar(){
-    overlayEditar.style.display = "none";
-    overlayEditar.classList.remove("active");
-    document.body.style.overflow = "auto";
-}
-
-cancelar.addEventListener("click", fecharEditar);
-fechar.addEventListener("click", fecharEditar);
-
-
-
-
-// ===============================
-// FOTO DE PERFIL
-// ===============================
-
-const inputFoto = document.getElementById("inputFotoPerfil");
-const previewFoto = document.getElementById("previewFoto");
-
-inputFoto.addEventListener("change", function(){
-
-    const arquivo = this.files[0];
-
-    if(!arquivo) return;
-
-    previewFoto.src = URL.createObjectURL(arquivo);
-
-});
-
-
-// ===============================
-// HABILIDADES
-// ===============================
-
-const inputSkill = document.getElementById("txtSkill");
-const btnHabilidade = document.getElementById("btnHabilidade");
-const listaSkills = document.getElementById("skills");
-
-let habilidades = [];
-
-
-btnHabilidade.addEventListener("click", function(e){
-
-    e.preventDefault();
-
-    adicionarHabilidade();
-
-});
-
-
-inputSkill.addEventListener("keydown", function(e){
-
-    if(e.key === "Enter"){
-
-        e.preventDefault();
-
-        adicionarHabilidade();
-
-    }
-
-});
-
-
-function adicionarHabilidade(){
-
-    let texto = inputSkill.value.trim();
-
-    if(texto === "") return;
-
-    if(texto.length > 30){
-
-        alert("A habilidade deve ter no máximo 30 caracteres.");
-
-        return;
-
-    }
-
-    const habilidadeLower = texto.toLowerCase();
-
-    if(habilidades.includes(habilidadeLower)){
-
-        alert("Essa habilidade já foi adicionada.");
-
-        return;
-
-    }
-
-    habilidades.push(habilidadeLower);
-
-    const skill = document.createElement("div");
-
-    skill.classList.add("skill");
-
-    skill.innerHTML = `
-        <span>${texto}</span>
-        <button type="button">&times;</button>
-    `;
-
-    skill.querySelector("button").addEventListener("click", () => {
-
-        habilidades = habilidades.filter(item => item !== habilidadeLower);
-
-        skill.remove();
-
-    });
-
-    listaSkills.appendChild(skill);
-
-    inputSkill.value = "";
-
-    inputSkill.focus();
-
+import {api,e,aviso,usuarioAtual,sessao,fotoSrc} from '/shared/ui.js';
+import {cursos,estados} from '/shared/catalogo.js';
+export async function iniciar(){
+ const proprio=document.body.dataset.pagina==='perfil',id=proprio?usuarioAtual.id:Number(new URLSearchParams(location.search).get('id'));
+ if(!id)throw new Error('Selecione uma pessoa em Explorar.');
+ const modal=document.getElementById('overlayEditar'),form=document.getElementById('form-perfil');let habilidades=[];
+ function imagem(el,u){el.textContent=u.nome.trim().split(/\s+/).slice(0,2).map(n=>n[0]).join('');el.style.backgroundImage='';if(u.fotoPerfil){el.textContent='';el.style.backgroundImage='url("'+fotoSrc(u)+'")';el.style.backgroundSize='cover';el.style.backgroundPosition='center';}}
+ async function carregar(){
+  const dados=await api('/usuarios/'+id),u=dados.usuario;
+  document.querySelector('.perfil-nome').textContent=u.nome;document.querySelector('.perfil-cargo').textContent=u.funcao||cursos[u.curso]||'';document.querySelector('.perfil-local span').textContent=estados[u.localizacao]||'';document.querySelector('.perfil-bio').textContent=u.biografia||'';
+  imagem(document.querySelector('.perfil-avatar'),u);
+  document.querySelectorAll('.stat h3').forEach((el,i)=>el.textContent=[dados.estatisticas.conexoes,dados.estatisticas.projetos||0,dados.estatisticas.visitas,u.habilidades.length][i]);
+  document.querySelector('.habilidades-wrap').innerHTML=u.habilidades.map(h=>'<span class="habilidade-tag">'+e(h.nome)+'</span>').join('')||'<p>Nenhuma habilidade informada.</p>';
+  const secaoProjetos=[...document.querySelectorAll('.secao')].find(secao=>secao.querySelector('.secao-titulo')?.textContent.trim()==='Projetos');
+  if(secaoProjetos){secaoProjetos.querySelectorAll('.projeto-item,p').forEach(el=>el.remove());const lista=document.createElement('div');lista.innerHTML=(dados.projetos||[]).map(p=>'<div class="projeto-item" role="link" tabindex="0" data-projeto="'+p.id+'"><div class="projeto-icone"><i class="fa-solid fa-folder"></i></div><div class="projeto-item-info"><h4>'+e(p.nome)+'</h4><p>'+e(p.tags.join(' · '))+'</p></div><span class="projeto-status-badge '+(p.status==='ATIVO'?'ativo':'pausado')+'">'+e({ATIVO:'Ativo',PAUSADO:'Pausado',CONCLUIDO:'Concluído'}[p.status])+'</span></div>').join('')||'<p>Nenhum projeto ainda.</p>';secaoProjetos.appendChild(lista);lista.addEventListener('click',ev=>{const card=ev.target.closest('[data-projeto]');if(card)location.href='../projetos/detalhe.html?id='+card.dataset.projeto;});lista.addEventListener('keydown',ev=>{if(ev.key==='Enter')ev.target.click();});}
+  if(proprio){const conexoes=(await api('/conexoes')).conexoes;document.querySelector('.conexoes-recentes').innerHTML=conexoes.slice(0,3).map(c=>{const p=c.solicitanteId===id?c.destinatario:c.solicitante;return '<div class="conexao-mini"><div class="conexao-mini-avatar">'+e(p.nome.split(/\s+/).slice(0,2).map(t=>t[0]).join(''))+'</div><div class="conexao-mini-info"><h4>'+e(p.nome)+'</h4><p>'+e(cursos[p.curso]||'')+'</p></div><button class="btn-msg-mini" data-mensagem="'+p.id+'">Mensagem</button></div>';}).join('')||'<p>Nenhuma conexão ainda.</p>';}
+  else{
+   const acoes=document.querySelector('.perfil-acoes');acoes.querySelectorAll('[data-conectar],[data-conversar]').forEach(el=>el.remove());
+   if(!['ACEITA','PENDENTE'].includes(dados.conexao?.status)){const b=document.createElement('button');b.className='btn-compartilhar';b.textContent='Conectar';b.dataset.conectar='';b.addEventListener('click',async()=>{b.disabled=true;try{await api('/conexoes',{method:'POST',body:{destinatarioId:id}});aviso('Solicitação enviada.','sucesso');await carregar();}catch(err){b.disabled=false;aviso(err.message);}});acoes.appendChild(b);}
+   if(dados.podeEnviar){const b=document.createElement('button');b.className='btn-compartilhar';b.dataset.conversar='';b.textContent='Mensagem';b.addEventListener('click',()=>location.href='../mensagens/mensagens.html?usuario='+id);acoes.appendChild(b);}
+   document.querySelector('.conexoes-recentes').textContent=dados.estatisticas.conexoes?dados.estatisticas.conexoes+' conexões.':'Nenhuma conexão ainda.';
+  }
+ }
+ document.querySelector('.conexoes-recentes').addEventListener('click',ev=>{const b=ev.target.closest('[data-mensagem]');if(b)location.href='../mensagens/mensagens.html?usuario='+b.dataset.mensagem;});
+ document.querySelector('.btn-compartilhar').addEventListener('click',async()=>{const link=location.origin+'/FrontEnd%20Interno/perfil/perfilUser.html?id='+id;try{await navigator.clipboard.writeText(link);aviso('Link copiado.','sucesso');}catch{aviso(link,'sucesso');}});
+ if(proprio){
+  let salvando=false;
+  function fechar(){if(salvando)return;document.getElementById('mais-dados-perfil').open=false;modal.style.display='none';modal.classList.remove('active');document.body.style.overflow='auto';document.getElementById('btnEditar').focus();}
+  function listarSkills(){document.getElementById('skills').innerHTML=habilidades.map((h,i)=>'<div class="skill"><span>'+e(h)+'</span><button type="button" data-remover="'+i+'">×</button></div>').join('');}
+  function abrir(){if(salvando)return;document.getElementById('mais-dados-perfil').open=new URLSearchParams(location.search).has('local');document.getElementById('erro-perfil').hidden=true;habilidades=usuarioAtual.habilidades.map(h=>h.nome);for(const campo of ['nome','curso','localizacao','biografia'])form.elements[campo].value=usuarioAtual[campo]||'';document.getElementById('inputFotoPerfil').value='';imagem(document.getElementById('previewFoto'),usuarioAtual);listarSkills();modal.style.display='flex';modal.classList.add('active');document.body.style.overflow='hidden';form.elements.nome.focus();}
+  document.getElementById('btnEditar').addEventListener('click',abrir);document.getElementById('btnFechar').addEventListener('click',fechar);document.getElementById('btnCancelar').addEventListener('click',fechar);
+  modal.addEventListener('click',ev=>{if(ev.target===modal)fechar();});
+  modal.addEventListener('keydown',ev=>{if(ev.key==='Escape'){ev.preventDefault();fechar();}if(ev.key==='Tab'){const focaveis=[...modal.querySelectorAll('button,input,select,textarea,summary')].filter(el=>!el.disabled&&el.getClientRects().length);const primeiro=focaveis[0],ultimo=focaveis.at(-1);if(ev.shiftKey&&document.activeElement===primeiro){ev.preventDefault();ultimo?.focus();}else if(!ev.shiftKey&&document.activeElement===ultimo){ev.preventDefault();primeiro?.focus();}}});
+  const input=document.getElementById('txtSkill');
+  function adicionar(){const valor=input.value.trim();if(!valor)return;if(habilidades.length>=30||valor.length>30||habilidades.some(h=>h.toLocaleLowerCase('pt-BR')===valor.toLocaleLowerCase('pt-BR'))){aviso('Use até 30 habilidades diferentes, com no máximo 30 caracteres cada.');return;}habilidades.push(valor);input.value='';listarSkills();}
+  document.getElementById('btnHabilidade').addEventListener('click',adicionar);input.addEventListener('keydown',ev=>{if(ev.key==='Enter'){ev.preventDefault();adicionar();}});document.getElementById('skills').addEventListener('click',ev=>{const b=ev.target.closest('[data-remover]');if(b){habilidades.splice(Number(b.dataset.remover),1);listarSkills();}});
+  const foto=document.getElementById('inputFotoPerfil');let preview;
+  foto.addEventListener('change',()=>{const arquivo=foto.files[0];if(!arquivo)return;if(arquivo.size>2*1024*1024||!['image/png','image/jpeg'].includes(arquivo.type)){aviso('Use uma foto PNG ou JPG de até 2 MB.');foto.value='';return;}if(preview)URL.revokeObjectURL(preview);preview=URL.createObjectURL(arquivo);const img=document.createElement('img');img.src=preview;img.alt='Prévia da foto';document.getElementById('previewFoto').replaceChildren(img);});
+  form.addEventListener('submit',async ev=>{ev.preventDefault();if(salvando)return;salvando=true;const b=document.getElementById('btnSalvar');b.disabled=true;try{const valores=Object.fromEntries(new FormData(form));valores.habilidades=habilidades;const resultado=await api('/usuarios/me',{method:'PATCH',body:valores});sessao(resultado.usuario);if(foto.files[0]){const dados=new FormData();dados.set('foto',foto.files[0]);const r=await api('/usuarios/me/foto',{method:'POST',body:dados});sessao({...usuarioAtual,fotoPerfil:r.fotoPerfil});}salvando=false;fechar();await carregar();aviso('Perfil atualizado.','sucesso');}catch(err){const erro=document.getElementById('erro-perfil');erro.textContent=err.campos?.map(c=>c.mensagem).join(' ')||err.message;erro.hidden=false;}finally{salvando=false;b.disabled=false;}});
+  if(new URLSearchParams(location.search).has('editar'))abrir();
+ }else await api('/usuarios/'+id+'/visita',{method:'POST'});
+ await carregar();
 }
