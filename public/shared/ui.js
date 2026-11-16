@@ -19,6 +19,8 @@ export function avatar(pessoa,classe='nx-avatar') {
 }
 export function sessao(usuario) {
  usuarioAtual=usuario;
+ document.querySelectorAll('[data-link-admin]').forEach(el=>el.remove());
+ if(usuario.admin){const menu=document.querySelector('.menu');if(menu){const link=document.createElement('a');link.dataset.linkAdmin='';link.href='/admin/index.html';link.innerHTML='<i class="fa-solid fa-shield-halved"></i><span>Administração</span>';menu.appendChild(link);}}
  document.documentElement.classList.toggle('texto-ampliado',!!usuario.fonteAmpliada);
  document.querySelectorAll('[data-usuario-nome]').forEach(el=>el.textContent=usuario.nome);
  document.querySelectorAll('[data-usuario-cargo]').forEach(el=>el.textContent=usuario.funcao||'Complete seu perfil');

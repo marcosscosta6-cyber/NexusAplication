@@ -19,7 +19,7 @@ test('projetos, convites e permissões de equipe', { skip: process.env.RUN_DB_TE
   try {
     const senha = 'TesteSeguro123!', hash = await bcrypt.hash(senha, 4);
     for (let i = 0; i < 3; i++) {
-      usuarios.push(await prisma.usuario.create({ data: { nome: 'Pessoa de projeto ' + i, usuario: prefixo + i, email: prefixo + i + '@example.com', senha: hash } }));
+      usuarios.push(await prisma.usuario.create({ data: { nome: 'Pessoa de projeto ' + i, usuario: prefixo + i, email: prefixo + i + '@example.com', situacao: 'APROVADO', senha: hash } }));
       const resposta = await req('/auth/login', 'POST', { identificador: prefixo + i, senha });
       assert.equal(resposta.status, 200); cookies.push(resposta.headers.get('set-cookie').split(';')[0]);
     }

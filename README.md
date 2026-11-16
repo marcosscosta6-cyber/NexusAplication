@@ -90,7 +90,11 @@ Requer Node.js compatível com Prisma 7 e MySQL 8.0.16+ (ou MariaDB com suporte 
 
 DATABASE_URL é a única fonte da conexão, tanto na API quanto nas migrations. As antigas variáveis DATABASE_HOST, DATABASE_PORT, DATABASE_USER, DATABASE_PASSWORD e DATABASE_NAME não são mais utilizadas. No PowerShell com bloqueio de npm.ps1, utilize npm.cmd.
 
-A aprovação de comprovantes fica para uma próxima etapa: o comprovante continua obrigatório e o cadastro permanece PENDENTE, mas isso não bloqueia o login nem as conexões. Não há aprovação automática do documento.
+O comprovante é obrigatório e o cadastro começa PENDENTE. O usuário só pode entrar após aprovação pela administração. Uma recusa também bloqueia sessões já abertas. Não há aprovação automática do documento.
+
+O painel em `/admin/index.html` permite buscar cadastros, filtrar a situação, abrir comprovantes e aprovar ou recusar, registrando administrador, data e motivo no histórico. Recusas exigem motivo. Os arquivos são servidos por uma rota autenticada exclusiva de administradores; a pasta de comprovantes não é pública.
+
+O primeiro administrador pode ser criado com `npm run criar-admin`: o comando gera uma senha aleatória e a mostra uma única vez. `ADMIN_USUARIO` e `ADMIN_EMAIL` opcionais definem o identificador e o e-mail; o comando nunca substitui contas existentes. Outros administradores são cadastrados no botão “Cadastrar administrador” do painel. O login normal direciona contas administrativas ao painel.
 
 Cadastro, login e logout usam a API. Todas as telas internas carregam a identidade da sessão. Perfis, habilidades, fotos, filtros, conexões, mensagens, notificações e preferências usam dados persistidos por conta. Não há contas de demonstração ou dados pessoais fixos. Projetos podem ser criados e editados pelo proprietário, com tags, status, convites para conexões aceitas e etapas.
 

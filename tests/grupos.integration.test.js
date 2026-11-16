@@ -16,7 +16,7 @@ test('grupos de equipe: criação, histórico e controle de acesso', { skip: pro
   }
   async function json(path, method, body, i) { const r = await req(path, method, body, i); const d = await r.json(); assert.ok(r.ok, JSON.stringify(d)); return d; }
   try {
-    for (let i = 0; i < 4; i++) usuarios.push(await prisma.usuario.create({ data: { nome: 'Pessoa teste grupo ' + i, usuario: prefixo + i, email: prefixo + i + '@example.com', senha: 'conta-sem-login-por-senha' } }));
+    for (let i = 0; i < 4; i++) usuarios.push(await prisma.usuario.create({ data: { nome: 'Pessoa teste grupo ' + i, usuario: prefixo + i, email: prefixo + i + '@example.com', situacao: 'APROVADO', senha: 'conta-sem-login-por-senha' } }));
     const projeto = await prisma.projeto.create({ data: { proprietarioId: usuarios[0].id, nome: 'Projeto de grupo QA', descricao: 'Equipe para testar o chat', tags: [], publico: true, participantes: { create: [{ usuarioId: usuarios[1].id, aceita: true }, { usuarioId: usuarios[2].id, aceita: false }] } } });
     let grupo;
     await t.test('apenas dono cria; repetir criação retorna o mesmo grupo', async () => {

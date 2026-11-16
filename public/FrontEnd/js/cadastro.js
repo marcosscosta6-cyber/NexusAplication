@@ -101,7 +101,7 @@ formulario.addEventListener('submit', async evento => {
     formulario.reset();
     document.getElementById('nomeArquivo').textContent = 'Clique para enviar arquivo';
     for (const nome of Object.keys(campos)) mostrarErro(nome, '');
-    mensagem('Cadastro realizado com sucesso! Você já pode entrar com seu e-mail ou usuário e senha.', 'sucesso');
+    mensagem('Cadastro enviado! Aguarde a aprovação do seu comprovante pela administração para acessar o site.', 'sucesso');
     const link = document.createElement('a'); link.href = '../inicio/index.html'; link.textContent = ' Ir para o login'; aviso.appendChild(link);
     aviso.scrollIntoView({block:'center',behavior:'smooth'});
   } catch (erro) {

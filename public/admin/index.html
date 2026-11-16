@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-sessao="carregando">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="/FrontEnd%20Interno/config/config.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Nexus — Administração</title>
+<link rel="stylesheet" href="/FrontEnd%20Interno/app.css">
+<link rel="stylesheet" href="/shared/modais.css">
+<link rel="stylesheet" href="/admin/admin.css"></head>
+<body data-pagina="admin">
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="/FrontEnd%20Interno/Img/nexusRetoNav.png">
+        </div>
+
+        <div class="perfil-sidebar"><img data-usuario-foto alt="" hidden><div class="text-white"><h5 data-usuario-nome></h5><p data-usuario-cargo></p></div></div>
+        <nav class="menu">
+            <a href="/FrontEnd%20Interno/home/home.html">
+                <i class="fa-solid fa-house"></i><span>Início</span>
+            </a>
+            <a href="/FrontEnd%20Interno/explorar/explorar.html">
+                <i class="fa-solid fa-magnifying-glass"></i><span>Explorar</span>
+            </a>
+            <a href="/FrontEnd%20Interno/conexões/conec.html">
+                <i class="fa-solid fa-users"></i><span>Conexões</span>
+            </a>
+            <a href="/FrontEnd%20Interno/mensagens/mensagens.html">
+                <i class="fa-solid fa-message"></i><span>Mensagens</span>
+            </a>
+            <a href="/FrontEnd%20Interno/projetos/projetos.html">
+                <i class="fa-solid fa-folder"></i><span>Projetos</span>
+            </a>
+            <a href="/FrontEnd%20Interno/notificações/not.html">
+                <i class="fa-solid fa-bell"></i><span>Notificações</span>
+            </a>
+            <a href="/FrontEnd%20Interno/perfil/perfil.html">
+                <i class="fa-solid fa-user"></i><span>Perfil</span>
+            </a>
+        </nav>
+
+        <div class="bottom-menu">
+            <a href="/FrontEnd%20Interno/config/config.html" >
+                <i class="fa-solid fa-gear"></i><span>Configurações</span>
+            </a>
+            <button id="Sair" class="btn botaosair">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Sair</span>
+                </button>
+        </div>
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <div class="content">
+        <header>
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Buscar no Nexus...">
+            </div>
+            <div class="header-right">
+                <a class="notificacao" href="/FrontEnd%20Interno/notificações/not.html">
+                    <i class="fa-solid fa-bell"></i>
+                </a>
+
+                <a class="user" href="/FrontEnd%20Interno/perfil/perfil.html">
+                    <span data-saudacao></span>
+                </a>
+            </div>
+
+        </header>
+
+        <p id="aviso-app" class="aviso-app" role="alert" hidden></p><main class="main-content"><div class="admin-topo"><div><h1>Administração</h1><p>Analise os comprovantes de matrícula e certificados de conclusão.</p></div><button id="novo-admin" class="admin-botao">Cadastrar administrador</button></div><div class="admin-resumo"><div><strong data-contagem="PENDENTE">0</strong>Pendentes</div><div><strong data-contagem="APROVADO">0</strong>Aprovados</div><div><strong data-contagem="RECUSADO">0</strong>Recusados</div></div><form id="filtros-admin"><label>Buscar cadastro<input name="q" maxlength="120" placeholder="Nome, usuário ou e-mail"></label><label>Situação<select name="situacao"><option value="PENDENTE">Pendentes</option><option value="APROVADO">Aprovados</option><option value="RECUSADO">Recusados</option><option value="TODOS">Todos</option></select></label><button class="admin-botao" type="submit">Buscar</button></form><div id="cadastros"></div><nav id="paginacao-admin" aria-label="Páginas de cadastros" hidden></nav></main>
+    </div>
+</div>
+
+<div class="overlay" id="overlay">
+
+    <div class="mesmosair">
+        <p>Certeza que você quer <span>sair?</span> </p>
+
+        <div class="sae">
+        <Button class="btn btn-sim" onclick=sim()>Sim</Button>
+        <button class="btn btn-sair" onclick=nao()>Não</button>
+        </div>
+    </div>
+  </div>
+
+
+
+
+
+<script src="/FrontEnd%20Interno/sair.js"></script>
+<script type="module" src="/admin/admin.js"></script>
+</body>
+</html>

@@ -15,7 +15,11 @@ export async function realizarLogin(identificador, senha) {
     throw erro;
   }
 
-  // A aprovação de comprovantes será implementada em uma próxima etapa.
+  if (!usuario.admin && usuario.situacao !== 'APROVADO') {
+    const erro = new Error(usuario.situacao === 'RECUSADO' ? 'Seu cadastro foi recusado. Entre em contato com a administração.' : 'Seu cadastro aguarda aprovação do comprovante pela administração.');
+    erro.status = 403;
+    throw erro;
+  }
 
   if (!process.env.JWT_SECRET) {
     throw new Error("JWT_SECRET não foi configurado no .env.");
@@ -38,6 +42,7 @@ export async function realizarLogin(identificador, senha) {
       email: usuario.email,
       usuario: usuario.usuario,
       situacao: usuario.situacao,
+      admin: usuario.admin,
     },
   };
 }

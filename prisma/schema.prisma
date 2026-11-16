@@ -13,6 +13,9 @@ enum StatusConexao {
 }
 
 model Usuario {
+  admin Boolean @default(false)
+  analisesRecebidas AnaliseCadastro[] @relation("CadastroAnalisado")
+  analisesFeitas AnaliseCadastro[] @relation("AdministradorAnalise")
   id      Int     @id @default(autoincrement())
   nome    String  @db.VarChar(120)
   usuario String? @unique @db.VarChar(50)
@@ -51,6 +54,19 @@ model Usuario {
 
   conexoesEnviadas  Conexao[] @relation("SolicitanteConexoes")
   conexoesRecebidas Conexao[] @relation("DestinatarioConexoes")
+}
+
+model AnaliseCadastro {
+  id Int @id @default(autoincrement())
+  usuarioId Int
+  adminId Int
+  situacao String @db.VarChar(20)
+  motivo String? @db.VarChar(1000)
+  dataCriacao DateTime @default(now())
+  usuario Usuario @relation("CadastroAnalisado", fields: [usuarioId], references: [id], onDelete: Cascade)
+  administrador Usuario @relation("AdministradorAnalise", fields: [adminId], references: [id], onDelete: Restrict)
+  @@index([usuarioId, id])
+  @@map("analises_cadastro")
 }
 
 model Conexao {

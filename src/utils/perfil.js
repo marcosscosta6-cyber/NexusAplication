@@ -4,7 +4,7 @@ export const perfilSelect = {
  localizacao:true,nivel:true,disponibilidade:true,perfilPublico:true,
  habilidades:{select:{nome:true},orderBy:{nome:'asc'}},dataCadastro:true,
 };
-export const meuPerfilSelect = {...perfilSelect,email:true,dataNasc:true,escolaridade:true,mensagensPublicas:true,tema:true,fonteAmpliada:true};
+export const meuPerfilSelect = {...perfilSelect,email:true,dataNasc:true,escolaridade:true,mensagensPublicas:true,tema:true,fonteAmpliada:true,admin:true,situacao:true};
 export const par = (a,b) => ({parMenorId:Math.min(a,b),parMaiorId:Math.max(a,b)});
 export const erroHttp = (mensagem,status=400) => Object.assign(new Error(mensagem),{status});
 export function idValido(valor) {

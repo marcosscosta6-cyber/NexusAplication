@@ -42,6 +42,7 @@ export async function authMiddleware(req, res, next) {
         nome: true,
         email: true,
         situacao: true,
+        admin: true,
       },
     });
 
@@ -51,6 +52,7 @@ export async function authMiddleware(req, res, next) {
       });
     }
 
+    if (!usuario.admin && usuario.situacao !== 'APROVADO') return res.status(403).json({ mensagem: usuario.situacao === 'RECUSADO' ? 'Seu cadastro foi recusado. Entre em contato com a administração.' : 'Seu cadastro aguarda aprovação do comprovante pela administração.' });
     req.usuario = usuario;
     return next();
   } catch (erro) {

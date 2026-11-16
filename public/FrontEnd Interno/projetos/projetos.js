@@ -30,7 +30,7 @@ export async function iniciar() {
     lista.setAttribute('aria-busy', 'true');
     let dados, pendentes;
     try {
-      [dados, pendentes] = await Promise.all([api('/projetos?aba=' + abaAtual + '&pagina=' + pagina), api('/projetos/convites')]);
+      [dados, pendentes] = await Promise.all([api('/projetos?aba=' + abaAtual + '&pagina=' + pagina + '&q=' + encodeURIComponent(new URLSearchParams(location.search).get('q') || '')), api('/projetos/convites')]);
     } finally { if (token === versao) lista.removeAttribute('aria-busy'); }
     if (token !== versao) return;
     convites.innerHTML = pendentes.convites.map(c => '<div class="projeto-card convite-projeto" data-convite="' + c.projetoId + '"><div class="projeto-icon"><i class="fa-solid fa-envelope"></i></div><div class="projeto-info"><h3>' + e(c.projeto.nome) + '</h3><p>' + e(c.projeto.proprietario.nome) + ' convidou você para a equipe.</p></div><button class="btn-novo" data-responder="true">Aceitar</button><button class="aba" data-responder="false">Recusar</button></div>').join('');
@@ -38,7 +38,7 @@ export async function iniciar() {
     nav.hidden = dados.paginas < 2; paginas(nav, dados.pagina, dados.paginas, p => carregar(p).catch(err => aviso(err.message)));
   }
   document.querySelector('.page-header .btn-novo').addEventListener('click', () => editarProjeto(null, projeto => { location.href = 'detalhe.html?id=' + projeto.id; }));
-  window.trocarAba = (el, nova) => { aba = nova; history.replaceState(null, '', '?aba=' + aba); document.querySelectorAll('button.aba[onclick]').forEach(b => { b.classList.toggle('active', b === el); b.setAttribute('aria-pressed', String(b === el)); }); carregar().catch(err => aviso(err.message)); };
+  window.trocarAba = (el, nova) => { aba = nova; const url=new URL(location.href);url.searchParams.set('aba',aba);url.searchParams.delete('pagina');history.replaceState(null, '', url.pathname+url.search); document.querySelectorAll('button.aba[onclick]').forEach(b => { b.classList.toggle('active', b === el); b.setAttribute('aria-pressed', String(b === el)); }); carregar().catch(err => aviso(err.message)); };
   const abrir = evento => { const card = evento.target.closest('[data-projeto]'); if (card) location.href = 'detalhe.html?id=' + card.dataset.projeto; };
   lista.addEventListener('click', abrir); lista.addEventListener('keydown', evento => { if (evento.key === 'Enter') abrir(evento); });
   convites.addEventListener('click', async evento => {

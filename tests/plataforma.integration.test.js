@@ -17,7 +17,7 @@ test('dados pessoais, filtros, mensagens e privacidade', {skip:!executar}, async
  try{
   const hash=await bcrypt.hash(senha,4);
   for(let i=0;i<3;i++){
-   usuarios.push(await prisma.usuario.create({data:{nome:'Pessoa QA '+i,usuario:prefixo+i,email:prefixo+i+'@example.com',senha:hash}}));
+   usuarios.push(await prisma.usuario.create({data:{nome:'Pessoa QA '+i,usuario:prefixo+i,email:prefixo+i+'@example.com',situacao:'APROVADO',senha:hash}}));
    const r=await req('/auth/login','POST',{identificador:prefixo+i,senha},null);assert.equal(r.status,200);cookies.push(r.headers.get('set-cookie').split(';')[0]);
   }
   const [a,b,c]=usuarios.map(u=>u.id);

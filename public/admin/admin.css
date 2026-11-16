@@ -1,0 +1,17 @@
+.admin-resumo{display:flex;gap:16px;margin:24px 0;flex-wrap:wrap}
+.admin-resumo>div{flex:1;min-width:150px;background:#0b1020;border:1px solid #ffffff14;border-radius:14px;padding:20px;color:#bcbcbc}
+.admin-resumo strong{display:block;font-size:28px;color:white;margin-bottom:4px}
+.admin-topo{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.admin-botao{background:#7c3aed;color:white;border:0;padding:10px 16px;border-radius:10px;font:inherit;text-decoration:none;display:inline-block;cursor:pointer}
+.admin-botao:hover{background:#6d28d9;color:white}
+.admin-botao:disabled{opacity:.5;cursor:wait}
+#filtros-admin{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+#filtros-admin label{display:flex;flex:1;flex-direction:column;gap:6px;color:#bcbcbc;min-width:170px}
+#filtros-admin input,#filtros-admin select{background:#111827;color:white;border:1px solid #ffffff1a;border-radius:10px;padding:12px;font:inherit}
+.admin-card{display:flex;align-items:center;gap:16px;background:#0b1020;border:1px solid #ffffff14;border-radius:14px;padding:20px;margin-bottom:12px;flex-wrap:wrap}
+.admin-card>div{flex:1;min-width:200px;overflow-wrap:anywhere}
+.admin-card h3{font-size:18px;color:white}.admin-card p,.admin-card small{color:#9ca3af}
+.admin-status{font-size:12px;color:#c4b5fd;background:#410874;padding:6px 10px;border-radius:8px}
+.admin-vazio{color:#9ca3af;text-align:center;padding:32px}
+.main-content{color:white}
+.sidebar{overflow-y:auto}

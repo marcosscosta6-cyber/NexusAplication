@@ -51,7 +51,7 @@ if (formularioLogin) {
       });
       const resultado = await resposta.json();
       if (!resposta.ok) throw new Error(resultado.mensagem);
-      window.location.href = "../../FrontEnd Interno/home/home.html";
+      window.location.href = resultado.usuario.admin ? '/admin/index.html' : '../../FrontEnd Interno/home/home.html';
     } catch (erro) {
       alert(erro.message || "Não foi possível conectar à API.");
     } finally {

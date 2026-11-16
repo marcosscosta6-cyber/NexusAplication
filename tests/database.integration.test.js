@@ -25,7 +25,7 @@ test('cadastro, autenticação e conexões no MySQL', { skip: !executar }, async
     return form;
   }
   try {
-    await t.test('cadastro, senha protegida e login sem aprovação', async () => {
+    await t.test('cadastro exige aprovação antes do login', async () => {
       for (let i=0;i<3;i++) {
         const resposta = await request('/usuarios','POST',cadastro(i));
         assert.equal(resposta.status,201);
@@ -34,6 +34,8 @@ test('cadastro, autenticação e conexões no MySQL', { skip: !executar }, async
         const salvo = await prisma.usuario.findUnique({where:{id:ids[i]}});
         assert.notEqual(salvo.senha,senha);
         assert.equal(salvo.situacao,'PENDENTE');
+        assert.equal((await request('/auth/login','POST',{identificador:prefixo+i,senha})).status,403);
+        await prisma.usuario.update({where:{id:ids[i]},data:{situacao:'APROVADO'}});
         const login = await request('/auth/login','POST',{identificador:prefixo+i,senha});
         assert.equal(login.status,200);
         cookies.push(login.headers.get('set-cookie').split(';')[0]);

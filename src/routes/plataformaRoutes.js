@@ -121,7 +121,11 @@ router.post('/mensagens/:id',rota(async(req,res)=>{
  res.status(201).json({mensagem});
 }));
 router.get('/notificacoes',rota(async(req,res)=>{
- const {pagina}=paginaSchema.parse(req.query),where={usuarioId:req.usuario.id};
+ const {pagina,q}=paginaSchema.extend({q:z.string().trim().max(120).default('')}).strict().parse(req.query);
+ const normalizar=s=>s.normalize('NFD').replace(/\p{M}/gu,'').toLocaleLowerCase('pt-BR');
+ const descricoes={SOLICITACAO:'enviou uma solicitação de conexão',CONEXAO_ACEITA:'aceitou sua solicitação de conexão',MENSAGEM:'enviou uma mensagem para você',PROJETO_CONVITE:'convidou você para um projeto'};
+ const tipos=Object.entries(descricoes).filter(([,texto])=>normalizar(texto).includes(normalizar(q))).map(([tipo])=>tipo);
+ const where={usuarioId:req.usuario.id,...(q?{OR:[{ator:{nome:{contains:q}}},{tipo:{in:tipos}},{projeto:{nome:{contains:q}}}]}:{})};
  const [notificacoes,total,naoLidas]=await prisma.$transaction([prisma.notificacao.findMany({where,include:{ator:{select:{id:true,nome:true,fotoPerfil:true}}},orderBy:{id:'desc'},skip:(pagina-1)*20,take:20}),prisma.notificacao.count({where}),prisma.notificacao.count({where:{...where,lidaEm:null}})]);
  res.json({notificacoes,total,naoLidas,pagina,paginas:Math.ceil(total/20)});
 }));

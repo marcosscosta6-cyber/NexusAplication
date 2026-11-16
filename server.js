@@ -12,6 +12,7 @@ import conexaoRoutes from "./src/routes/conexaoRoutes.js";
 import plataformaRoutes from "./src/routes/plataformaRoutes.js";
 import projetoRoutes from "./src/routes/projetoRoutes.js";
 import grupoRoutes from "./src/routes/grupoRoutes.js";
+import adminRoutes from "./src/routes/adminRoutes.js";
 
 const app = express();
 
@@ -54,6 +55,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/conexoes", conexaoRoutes);
 app.use("/api/projetos", projetoRoutes);
 app.use("/api/grupos", grupoRoutes);
+app.use("/api/admin", adminRoutes);
 app.use("/api", plataformaRoutes);
 
 // Tratamento de erros
