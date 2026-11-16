@@ -1,6 +1,6 @@
 import {api,e,mensagemNotificacao,linkNotificacao,fotoSrc} from '/shared/ui.js';
 export async function iniciar(){
- const destinos=['../conexões/conec.html?aba=todos','../projetos/projetos.html','../mensagens/mensagens.html','../conexões/conec.html?aba=solicitacoes'];
+ const destinos=['../conexões/conec.html?aba=todos','../projetos/projetos.html?aba=meus','../mensagens/mensagens.html','../conexões/conec.html?aba=solicitacoes'];
  document.querySelectorAll('.status-card').forEach((card,i)=>{
   const link=document.createElement('a');link.className=card.className+' nexus-card-link';link.href=destinos[i];
   link.setAttribute('aria-label','Ver '+card.querySelector('p').textContent.toLowerCase());

@@ -5,6 +5,7 @@
 :is(a,button,input,select,textarea,[tabindex]):focus-visible{outline:2px solid #a78bfa;outline-offset:4px}
 .nexus-card-link:hover{border-color:#8b2cff}
 .nexus-proximo-passo{display:inline-block;margin:12px 0;color:#c4b5fd;text-underline-offset:3px}
+[data-meus-projetos],#listaChats>.nexus-proximo-passo{display:block;width:fit-content;max-width:100%;margin:16px auto;text-align:center}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
 html[data-sessao="carregando"] main{visibility:hidden}
 .aviso-app{position:fixed;bottom:20px;right:20px;z-index:2000;max-width:min(420px,90vw);padding:12px 16px;border-radius:8px;background:#0b1020;color:white;border:1px solid #8b2cff;white-space:pre-wrap}

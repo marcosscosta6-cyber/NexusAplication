@@ -11,6 +11,7 @@ import authRoutes from "./src/routes/authRoutes.js";
 import conexaoRoutes from "./src/routes/conexaoRoutes.js";
 import plataformaRoutes from "./src/routes/plataformaRoutes.js";
 import projetoRoutes from "./src/routes/projetoRoutes.js";
+import grupoRoutes from "./src/routes/grupoRoutes.js";
 
 const app = express();
 
@@ -52,6 +53,7 @@ app.use("/api/auth", authRoutes);
 // Rotas de conexões entre usuários
 app.use("/api/conexoes", conexaoRoutes);
 app.use("/api/projetos", projetoRoutes);
+app.use("/api/grupos", grupoRoutes);
 app.use("/api", plataformaRoutes);
 
 // Tratamento de erros

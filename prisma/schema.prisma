@@ -47,6 +47,7 @@ model Usuario {
   dataCadastro       DateTime              @default(now())
   projetos           Projeto[]
   participacoes      ParticipacaoProjeto[]
+  mensagensGrupo    MensagemGrupo[]
 
   conexoesEnviadas  Conexao[] @relation("SolicitanteConexoes")
   conexoesRecebidas Conexao[] @relation("DestinatarioConexoes")
@@ -125,6 +126,7 @@ model VisitaPerfil {
 }
 
 model Projeto {
+  grupo           GrupoChat?
   id              Int                   @id @default(autoincrement())
   proprietarioId  Int
   nome            String                @db.VarChar(120)
@@ -142,6 +144,28 @@ model Projeto {
   @@index([proprietarioId, status])
   @@index([publico, dataAtualizacao])
   @@map("projetos")
+}
+
+model GrupoChat {
+  id Int @id @default(autoincrement())
+  projetoId Int @unique
+  nome String @db.VarChar(120)
+  dataCriacao DateTime @default(now())
+  projeto Projeto @relation(fields: [projetoId], references: [id], onDelete: Cascade)
+  mensagens MensagemGrupo[]
+  @@map("grupos_chat")
+}
+
+model MensagemGrupo {
+  id Int @id @default(autoincrement())
+  grupoId Int
+  remetenteId Int
+  texto String @db.Text
+  dataCriacao DateTime @default(now())
+  grupo GrupoChat @relation(fields: [grupoId], references: [id], onDelete: Cascade)
+  remetente Usuario @relation(fields: [remetenteId], references: [id], onDelete: Cascade)
+  @@index([grupoId, id])
+  @@map("mensagens_grupo")
 }
 
 model ParticipacaoProjeto {

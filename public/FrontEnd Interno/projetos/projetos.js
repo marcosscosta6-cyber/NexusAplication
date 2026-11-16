@@ -24,13 +24,20 @@ export async function iniciar() {
   const lista = document.getElementById('lista-projetos');
   const nav = document.createElement('nav'); nav.setAttribute('aria-label', 'Páginas de projetos'); nav.hidden = true; lista.after(nav);
   const convites = document.createElement('div'); convites.id = 'convites-projetos'; lista.before(convites);
+  let versao = 0;
   async function carregar(pagina = 1) {
-    const [dados, pendentes] = await Promise.all([api('/projetos?aba=' + aba + '&pagina=' + pagina), api('/projetos/convites')]);
+    const token = ++versao, abaAtual = aba;
+    lista.setAttribute('aria-busy', 'true');
+    let dados, pendentes;
+    try {
+      [dados, pendentes] = await Promise.all([api('/projetos?aba=' + abaAtual + '&pagina=' + pagina), api('/projetos/convites')]);
+    } finally { if (token === versao) lista.removeAttribute('aria-busy'); }
+    if (token !== versao) return;
     convites.innerHTML = pendentes.convites.map(c => '<div class="projeto-card convite-projeto" data-convite="' + c.projetoId + '"><div class="projeto-icon"><i class="fa-solid fa-envelope"></i></div><div class="projeto-info"><h3>' + e(c.projeto.nome) + '</h3><p>' + e(c.projeto.proprietario.nome) + ' convidou você para a equipe.</p></div><button class="btn-novo" data-responder="true">Aceitar</button><button class="aba" data-responder="false">Recusar</button></div>').join('');
     lista.innerHTML = dados.projetos.map(p => '<div class="projeto-card" role="link" tabindex="0" data-projeto="' + p.id + '"><div class="projeto-icon"><i class="fa-solid fa-folder"></i></div><div class="projeto-info"><h3>' + e(p.nome) + '</h3><p>' + e(p.descricao.length > 150 ? p.descricao.slice(0, 150) + '…' : p.descricao) + '</p><div class="projeto-tags">' + p.tags.map(t => '<span class="tag">' + e(t) + '</span>').join('') + '</div></div><div class="projeto-membros"><div class="membros-avatares">' + [p.proprietario, ...p.participantes.filter(m => m.aceita).map(m => m.usuario)].slice(0, 4).map(u => '<div class="membro-avatar" title="' + e(u.nome) + '">' + e(u.nome.split(/\s+/).slice(0, 2).map(t => t[0]).join('')) + '</div>').join('') + '</div></div><div class="projeto-status"><span class="status-badge status-' + (p.status === 'CONCLUIDO' ? 'concluido' : p.status === 'PAUSADO' ? 'pausado' : 'ativo') + '">● ' + statusProjeto[p.status] + '</span><span class="projeto-data">' + (p.publico ? 'Público' : 'Privado') + '</span></div></div>').join('') || '<div class="empty-state"><i class="fa-solid fa-folder-open"></i><p>' + (aba === 'meus' ? 'Você ainda não participa de projetos.' : 'Nenhum projeto público disponível.') + '</p></div>';
     nav.hidden = dados.paginas < 2; paginas(nav, dados.pagina, dados.paginas, p => carregar(p).catch(err => aviso(err.message)));
   }
-  document.querySelector('.btn-novo').addEventListener('click', () => editarProjeto(null, projeto => { location.href = 'detalhe.html?id=' + projeto.id; }));
+  document.querySelector('.page-header .btn-novo').addEventListener('click', () => editarProjeto(null, projeto => { location.href = 'detalhe.html?id=' + projeto.id; }));
   window.trocarAba = (el, nova) => { aba = nova; history.replaceState(null, '', '?aba=' + aba); document.querySelectorAll('button.aba[onclick]').forEach(b => { b.classList.toggle('active', b === el); b.setAttribute('aria-pressed', String(b === el)); }); carregar().catch(err => aviso(err.message)); };
   const abrir = evento => { const card = evento.target.closest('[data-projeto]'); if (card) location.href = 'detalhe.html?id=' + card.dataset.projeto; };
   lista.addEventListener('click', abrir); lista.addEventListener('keydown', evento => { if (evento.key === 'Enter') abrir(evento); });

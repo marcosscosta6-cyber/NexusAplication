@@ -6,10 +6,23 @@ export async function iniciar() {
   const id = Number(new URLSearchParams(location.search).get('id'));
   if (!Number.isInteger(id) || id <= 0) { document.querySelector('.project-grid').hidden = true; document.getElementById('editProject').hidden = true; return; }
   let projeto;
+  let grupoEquipe;
+  const chatEquipe = document.createElement('button'); chatEquipe.type = 'button'; chatEquipe.className = 'button secondary'; chatEquipe.hidden = true;
+  document.querySelector('.project-heading').appendChild(chatEquipe);
+  chatEquipe.addEventListener('click', async () => {
+    chatEquipe.disabled = true;
+    try {
+      const grupo = grupoEquipe || (await api('/grupos', { method: 'POST', body: { projetoId: id } })).grupo;
+      location.href = '../mensagens/mensagens.html?grupo=' + grupo.id;
+    } catch (erro) { aviso(erro.message); } finally { chatEquipe.disabled = false; }
+  });
   const equipe = document.createElement('div'); equipe.id = 'equipe-projeto'; document.querySelector('.team-intro').after(equipe);
   const etapas = document.createElement('div'); etapas.id = 'etapas-projeto'; document.getElementById('addMilestone').closest('section').appendChild(etapas);
   async function carregar() {
     projeto = (await api('/projetos/' + id)).projeto;
+    grupoEquipe = (await api('/grupos')).grupos.find(g => g.projetoId === id);
+    chatEquipe.hidden = !(projeto.souDono || (projeto.souMembro && grupoEquipe));
+    chatEquipe.textContent = grupoEquipe ? 'Chat da equipe' : 'Criar chat da equipe';
     document.title = projeto.nome + ' — Nexus';
     const heading = document.querySelector('.heading-copy');
     heading.replaceChildren();

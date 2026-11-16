@@ -404,3 +404,55 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+/* Mantém o cabeçalho e o campo de envio visíveis; só as listas rolam. */
+.content{min-width:0;height:100dvh;overflow:hidden}
+.mensagens-container{flex:1;min-height:0;height:auto;overflow:hidden}
+.lista-conversas{flex:0 0 300px;min-height:0;display:flex;flex-direction:column}
+.titulo-conversas{flex-shrink:0}
+#listaChats{flex:1;min-height:0;overflow-y:auto}
+.buscar-usuarios{flex-shrink:0;max-height:45%;overflow-y:auto}
+.contato{background:transparent;color:white;min-width:0}
+.contato img,.chat-header img{flex-shrink:0;object-fit:cover}
+.contato>div{min-width:0;flex:1}
+.contato h4,.contato p{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chat-area{min-width:0;min-height:0;overflow:hidden}
+.chat-header,.chat-input{flex-shrink:0}
+.chat-header>div{min-width:0;overflow-wrap:anywhere}
+.chat-header h3{font-size:18px;margin:0 0 4px}
+.chat-mensagens{min-height:0;overscroll-behavior:contain}
+.chat-input input{min-width:0}
+.chat-input button{flex-shrink:0}
+.chat-input :disabled{opacity:.5;cursor:not-allowed}
+.mensagem{flex-shrink:0;overflow-wrap:anywhere}
+.empty-state{color:#94a3b8;padding:16px;text-align:center}
+#mensagens-anteriores{align-self:center;margin:10px;border:1px solid #7c3aed;border-radius:8px;background:transparent;color:#c4b5fd;padding:6px 12px;font:inherit;font-size:12px}
+.sidebar{overflow-y:auto}
+@media(max-width:1100px){
+ .lista-conversas{flex-basis:240px}
+ .mensagens-container{gap:12px;padding:12px}
+ .chat-header,.chat-input{padding:14px}
+ .mensagem{max-width:85%}
+}
+@media(max-width:760px){
+ .sidebar{width:76px;padding:12px 8px}
+ .sidebar .logo,.sidebar .perfil-sidebar,.sidebar a span,.sidebar .botaosair span{display:none}
+ .sidebar a{justify-content:center;padding:14px 8px}
+ .sidebar .botaosair{justify-content:center}
+ .content{margin-left:76px;padding-top:0}
+ .mensagens-container{position:relative}
+ .lista-conversas{flex:1}
+ .chat-area{display:none}
+ .mensagens-container.conversa-aberta .lista-conversas{display:none}
+ .mensagens-container.conversa-aberta .chat-area{display:flex}
+}
+#voltar-conversas{display:none;border:0;background:transparent;color:#c4b5fd;font:inherit;align-self:flex-start;padding:8px 14px;cursor:pointer}
+.chat-modos{display:flex;gap:8px;padding:0 16px 12px;flex-shrink:0}
+.chat-modos a{flex:1;text-align:center;padding:8px;color:#bcbcbc;border-radius:8px;text-decoration:none;font-size:13px}
+.chat-modos a[aria-current]{background:#410874;color:white}
+.grupo-icone{width:45px;height:45px;flex-shrink:0;background:#410874;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#c4b5fd}
+.grupo-autor{display:block;font-size:12px;font-weight:600;margin-bottom:4px;color:#ddd6fe}
+.chat-header .nexus-proximo-passo{margin:0;font-size:13px}
+.grupo-integrantes{color:#94a3b8;font-size:12px;margin-top:6px;max-height:140px;overflow:auto}
+.grupo-integrantes a{display:block;margin-top:6px}
+@media(max-width:760px){#voltar-conversas{display:block}}

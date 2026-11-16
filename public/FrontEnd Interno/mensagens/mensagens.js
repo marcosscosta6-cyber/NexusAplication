@@ -1,12 +1,25 @@
 import {api,e,aviso,usuarioAtual,data,fotoSrc} from '/shared/ui.js';
 export async function iniciar(){
+ const parametros=new URLSearchParams(location.search);
+ const modos=document.createElement('nav');modos.className='chat-modos';modos.setAttribute('aria-label','Tipo de conversa');
+ const emGrupo=parametros.has('grupo')||parametros.get('modo')==='grupos';
+ modos.innerHTML='<a href="mensagens.html" '+(!emGrupo?'aria-current="page"':'')+'>Conversas</a><a href="mensagens.html?modo=grupos" '+(emGrupo?'aria-current="page"':'')+'>Equipes</a>';
+ document.querySelector('.titulo-conversas').after(modos);
+ document.getElementById('btn-novo-chat').setAttribute('aria-label',emGrupo?'Criar grupo de equipe':'Iniciar conversa');
+ if(emGrupo){await (await import('./grupos.js')).iniciar();return;}
  const avatar=u=>'<img src="'+e(fotoSrc(u))+'" alt="">';
  const chats=document.getElementById('listaChats'),corpo=document.getElementById('chat-mensagens'),form=document.getElementById('enviar-mensagem');
  const texto=form.elements.texto,botao=form.querySelector('button'),anterior=document.getElementById('mensagens-anteriores');
+ const rascunhos=new Map();
+ const container=document.querySelector('.mensagens-container');
+ const voltar=document.createElement('button');voltar.id='voltar-conversas';voltar.type='button';voltar.textContent='← Conversas';document.querySelector('.chat-area').prepend(voltar);
+ voltar.addEventListener('click',()=>{container.classList.remove('conversa-aberta');chats.querySelector('[data-chat].ativo')?.focus();});
+ let carregando=false;
  let selecionado=null,mensagens=[],pode=false,cursor=0,versao=0,consultando=false,enviando=false;
  async function listar(){
   const {conversas}=await api('/mensagens');
-  chats.innerHTML=conversas.length?conversas.map(c=>'<button class="contato '+(c.usuario.id===selecionado?'ativo':'')+'" data-chat="'+c.usuario.id+'">'+avatar(c.usuario)+'<div><h4>'+e(c.usuario.nome)+'</h4><p>'+e(c.ultimaMensagem.texto)+'</p>'+(c.naoLidas?'<span class="badge-count">'+c.naoLidas+' não lida(s)</span>':'')+'</div></button>').join(''):'<p class="empty-state">Nenhuma conversa. Use + para iniciar.</p>';
+  const html=conversas.length?conversas.map(c=>'<button class="contato '+(c.usuario.id===selecionado?'ativo':'')+'" data-chat="'+c.usuario.id+'">'+avatar(c.usuario)+'<div><h4>'+e(c.usuario.nome)+'</h4><p>'+e(c.ultimaMensagem.texto)+'</p>'+(c.naoLidas?'<span class="badge-count">'+c.naoLidas+' não lida(s)</span>':'')+'</div></button>').join(''):'<p class="empty-state">Nenhuma conversa. Use + para iniciar.</p>';
+  if(chats.innerHTML!==html){const foco=chats.contains(document.activeElement)?document.activeElement?.dataset.chat:null;chats.innerHTML=html;if(foco)chats.querySelector('[data-chat="'+foco+'"]')?.focus();}
  }
  function renderizar(rolar=false){
   const pertoDoFim=corpo.scrollHeight-corpo.scrollTop-corpo.clientHeight<80;
@@ -14,18 +27,21 @@ export async function iniciar(){
   if(rolar||pertoDoFim)corpo.scrollTop=corpo.scrollHeight;
  }
  async function abrir(id){
+  if(selecionado)rascunhos.set(selecionado,texto.value);
+  carregando=true;container.classList.add('conversa-aberta');
   const token=++versao;selecionado=id;mensagens=[];cursor=0;pode=false;texto.disabled=botao.disabled=true;
   document.getElementById('chat-cabecalho').textContent='Carregando conversa...';corpo.replaceChildren();anterior.hidden=true;
   try{
    const dados=await api('/mensagens/'+id);if(token!==versao)return;
    mensagens=dados.mensagens;cursor=mensagens.at(-1)?.id||0;pode=dados.podeEnviar;
    document.getElementById('chat-cabecalho').innerHTML=avatar(dados.usuario)+'<div><h3><a class="nexus-text-link" href="../perfil/perfilUser.html?id='+dados.usuario.id+'">'+e(dados.usuario.nome)+'</a></h3><span id="chat-permissao">'+(pode?'Conversa privada':'Envio indisponível: este usuário recebe apenas mensagens de conexões aceitas.')+'</span></div>';
-   texto.value='';texto.disabled=botao.disabled=!pode;anterior.hidden=!dados.temMais;
+   texto.value=rascunhos.get(id)||'';texto.disabled=botao.disabled=!pode;anterior.hidden=!dados.temMais;
    history.replaceState(null,'','?usuario='+id);renderizar(true);await listar();
   }catch(err){if(token!==versao)return;document.getElementById('chat-cabecalho').textContent=err.message;aviso(err.message);}
+  finally{if(token===versao)carregando=false;}
  }
  async function atualizar(){
-  if(consultando||enviando||document.hidden)return;consultando=true;
+  if(consultando||enviando||carregando||document.hidden)return;consultando=true;
   const token=versao;
   try{
    if(selecionado){
@@ -47,7 +63,7 @@ export async function iniciar(){
  form.addEventListener('submit',async evento=>{
   evento.preventDefault();if(!pode||!selecionado||enviando)return;const valor=texto.value.trim();if(!valor)return;
   const id=selecionado,token=versao;enviando=true;botao.disabled=true;
-  try{const dados=await api('/mensagens/'+id,{method:'POST',body:{texto:valor}});if(token===versao){if(!mensagens.some(m=>m.id===dados.mensagem.id))mensagens.push(dados.mensagem);mensagens.sort((a,b)=>a.id-b.id);texto.value='';renderizar(true);}await listar();}catch(err){aviso(err.message);}finally{enviando=false;botao.disabled=!pode;}
+  try{const dados=await api('/mensagens/'+id,{method:'POST',body:{texto:valor}});if(token===versao){if(!mensagens.some(m=>m.id===dados.mensagem.id))mensagens.push(dados.mensagem);mensagens.sort((a,b)=>a.id-b.id);if(texto.value.trim()===valor)texto.value='';rascunhos.set(id,texto.value);renderizar(true);texto.focus();}await listar();}catch(err){aviso(err.message);}finally{enviando=false;botao.disabled=!pode;}
  });
  const painel=document.getElementById('buscarUsuarios'),pessoas=document.getElementById('pessoas-chat'),busca=document.getElementById('pesquisaUsuario');
  let buscaVersao=0;
