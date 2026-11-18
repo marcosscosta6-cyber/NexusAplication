@@ -149,55 +149,6 @@ main {
 }
 
 /* ==============================
-   BUSCA / BOTÃO COMO FUNCIONA
-================================ */
-
-.area-busca {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 35px;
-    align-items: center;
-}
-
-.busca input {
-    width: min(370px, 100%);
-    background: #11182b;
-    border: 1px solid transparent;
-    outline: none;
-    padding: 16px;
-    border-radius: 12px;
-    color: #ffffff;
-}
-
-.busca input:focus {
-    border-color: #7b2cff;
-}
-
-.busca input::placeholder {
-    color: #a7a9b7;
-}
-
-.como-funciona {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #11182b;
-    border: 1px solid #242b40;
-    color: #ffffff;
-    padding: 14px 20px;
-    border-radius: 12px;
-    text-decoration: none;
-    transition: 0.3s ease;
-}
-
-.como-funciona:hover {
-    border-color: #7b2cff;
-    background: #171d34;
-    color: #ffffff;
-}
-
-/* ==============================
    CARDS DE RECURSOS
 ================================ */
 
@@ -789,19 +740,6 @@ h2 span {
 
     .inicio > p {
         font-size: 14px;
-    }
-
-    .area-busca {
-        align-items: stretch;
-        flex-direction: column;
-    }
-
-    .busca input {
-        width: 100%;
-    }
-
-    .como-funciona {
-        justify-content: center;
     }
 
     .desc {
