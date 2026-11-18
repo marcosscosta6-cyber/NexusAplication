@@ -25,3 +25,6 @@ html.texto-ampliado .config-texto h4{font-size:18px}
 .team-panel img.avatar{object-fit:cover}
 .milestone-check[role="checkbox"]{cursor:pointer}
 @media(max-width:650px){.projeto-card{flex-wrap:wrap}.projeto-card .projeto-info{min-width:60%}.config-layout{grid-template-columns:1fr}}
+/* Indicadores de notificações não lidas */
+a[href*="notificações/not.html"].tem-notificacoes .fa-bell { position: relative; }
+a[href*="notificações/not.html"].tem-notificacoes .fa-bell::after { content: ''; position: absolute; top: -4px; right: -5px; width: 10px; height: 10px; border: 2px solid #0b1020; border-radius: 50%; background: #ff5575; }

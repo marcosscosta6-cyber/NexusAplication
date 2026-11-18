@@ -23,7 +23,7 @@ export async function iniciar(){
  }
  function renderizar(rolar=false){
   const pertoDoFim=corpo.scrollHeight-corpo.scrollTop-corpo.clientHeight<80;
-  corpo.innerHTML=mensagens.length?mensagens.map(m=>'<div class="mensagem '+(m.remetenteId===usuarioAtual.id?'enviada':'recebida')+'">'+e(m.texto)+'<time datetime="'+e(m.dataCriacao)+'">'+data(m.dataCriacao)+'</time></div>').join(''):'<p class="empty-state">Nenhuma mensagem nesta conversa.</p>';
+  corpo.innerHTML=mensagens.length?mensagens.map(m=>'<div class="mensagem '+(m.remetenteId===usuarioAtual.id?'enviada':'recebida')+'">'+e(m.texto)+'<time datetime="'+e(m.dataCriacao)+'">'+data(m.dataCriacao)+'</time>'+(m.remetenteId===usuarioAtual.id?'<button type="button" class="apagar-mensagem" data-apagar="'+m.id+'" aria-label="Apagar mensagem" title="Apagar mensagem"><i class="fa-solid fa-trash" aria-hidden="true"></i></button>':'')+'</div>').join(''):'<p class="empty-state">Nenhuma mensagem nesta conversa.</p>';
   if(rolar||pertoDoFim)corpo.scrollTop=corpo.scrollHeight;
  }
  async function abrir(id){
@@ -50,12 +50,14 @@ export async function iniciar(){
     if(token!==versao)return;
     pode=dados.podeEnviar;texto.disabled=botao.disabled=!pode;const status=document.getElementById('chat-permissao');if(status)status.textContent=pode?'Conversa privada':'Envio indisponível: este usuário recebe apenas mensagens de conexões aceitas.';
     if(dados.mensagens.length){const ids=new Set(mensagens.map(m=>m.id));mensagens.push(...dados.mensagens.filter(m=>!ids.has(m.id)));mensagens.sort((a,b)=>a.id-b.id);cursor=dados.mensagens.at(-1).id;renderizar();}
+    const existentes=await api('/mensagens/'+selecionado+'/ids');if(token!==versao)return;const idsAtuais=new Set(existentes.ids);const mantidas=mensagens.filter(m=>idsAtuais.has(m.id));if(mantidas.length!==mensagens.length){mensagens=mantidas;renderizar();}
    }
    await listar();
   }catch(err){if(token===versao){pode=false;texto.disabled=botao.disabled=true;aviso(err.message);}}
   finally{consultando=false;}
  }
  chats.addEventListener('click',evento=>{const b=evento.target.closest('[data-chat]');if(b)abrir(Number(b.dataset.chat)).catch(err=>aviso(err.message));});
+ corpo.addEventListener('click',async evento=>{const b=evento.target.closest('[data-apagar]');if(!b||b.disabled)return;if(!confirm('Apagar esta mensagem para todos?'))return;const id=Number(b.dataset.apagar),token=versao;b.disabled=true;try{await api('/mensagens/'+id,{method:'DELETE'});if(token===versao){mensagens=mensagens.filter(m=>m.id!==id);renderizar();}await listar();}catch(err){b.disabled=false;aviso(err.message);}});
  anterior.addEventListener('click',async()=>{
   if(!mensagens.length)return;const token=versao;anterior.disabled=true;
   try{const dados=await api('/mensagens/'+selecionado+'?antes='+mensagens[0].id);if(token!==versao)return;const altura=corpo.scrollHeight,posicao=corpo.scrollTop;const ids=new Set(mensagens.map(m=>m.id));mensagens=[...dados.mensagens.filter(m=>!ids.has(m.id)),...mensagens];renderizar();corpo.scrollTop=corpo.scrollHeight-altura+posicao;anterior.hidden=!dados.temMais;}catch(err){aviso(err.message);}finally{anterior.disabled=false;}

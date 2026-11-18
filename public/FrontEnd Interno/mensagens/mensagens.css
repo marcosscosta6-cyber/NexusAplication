@@ -456,3 +456,6 @@ body{
 .grupo-integrantes{color:#94a3b8;font-size:12px;margin-top:6px;max-height:140px;overflow:auto}
 .grupo-integrantes a{display:block;margin-top:6px}
 @media(max-width:760px){#voltar-conversas{display:block}}
+.mensagem.enviada { position: relative; padding-right: 38px; }
+.apagar-mensagem { position: absolute; top: 8px; right: 8px; display: grid; place-items: center; width: 26px; height: 26px; border: 0; border-radius: 6px; background: transparent; color: #e4d6ff; font-size: 12px; cursor: pointer; }
+.apagar-mensagem:hover, .apagar-mensagem:focus-visible { background: rgba(255,255,255,.16); color: #fff; }
