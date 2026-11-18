@@ -1,0 +1,24 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 520" role="img" aria-labelledby="title desc">
+  <title id="title">Talentos conectados por um projeto</title>
+  <desc id="desc">Ilustração de perfis ligados a uma ideia central, representando colaboração.</desc>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1d2544"/><stop offset="1" stop-color="#10152b"/></linearGradient>
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a87aff"/><stop offset="1" stop-color="#7028ed"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#7838ed" stop-opacity=".3"/><stop offset="1" stop-color="#7838ed" stop-opacity="0"/></radialGradient>
+  </defs>
+  <ellipse cx="340" cy="264" rx="300" ry="235" fill="url(#glow)"/>
+  <circle cx="340" cy="257" r="174" fill="none" stroke="#6947ab" stroke-opacity=".24" stroke-width="2" stroke-dasharray="5 10"/>
+  <circle cx="340" cy="257" r="125" fill="none" stroke="#9065ed" stroke-opacity=".18" stroke-width="2"/>
+  <path d="M232 166 295 219M447 163 388 219M232 354 294 297M448 356 387 297" fill="none" stroke="#9664f6" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 9"/>
+  <g fill="url(#panel)" stroke="#55427d" stroke-width="2">
+    <rect x="91" y="90" width="163" height="120" rx="22"/><rect x="426" y="90" width="163" height="120" rx="22"/>
+    <rect x="91" y="310" width="163" height="120" rx="22"/><rect x="426" y="310" width="163" height="120" rx="22"/>
+  </g>
+  <g fill="#b49aff"><circle cx="173" cy="133" r="18"/><path d="M139 180c2-19 15-29 34-29s32 10 34 29"/><circle cx="508" cy="133" r="18"/><path d="M474 180c2-19 15-29 34-29s32 10 34 29"/><circle cx="173" cy="353" r="18"/><path d="M139 400c2-19 15-29 34-29s32 10 34 29"/><circle cx="508" cy="353" r="18"/><path d="M474 400c2-19 15-29 34-29s32 10 34 29"/></g>
+  <circle cx="340" cy="257" r="71" fill="url(#purple)"/>
+  <circle cx="340" cy="257" r="58" fill="none" stroke="#fff" stroke-opacity=".23"/>
+  <path d="M340 218c-19 0-34 15-34 34 0 12 6 21 15 28 5 4 7 8 7 13h24c0-5 2-9 7-13 9-7 15-16 15-28 0-19-15-34-34-34Z" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M329 303h22m-18 9h14" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+  <g fill="#c1a8ff"><circle cx="71" cy="247" r="5"/><circle cx="603" cy="268" r="5"/><circle cx="316" cy="69" r="4"/><circle cx="373" cy="449" r="4"/></g>
+  <g stroke="#a881ff" stroke-width="3" stroke-linecap="round"><path d="M567 228v18m-9-9h18M111 266v14m-7-7h14M383 82v12m-6-6h12"/></g>
+</svg>

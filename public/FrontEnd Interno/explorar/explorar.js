@@ -1,10 +1,10 @@
 import {api,aviso,paginas,fotoSrc} from '/shared/ui.js';
-import {cursos} from '/shared/catalogo.js';
+import {cursos,cursosPorArea} from '/shared/catalogo.js';
 export async function iniciar(){
  const lista=document.querySelector('.talentos-grid'),area=document.getElementById('area'),funcao=document.getElementById('funcao'),nivel=document.getElementById('nivel'),disponibilidade=document.getElementById('disponibilidade'),busca=document.querySelector('.skill-search input');
- const options=(select,obj)=>{select.replaceChildren(new Option('Todas',''));for(const [v,t] of Object.entries(obj))select.add(new Option(t,v));};
- options(funcao,cursos);for(const select of [nivel,disponibilidade])select.options[0].value='';
- const url=new URLSearchParams(location.search);busca.value=url.get('habilidade')||'';for(const [k,el]of Object.entries({area,curso:funcao,nivel,disponibilidade}))if(url.has(k))el.value=url.get(k);
+ const atualizarFuncoes=(selecionada='')=>{funcao.replaceChildren(new Option('Todas',''));for(const id of (area.value?cursosPorArea[area.value]||[]:Object.keys(cursos)))funcao.add(new Option(cursos[id],id));funcao.value=[...funcao.options].some(o=>o.value===selecionada)?selecionada:'';};
+ for(const select of [nivel,disponibilidade])select.options[0].value='';
+ const url=new URLSearchParams(location.search);busca.value=url.get('habilidade')||'';for(const [k,el]of Object.entries({area,nivel,disponibilidade}))if(url.has(k))el.value=url.get(k);atualizarFuncoes(url.get('curso')||'');
  let versao=0;
  async function carregar(pagina=1){
   const token=++versao;const params=new URLSearchParams({area:area.value,curso:funcao.value,nivel:nivel.value,disponibilidade:disponibilidade.value,habilidade:busca.value.trim(),q:url.get('q')||'',pagina});
@@ -23,8 +23,9 @@ export async function iniciar(){
   if(!dados.usuarios.length){const p=document.createElement('p');p.className='empty-state';p.textContent='Nenhuma pessoa encontrada.';lista.appendChild(p);}
   const paginacao=document.getElementById('paginacao');paginacao.hidden=dados.paginas<2;paginas(paginacao,dados.pagina,dados.paginas,p=>carregar(p).catch(err=>aviso(err.message)));
  }
- for(const el of [area,funcao,nivel,disponibilidade])el.addEventListener('change',()=>carregar().catch(err=>aviso(err.message)));
+ area.addEventListener('change',()=>{atualizarFuncoes();carregar().catch(err=>aviso(err.message));});
+ for(const el of [funcao,nivel,disponibilidade])el.addEventListener('change',()=>carregar().catch(err=>aviso(err.message)));
  let timer;busca.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(()=>carregar().catch(err=>aviso(err.message)),350);});
- document.querySelector('.btn-limpar').addEventListener('click',()=>{for(const s of [area,funcao,nivel,disponibilidade])s.value='';busca.value='';url.delete('q');carregar().catch(err=>aviso(err.message));});
+ document.querySelector('.btn-limpar').addEventListener('click',()=>{for(const s of [area,nivel,disponibilidade])s.value='';atualizarFuncoes();busca.value='';url.delete('q');carregar().catch(err=>aviso(err.message));});
  await carregar();
 }

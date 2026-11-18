@@ -38,6 +38,21 @@ export const areas = {
   "logistica": "Logística e Gestão",
   "seguranca": "Segurança do Trabalho"
 };
+export const cursosPorArea = {
+  aeronautica: ['manutencao_aeronautica_em_celula'],
+  gestao: ['planejamento_e_controle_da_producao', 'qualidade', 'administracao'],
+  marketing: ['marketing', 'multimidia'],
+  cultural: ['producao_cultural'],
+  eletro: ['sistemas_de_energia_renovavel', 'eletrotecnica', 'eletromecanica'],
+  automacao: ['automacao_industrial', 'manutencao_automotiva'],
+  tecnologia: ['desenvolvimento_de_sistemas', 'rede_de_computadores'],
+  mecanica: ['mecanica', 'manutencao_de_maquinas_industriais', 'mecatronica', 'eletromecanica'],
+  construcao: ['edificacoes', 'seguranca_do_trabalho'],
+  quimica: ['petroquimica', 'quimica'],
+  refrigeracao: ['refrigeracao_e_climatizacao'],
+  logistica: ['logistica'],
+  seguranca: ['seguranca_do_trabalho']
+};
 export const estados = {
   "AC": "Acre",
   "AL": "Alagoas",

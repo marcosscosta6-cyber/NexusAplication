@@ -1,0 +1,19 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 230" role="img" aria-labelledby="title">
+  <title id="title">Pessoas colaborando em um projeto</title>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#211442"/><stop offset="1" stop-color="#101b36"/></linearGradient>
+    <linearGradient id="screen" x2="1" y2="1"><stop stop-color="#aa7aff"/><stop offset="1" stop-color="#6730cf"/></linearGradient>
+  </defs>
+  <circle cx="203" cy="105" r="94" fill="#8c4af4" opacity=".09"/>
+  <path d="M43 194h314" stroke="#645083" stroke-width="2" stroke-linecap="round"/>
+  <rect x="133" y="46" width="134" height="91" rx="9" fill="#151f3b" stroke="#8060be" stroke-width="2"/>
+  <rect x="143" y="56" width="114" height="71" rx="4" fill="url(#screen)"/>
+  <path d="M160 105l23-22 17 13 26-25 16 12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>
+  <path d="M190 137v13m-19 0h58" stroke="#8060be" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="91" cy="111" r="17" fill="#f1b69d"/><path d="M74 107c1-16 10-24 22-21 9 2 13 10 12 18-9-1-18-5-22-10-2 6-6 10-12 13Z" fill="#29223b"/>
+  <path d="M63 184v-39c0-13 11-22 27-22s27 9 27 22v39" fill="#9a6bea"/><path d="M109 143l25 19 25-7" fill="none" stroke="#f1b69d" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="310" cy="111" r="17" fill="#bb806b"/><path d="M293 110c-3-13 3-24 16-25 13-1 19 8 18 23-8-1-16-5-21-10-2 5-7 9-13 12Z" fill="#201b2f"/>
+  <path d="M283 184v-39c0-13 11-22 27-22s27 9 27 22v39" fill="#5a8ec6"/><path d="M292 143l-25 19-25-7" fill="none" stroke="#bb806b" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M145 179h110l-8 15h-94Z" fill="#bba3ef"/><rect x="183" y="158" width="35" height="21" rx="3" fill="#e0d4ff"/><path d="M172 179h56" stroke="#eee7ff" stroke-width="3" stroke-linecap="round"/>
+  <g fill="#bd9cff"><circle cx="56" cy="56" r="3"/><circle cx="344" cy="68" r="3"/><circle cx="298" cy="35" r="2"/></g>
+</svg>

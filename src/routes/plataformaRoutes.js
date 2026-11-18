@@ -54,7 +54,7 @@ router.post('/usuarios/me/foto',(req,res,next)=>upload.single('foto')(req,res,er
 router.get('/usuarios',rota(async(req,res)=>{
  const filtros=z.object({pagina:z.coerce.number().int().min(1).max(10000).default(1),q:z.string().trim().max(120).default(''),habilidade:z.string().trim().max(30).default(''),funcao:z.string().trim().max(100).default(''),area:opcional(Object.keys(areas)),curso:opcional(Object.keys(cursos)),nivel:opcional(niveis),disponibilidade:opcional(disponibilidades)}).strict().parse(req.query);
  const {pagina,q,habilidade,funcao,...campos}=filtros;
- const where={AND:[{id:{not:req.usuario.id}},visivelPara(req.usuario.id),...Object.entries(campos).filter(([,v])=>v).map(([k,v])=>({[k]:v})),...(q?[{OR:[{nome:{contains:q}},{usuario:{contains:q}},{funcao:{contains:q}}]}]:[]),...(funcao?[{funcao:{contains:funcao}}]:[]),...(habilidade?[{habilidades:{some:{nome:{contains:habilidade}}}}]:[])]};
+ const where={AND:[{id:{not:req.usuario.id}},{admin:false},visivelPara(req.usuario.id),...Object.entries(campos).filter(([,v])=>v).map(([k,v])=>({[k]:v})),...(q?[{OR:[{nome:{contains:q}},{usuario:{contains:q}},{funcao:{contains:q}}]}]:[]),...(funcao?[{funcao:{contains:funcao}}]:[]),...(habilidade?[{habilidades:{some:{nome:{contains:habilidade}}}}]:[])]};
  const [usuarios,total]=await prisma.$transaction([prisma.usuario.findMany({where,select:perfilSelect,orderBy:[{nome:'asc'},{id:'asc'}],skip:(pagina-1)*12,take:12}),prisma.usuario.count({where})]);
  const conexoes=await prisma.conexao.findMany({where:{OR:[{solicitanteId:req.usuario.id,destinatarioId:{in:usuarios.map(u=>u.id)}},{destinatarioId:req.usuario.id,solicitanteId:{in:usuarios.map(u=>u.id)}}]}});
  res.json({usuarios:usuarios.map(u=>({...u,conexao:conexoes.find(c=>c.solicitanteId===u.id||c.destinatarioId===u.id)||null})),total,pagina,paginas:Math.ceil(total/12)});
@@ -95,6 +95,16 @@ router.get('/mensagens',rota(async(req,res)=>{
  for(const g of grupos){const outro=g.remetenteId===id?g.destinatarioId:g.remetenteId;ultimos.set(outro,Math.max(ultimos.get(outro)||0,g._max.id));}
  const [mensagens,naoLidas]=await Promise.all([prisma.mensagem.findMany({where:{id:{in:[...ultimos.values()]}},include:{remetente:{select:perfilSelect},destinatario:{select:perfilSelect}},orderBy:{id:'desc'}}),prisma.mensagem.groupBy({by:['remetenteId'],where:{destinatarioId:id,lidaEm:null},_count:{id:true}})]);
  res.json({conversas:mensagens.map(m=>({usuario:m.remetenteId===id?m.destinatario:m.remetente,ultimaMensagem:{id:m.id,texto:m.texto,dataCriacao:m.dataCriacao},naoLidas:naoLidas.find(g=>g.remetenteId===(m.remetenteId===id?m.destinatarioId:m.remetenteId))?._count.id||0}))});
+}));
+router.get('/mensagens/:id/ids',rota(async(req,res)=>{
+ const id=idValido(req.params.id),eu=req.usuario.id;
+ const mensagens=await prisma.mensagem.findMany({where:{OR:[{remetenteId:eu,destinatarioId:id},{remetenteId:id,destinatarioId:eu}]},select:{id:true}});
+ res.json({ids:mensagens.map(m=>m.id)});
+}));
+router.delete('/mensagens/:id',rota(async(req,res)=>{
+ const {count}=await prisma.mensagem.deleteMany({where:{id:idValido(req.params.id),remetenteId:req.usuario.id}});
+ if(!count) throw erroHttp('Mensagem não encontrada.',404);
+ res.status(204).end();
 }));
 router.get('/mensagens/:id',rota(async(req,res)=>{
  const id=idValido(req.params.id),eu=req.usuario.id;

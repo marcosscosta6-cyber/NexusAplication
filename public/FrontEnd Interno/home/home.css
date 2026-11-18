@@ -280,25 +280,20 @@ header{
 
 .hero-card{
     width:400px;
+    max-width:100%;
+    flex-shrink:1;
     height:230px;
-    background:linear-gradient(
-        135deg,
-        #0d1022,
-        #16092d
-    );
-
-    border-radius:20px;
-
     display:flex;
     justify-content:center;
     align-items:center;
 
-    border:1px solid rgba(255,255,255,0.08);
 }
 
-.hero-card i{
-    font-size:100px;
-    color:#8b2cff;
+.hero-card img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:contain;
 }
 
 /* ACESSO RAPIDO */
@@ -632,3 +627,52 @@ header{
     }
 }
 
+
+/* Detalhes da página inicial */
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 32px 38px;
+    border: 1px solid rgba(157, 112, 255, .18);
+    border-radius: 24px;
+    background: radial-gradient(circle at 83% 38%, rgba(123, 46, 255, .16), transparent 38%), linear-gradient(120deg, #11162b, #0b1020);
+}
+.hero-text { position: relative; z-index: 1; }
+.hero-text .hero-eyebrow, .secao-etiqueta { color: #b79aff; font-size: 11px; font-weight: 700; letter-spacing: .12em; }
+.hero-text .hero-eyebrow { margin-bottom: 14px; }
+.hero-card { flex: 1 1 340px; }
+.secao-cabecalho { margin-bottom: 22px; }
+.secao-cabecalho h2 { margin: 6px 0; font-size: 25px; }
+.secao-cabecalho p, .recomendados-intro { margin: 0; color: #a4a9bc; font-size: 14px; line-height: 1.7; }
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.card { width: auto; min-height: 210px; background: linear-gradient(145deg, #11182d, #0b1020); border-color: #222941; }
+.card i:first-child { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 14px; background: #27164b; font-size: 22px; }
+.card p { margin: 0; }
+.status-container { border: 1px solid #222941; }
+.status-card { text-decoration: none; border-radius: 12px; }
+.status-card:focus-visible, .card:focus-visible, .proximo-passo:focus-visible { outline: 2px solid #b79aff; outline-offset: 4px; }
+.feed { align-items: stretch; }
+.atv-recentes, .recomendados { width: auto; flex: 1; min-width: 0; min-height: 0; border: 1px solid #222941; }
+.atv-recentes h3, .recomendados h3 { margin: 7px 0 16px; }
+.atividade-vazia { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 24px 12px 10px; }
+.atividade-vazia i { display: grid; place-items: center; width: 50px; height: 50px; margin-bottom: 14px; color: #bd9cff; background: #27164b; border-radius: 15px; font-size: 20px; }
+.atividade-vazia strong { color: #eee9fb; }
+.atividade-vazia p { max-width: 300px; margin: 8px 0 0; color: #a4a9bc; font-size: 13px; line-height: 1.6; }
+.proximo-passo { display: flex; align-items: center; gap: 14px; margin-top: 14px; padding: 14px; color: #c9b3ff; text-decoration: none; background: #121a30; border: 1px solid #242d47; border-radius: 14px; transition: border-color .2s, transform .2s; }
+.proximo-passo:hover { color: #d6c5ff; border-color: #8b2cff; transform: translateX(3px); }
+.passo-icone { display: grid; place-items: center; flex: 0 0 42px; height: 42px; border-radius: 12px; background: #27164b; }
+.proximo-passo > span:nth-child(2) { flex: 1; }
+.proximo-passo strong, .proximo-passo small { display: block; }
+.proximo-passo strong { color: #fff; font-size: 14px; }
+.proximo-passo small { margin-top: 4px; color: #a4a9bc; font-size: 12px; }
+@media (max-width: 1100px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 650px) {
+    .hero { flex-direction: column; align-items: flex-start; padding: 25px; gap: 10px; }
+    .hero-text h1 { font-size: 32px; }
+    .hero-text p { font-size: 15px; }
+    .hero-card { flex: none; width: 100%; height: 190px; }
+    .cards { grid-template-columns: 1fr; }
+    .card { min-height: 0; }
+    .status-container { padding: 20px; }
+    .status-card { flex: 1 1 190px; }
+}
