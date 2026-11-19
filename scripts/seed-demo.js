@@ -40,7 +40,8 @@ async function executar() {
         continue;
       }
       const novo = await tx.usuario.create({ data: {
-        nome, usuario, email, senha, curso, area, funcao,
+        nome, usuario, email, senha, curso, area, funcao, situacao: 'PENDENTE',
+        comprovante: 'uploads/comprovantes/de000000-0000-4000-8000-000000000001.png',
         dataNasc: new Date('2002-05-15T12:00:00Z'), escolaridade: 'Ensino médio completo',
         biografia: `Estudante do SENAI com interesse em ${habilidades.join(', ')}. Busco aprender, trocar experiências e colaborar em projetos. Perfil de demonstração.`,
         localizacao: ['BA', 'SP', 'PE'][i % 3],

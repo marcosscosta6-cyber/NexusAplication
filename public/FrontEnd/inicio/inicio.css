@@ -251,11 +251,7 @@ h2 span {
                 border-color 0.3s ease;
 }
 
-.plano-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 15px 40px rgba(123, 44, 255, 0.15);
-    border-color: #7b2cff;
-}
+
 
 /* Destaque do plano Básico */
 
@@ -521,7 +517,7 @@ h2 span {
 }
 
 .login-box img {
-    width: 130px;
+    width: 150px;
     height: auto;
     object-fit: contain;
 }
@@ -798,7 +794,7 @@ h2 span {
 .hero-link:hover { color: #b997ff; }
 .desc { gap: 20px; }
 .card-desc { background: linear-gradient(145deg, #131a30, #0d1325); border-color: #222c47; transition: border-color .2s, transform .2s; }
-.card-desc:hover { transform: translateY(-4px); border-color: #6541a5; }
+
 .recurso-icone { display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 18px; border-radius: 13px; background: #29184d; color: #bc9aff; font-size: 18px; }
 .hero-botao:focus-visible, .hero-link:focus-visible { outline: 2px solid #c9b5ff; outline-offset: 4px; }
 @media (max-width: 650px) {
@@ -882,3 +878,22 @@ h2 span {
 .vitrine-texto h3 { min-height: 0; margin: 0 0 10px; }
 .vitrine-card { background: #101629; }
 @media (max-width: 650px) { .vitrine-texto { min-height: 0; } }
+
+/* Apresentação das telas */
+.vitrine-card { border-color: #34304f; background: radial-gradient(circle at 85% 5%, rgba(139,44,255,.14), transparent 38%), #101629; transition: border-color .2s, transform .2s; }
+
+.vitrine-texto { min-height: 165px; }
+.vitrine-texto .vitrine-passo { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 15px; color: #c0a7ff; font-size: 10px; letter-spacing: .08em; }
+.vitrine-passo i { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 9px; background: #30204f; font-size: 12px; }
+.vitrine-texto h3 { font-size: 20px; }
+.vitrine-texto p { color: #c0c3d1; }
+.vitrine .preview { border-color: #44405c; box-shadow: 0 -8px 32px rgba(0,0,0,.22); }
+.vitrine .preview-subtitulo,.vitrine .preview-resultado,.vitrine .talento-exemplo small,.vitrine .projeto-exemplo-bloco p { font-size: 10px; }
+.vitrine-chamada { display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 32px; text-align: center; }
+.vitrine-chamada p { margin: 0; color: #c7c6d6; font-weight: 600; }
+.vitrine-chamada a { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 10px; background: #7b2cff; color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; }
+.vitrine-chamada a:hover { background: #6220d4; color: #fff; }
+.vitrine-chamada a:focus-visible { outline: 2px solid #d4c3ff; outline-offset: 4px; }
+@media (max-width: 1100px) { .vitrine-conversa .vitrine-texto { min-height: 0; } }
+@media (max-width: 650px) { .vitrine-texto { min-height: 0; } .vitrine-chamada { flex-direction: column; gap: 14px; } }
+@media (prefers-reduced-motion: reduce) { .vitrine-card { transition: none; }  }
