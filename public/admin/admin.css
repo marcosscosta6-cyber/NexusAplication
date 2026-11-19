@@ -10,6 +10,17 @@
 #filtros-admin input,#filtros-admin select{background:#111827;color:white;border:1px solid #ffffff1a;border-radius:10px;padding:12px;font:inherit}
 .admin-card{display:flex;align-items:center;gap:16px;background:#0b1020;border:1px solid #ffffff14;border-radius:14px;padding:20px;margin-bottom:12px;flex-wrap:wrap}
 .admin-card>div{flex:1;min-width:200px;overflow-wrap:anywhere}
+.admin-card>.admin-acoes{flex:0 1 auto;min-width:0;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.admin-botao-secundario{background:#252c42}
+.admin-botao-secundario:hover{background:#39425e}
+.admin-aprovar{background:#167653}
+.admin-aprovar:hover{background:#105c41}
+.admin-recusar{background:#982f45}
+.admin-recusar:hover{background:#7e2438}
+.admin-botao:focus-visible{outline:2px solid #d6c4ff;outline-offset:3px}
+.admin-card>.admin-documento{flex:0 0 100%;min-width:0}
+.admin-documento[hidden]{display:none}
+.admin-documento iframe,.admin-documento-modal{display:block;width:100%;height:min(65vh,600px);min-height:300px;border:1px solid #44445c;border-radius:10px;background:#fff}
 .admin-card h3{font-size:18px;color:white}.admin-card p,.admin-card small{color:#9ca3af}
 .admin-status{font-size:12px;color:#c4b5fd;background:#410874;padding:6px 10px;border-radius:8px}
 .admin-vazio{color:#9ca3af;text-align:center;padding:32px}

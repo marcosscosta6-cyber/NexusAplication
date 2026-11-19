@@ -5,12 +5,26 @@ const fechar = document.getElementById("fechar");
 if (entrar && overlay) {
   entrar.addEventListener("click", () => {
     overlay.classList.add("active");
+    overlay.setAttribute("aria-hidden", "false");
+    document.getElementById("usuario")?.focus();
   });
 }
 
+function fecharLogin() {
+  overlay.classList.remove("active");
+  overlay.setAttribute("aria-hidden", "true");
+  entrar?.focus();
+}
+
 if (fechar && overlay) {
-  fechar.addEventListener("click", () => {
-    overlay.classList.remove("active");
+  fechar.addEventListener("click", fecharLogin);
+  overlay.addEventListener("keydown", (evento) => {
+    if (evento.key === "Escape") { evento.preventDefault(); fecharLogin(); return; }
+    if (evento.key !== "Tab") return;
+    const elementos = [...overlay.querySelectorAll('button:not([disabled]), input:not([disabled]), a[href]')];
+    const primeiro = elementos[0], ultimo = elementos[elementos.length - 1];
+    if (evento.shiftKey && document.activeElement === primeiro) { evento.preventDefault(); ultimo.focus(); }
+    else if (!evento.shiftKey && document.activeElement === ultimo) { evento.preventDefault(); primeiro.focus(); }
   });
 }
 

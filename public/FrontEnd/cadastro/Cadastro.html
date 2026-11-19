@@ -9,16 +9,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Belanosima:wght@400;600;700&display=swap" rel="stylesheet">
   <title>Cadastro Nexus</title>
+<link rel="stylesheet" href="/shared/acessibilidade.css">
+<script defer src="/shared/acessibilidade.js"></script>
 </head>
 <body>
 
 
   <div class="bg"></div>
-    <div class="container">
+    <main class="container">
 
 
       <div class="logo">
-        <img src="../img/nexusCenterWhite.png" alt="Logo Nexus">
+        <img src="../img/logo-orbita-central-escura.png" alt="Logo Nexus">
       </div>
 
      
@@ -121,15 +123,14 @@
         </div>
 
         <div class="saindoCadastro">
-        <button id="cadastrar" type="submit" class="btn">Cadastrar</button>
-         <button type="button" class="btn sair" onclick=voltar()>inicio</button>
-    </div>
+        <button id="cadastrar" type="submit" class="btn">Criar minha conta <span aria-hidden="true">→</span></button>
+        <button type="button" class="btn sair" onclick="voltar()"><span aria-hidden="true">←</span> Voltar ao início</button>
+        </div>
 
       </form>
 
 
-    </div>
-  </div>    
+    </main>
 
   <script src="../js/cadastro.js"></script>
 </body>

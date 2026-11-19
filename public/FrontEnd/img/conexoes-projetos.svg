@@ -1,24 +1,49 @@
 ﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 520" role="img" aria-labelledby="title desc">
-  <title id="title">Talentos conectados por um projeto</title>
-  <desc id="desc">Ilustração de perfis ligados a uma ideia central, representando colaboração.</desc>
+  <title id="title">Alunos de diferentes cursos criando juntos</title>
+  <desc id="desc">Perfis de tecnologia, design e gestão conectados a um projeto compartilhado.</desc>
   <defs>
-    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1d2544"/><stop offset="1" stop-color="#10152b"/></linearGradient>
-    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a87aff"/><stop offset="1" stop-color="#7028ed"/></linearGradient>
-    <radialGradient id="glow"><stop stop-color="#7838ed" stop-opacity=".3"/><stop offset="1" stop-color="#7838ed" stop-opacity="0"/></radialGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#25294a"/><stop offset="1" stop-color="#151a32"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b278ff"/><stop offset="1" stop-color="#7029ed"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#773cef" stop-opacity=".25"/><stop offset="1" stop-color="#773cef" stop-opacity="0"/></radialGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dy="12" stdDeviation="14" flood-color="#050719" flood-opacity=".35"/></filter>
   </defs>
-  <ellipse cx="340" cy="264" rx="300" ry="235" fill="url(#glow)"/>
-  <circle cx="340" cy="257" r="174" fill="none" stroke="#6947ab" stroke-opacity=".24" stroke-width="2" stroke-dasharray="5 10"/>
-  <circle cx="340" cy="257" r="125" fill="none" stroke="#9065ed" stroke-opacity=".18" stroke-width="2"/>
-  <path d="M232 166 295 219M447 163 388 219M232 354 294 297M448 356 387 297" fill="none" stroke="#9664f6" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 9"/>
-  <g fill="url(#panel)" stroke="#55427d" stroke-width="2">
-    <rect x="91" y="90" width="163" height="120" rx="22"/><rect x="426" y="90" width="163" height="120" rx="22"/>
-    <rect x="91" y="310" width="163" height="120" rx="22"/><rect x="426" y="310" width="163" height="120" rx="22"/>
+  <ellipse cx="340" cy="258" rx="300" ry="235" fill="url(#glow)"/>
+  <g fill="none" stroke="#a77bff" stroke-width="2" stroke-opacity=".48" stroke-linecap="round">
+    <path d="M188 162 C237 162 230 222 277 237"/><path d="M491 159 C446 159 448 214 405 235"/>
+    <path d="M197 372 C246 370 244 315 281 301"/><path d="M475 371 C438 369 435 324 402 303"/>
   </g>
-  <g fill="#b49aff"><circle cx="173" cy="133" r="18"/><path d="M139 180c2-19 15-29 34-29s32 10 34 29"/><circle cx="508" cy="133" r="18"/><path d="M474 180c2-19 15-29 34-29s32 10 34 29"/><circle cx="173" cy="353" r="18"/><path d="M139 400c2-19 15-29 34-29s32 10 34 29"/><circle cx="508" cy="353" r="18"/><path d="M474 400c2-19 15-29 34-29s32 10 34 29"/></g>
-  <circle cx="340" cy="257" r="71" fill="url(#purple)"/>
-  <circle cx="340" cy="257" r="58" fill="none" stroke="#fff" stroke-opacity=".23"/>
-  <path d="M340 218c-19 0-34 15-34 34 0 12 6 21 15 28 5 4 7 8 7 13h24c0-5 2-9 7-13 9-7 15-16 15-28 0-19-15-34-34-34Z" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/>
-  <path d="M329 303h22m-18 9h14" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
-  <g fill="#c1a8ff"><circle cx="71" cy="247" r="5"/><circle cx="603" cy="268" r="5"/><circle cx="316" cy="69" r="4"/><circle cx="373" cy="449" r="4"/></g>
-  <g stroke="#a881ff" stroke-width="3" stroke-linecap="round"><path d="M567 228v18m-9-9h18M111 266v14m-7-7h14M383 82v12m-6-6h12"/></g>
+  <g fill="#b99aff"><circle cx="232" cy="199" r="4"/><circle cx="453" cy="195" r="4"/><circle cx="240" cy="339" r="4"/><circle cx="437" cy="342" r="4"/></g>
+  <!-- Projeto central -->
+  <g filter="url(#shadow)">
+    <rect x="229" y="174" width="222" height="179" rx="22" fill="url(#card)" stroke="#7960ac" stroke-width="2"/>
+    <path d="M229 196a22 22 0 0 1 22-22h178a22 22 0 0 1 22 22v17H229Z" fill="#292544"/>
+    <circle cx="250" cy="193" r="4" fill="#aa78ff"/><circle cx="264" cy="193" r="4" fill="#72549d"/><circle cx="278" cy="193" r="4" fill="#72549d"/>
+    <rect x="251" y="231" width="42" height="42" rx="13" fill="url(#accent)"/>
+    <path d="M262 247h20v15h-20z M262 251h20 M268 244v5 M276 244v5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="305" y="248" fill="#f5f1ff" font-family="Arial, sans-serif" font-size="15" font-weight="700">Projeto em equipe</text>
+    <text x="305" y="267" fill="#bcb6d1" font-family="Arial, sans-serif" font-size="11">Ideias que ganham vida</text>
+    <rect x="251" y="290" width="178" height="6" rx="3" fill="#3c3c5e"/><rect x="251" y="290" width="117" height="6" rx="3" fill="#a477ff"/>
+    <circle cx="260" cy="323" r="11" fill="#9b6bf1" stroke="#1b1c37" stroke-width="2"/><circle cx="278" cy="323" r="11" fill="#df9d9b" stroke="#1b1c37" stroke-width="2"/><circle cx="296" cy="323" r="11" fill="#6fa9c7" stroke="#1b1c37" stroke-width="2"/>
+    <text x="315" y="327" fill="#d1c9e7" font-family="Arial, sans-serif" font-size="11">Criando juntos</text>
+  </g>
+  <!-- Perfis de cursos diferentes -->
+  <g filter="url(#shadow)">
+    <rect x="47" y="99" width="162" height="99" rx="18" fill="url(#card)" stroke="#51456f"/>
+    <circle cx="81" cy="135" r="19" fill="#7548bf"/><circle cx="81" cy="131" r="6" fill="#eadbff"/><path d="M70 145c1-7 5-10 11-10s10 3 11 10" fill="#eadbff"/>
+    <text x="109" y="132" fill="#f3edff" font-family="Arial, sans-serif" font-size="12" font-weight="700">Tecnologia</text><text x="109" y="150" fill="#b5adc9" font-family="Arial, sans-serif" font-size="10">Desenvolvimento</text>
+    <rect x="64" y="166" width="83" height="15" rx="7.5" fill="#39295d"/><text x="74" y="177" fill="#d3b9ff" font-family="Arial, sans-serif" font-size="9">&lt;/&gt; código</text>
+    <rect x="471" y="99" width="162" height="99" rx="18" fill="url(#card)" stroke="#51456f"/>
+    <circle cx="505" cy="135" r="19" fill="#b86f9e"/><circle cx="505" cy="131" r="6" fill="#fff0f5"/><path d="M494 145c1-7 5-10 11-10s10 3 11 10" fill="#fff0f5"/>
+    <text x="533" y="132" fill="#f3edff" font-family="Arial, sans-serif" font-size="12" font-weight="700">Design</text><text x="533" y="150" fill="#b5adc9" font-family="Arial, sans-serif" font-size="10">Criação visual</text>
+    <rect x="488" y="166" width="72" height="15" rx="7.5" fill="#52304e"/><text x="498" y="177" fill="#f6c4e1" font-family="Arial, sans-serif" font-size="9">✦ criação</text>
+    <rect x="57" y="332" width="162" height="99" rx="18" fill="url(#card)" stroke="#51456f"/>
+    <circle cx="91" cy="368" r="19" fill="#488fa3"/><circle cx="91" cy="364" r="6" fill="#e8faff"/><path d="M80 378c1-7 5-10 11-10s10 3 11 10" fill="#e8faff"/>
+    <text x="119" y="365" fill="#f3edff" font-family="Arial, sans-serif" font-size="12" font-weight="700">Gestão</text><text x="119" y="383" fill="#b5adc9" font-family="Arial, sans-serif" font-size="10">Planejamento</text>
+    <rect x="74" y="399" width="74" height="15" rx="7.5" fill="#234752"/><text x="84" y="410" fill="#b8eaf3" font-family="Arial, sans-serif" font-size="9">↗ estratégia</text>
+    <rect x="461" y="332" width="162" height="99" rx="18" fill="url(#card)" stroke="#51456f"/>
+    <circle cx="495" cy="368" r="19" fill="#b78555"/><circle cx="495" cy="364" r="6" fill="#fff2e3"/><path d="M484 378c1-7 5-10 11-10s10 3 11 10" fill="#fff2e3"/>
+    <text x="523" y="365" fill="#f3edff" font-family="Arial, sans-serif" font-size="12" font-weight="700">Indústria</text><text x="523" y="383" fill="#b5adc9" font-family="Arial, sans-serif" font-size="10">Soluções técnicas</text>
+    <rect x="478" y="399" width="76" height="15" rx="7.5" fill="#513d31"/><text x="488" y="410" fill="#ffe0b7" font-family="Arial, sans-serif" font-size="9">⚙ inovação</text>
+  </g>
+  <g fill="#bba0fa" opacity=".7"><circle cx="335" cy="90" r="3"/><circle cx="598" cy="256" r="4"/><circle cx="80" cy="259" r="3"/><circle cx="340" cy="440" r="3"/></g>
 </svg>

@@ -44,7 +44,7 @@
 
 
     .logo img{
-      width:120px;
+      width:150px;
     }
 
 
@@ -168,7 +168,6 @@
 
 
     .btn:hover{
-      transform:scale(1.03);
       background:#6b1ff0;
     }
 
@@ -185,7 +184,6 @@
     }
 
     .sair:hover {
-      transform: scale(1.03);
       background:#000000;
     }
 .campo-ajuda { color: #555; font-size: 12px; line-height: 1.5; margin-top: 7px; }
@@ -201,3 +199,12 @@ input:focus-visible, select:focus-visible, .upload-box:focus-within { outline: 3
 .form-aviso a { color: inherit; font-weight: 700; }
 .btn:disabled { opacity: .65; cursor: wait; }
 @media (max-width: 460px) { body { padding: 16px; } .container { padding: 24px 20px; } .saindoCadastro .btn { width: 100%; font-size: 18px; } }
+
+.saindoCadastro { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; }
+.saindoCadastro .btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; height: 48px; margin: 0; font-size: 15px; box-shadow: none; transition: background .2s, transform .2s; }
+.saindoCadastro .btn:hover { transform: translateY(-1px); }
+
+.saindoCadastro .sair { background: transparent; color: #4f4663; border: 1px solid #ddd6e9; }
+.saindoCadastro .sair:hover { background: #f5f1fb; color: #5420a1; }
+.saindoCadastro .btn:focus-visible { outline: 3px solid #9860ed; outline-offset: 3px; }
+.saindoCadastro .btn:disabled { transform: none; }

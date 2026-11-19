@@ -14,13 +14,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&family=Belanosima:wght@400;600;700&display=swap" rel="stylesheet">
 
   <title>Nexus | Conectando Talentos</title>
+<link rel="stylesheet" href="/shared/acessibilidade.css">
+<script defer src="/shared/acessibilidade.js"></script>
 </head>
 <body>
 
   <!-- HEADER -->
   <header>
     <div class="Logo">
-      <img src="../img/nexusReto.png" alt="Logo Nexus">
+      <img src="../img/logo-horizontal.png" alt="Logo Nexus">
     </div>
 
     <div class="Header1">
@@ -39,12 +41,12 @@
   <main>
     <section class="hero">
       <div class="inicio">
-        <h1>Conectando Talentos.</h1>
-        <h1>Construindo o <span class="futuro">Futuro.</span></h1>
+        <h1>Suas ideias merecem</h1>
+        <h1>sair do <span class="futuro">papel.</span></h1>
 
         <p>
-          A plataforma oficial para alunos e ex-alunos do SENAI colaborarem,
-          desenvolverem projetos e transformarem ideias em soluções reais.
+          Crie projetos, coloque suas habilidades em prática e encontre alunos e
+          ex-alunos do SENAI para transformar suas ideias em realidade.
         </p>
 
         <div class="hero-acoes">
@@ -64,13 +66,13 @@
       <div class="card-desc">
         <span class="recurso-icone"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></span>
         <h5>Match inteligente</h5>
-        <p>Encontre pessoas compatíveis com seus objetivos e habilidades.</p>
+        <p>Encontre pessoas com habilidades que completam as suas e criem algo juntos.</p>
       </div>
 
       <div class="card-desc">
         <span class="recurso-icone"><i class="fa-solid fa-people-group" aria-hidden="true"></i></span>
         <h5>Times completos</h5>
-        <p>Monte seu time com todas as áreas que seu projeto precisa.</p>
+        <p>Reúna talentos de diferentes cursos e transforme sua ideia em projeto.</p>
       </div>
 
       <div class="card-desc">
@@ -84,12 +86,12 @@
       <div class="vitrine-cabecalho">
         <span class="vitrine-etiqueta">CONHEÇA O NEXUS</span>
         <h2 id="vitrine-titulo">Sua próxima grande ideia <span>começa aqui.</span></h2>
-        <p>Veja como encontrar pessoas, conversar e participar de projetos.</p>
+        <p>Encontre sua equipe, transforme ideias em projetos e mantenha a conversa acontecendo.</p>
         <small>As telas abaixo são exemplos ilustrativos com informações fictícias.</small>
       </div>
       <div class="vitrine-grid">
         <article class="vitrine-card vitrine-conexoes">
-          <div class="vitrine-texto"><h3>Encontre pessoas</h3><p>Explore perfis por área, habilidades e disponibilidade.</p></div>
+          <div class="vitrine-texto"><span class="vitrine-passo"><i class="fa-solid fa-user-group" aria-hidden="true"></i> 01 · CONECTE-SE</span><h3>Encontre sua equipe</h3><p>Descubra talentos de diferentes cursos com as habilidades que seu projeto precisa.</p></div>
           <div class="preview preview-pessoas" aria-label="Exemplo ilustrativo de perfis para conexão">
             <div class="preview-janela"><span></span><span></span><span></span><b>nexus / explorar</b></div>
             <div class="preview-barra"><strong>Explorar</strong><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></div>
@@ -103,7 +105,7 @@
           </div>
         </article>
         <article class="vitrine-card vitrine-projetos">
-          <div class="vitrine-texto"><h3>Participe de projetos</h3><p>Conheça projetos da comunidade e encontre uma equipe.</p></div>
+          <div class="vitrine-texto"><span class="vitrine-passo"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> 02 · COLOQUE EM PRÁTICA</span><h3>Crie e participe de projetos</h3><p>Compartilhe suas ideias e desenvolva soluções ao lado da comunidade.</p></div>
           <div class="preview projeto-preview" aria-label="Exemplo ilustrativo de projeto">
             <div class="preview-janela"><span></span><span></span><span></span><b>nexus / projetos</b></div>
             <div class="projeto-exemplo-titulo"><span><i class="fa-solid fa-earth-americas" aria-hidden="true"></i></span><div><small>Ativo · Projeto público</small><strong>Conecta Verde</strong><small>Projeto público da comunidade</small></div></div>
@@ -112,7 +114,7 @@
           </div>
         </article>
         <article class="vitrine-card vitrine-conversa">
-          <div class="vitrine-texto"><h3>Converse com sua rede</h3><p>Troque mensagens e combine os próximos passos.</p></div>
+          <div class="vitrine-texto"><span class="vitrine-passo"><i class="fa-solid fa-comments" aria-hidden="true"></i> 03 · COLABORE</span><h3>Converse e faça acontecer</h3><p>Troque ideias, combine os próximos passos e mantenha sua equipe conectada.</p></div>
           <div class="preview conversa-preview" aria-label="Exemplo ilustrativo de conversa">
             <div class="preview-janela"><span></span><span></span><span></span><b>nexus / mensagens</b></div>
             <div class="chat-exemplo"><div class="chat-exemplo-lista"><strong>Mensagens <b>+</b></strong><div class="chat-exemplo-abas">Conversas &nbsp; Equipes</div><div class="chat-exemplo-contato"><span class="avatar">AM</span><div>Ana Martins<small>Claro! Vamos conversar.</small></div></div></div><div class="chat-exemplo-corpo">
@@ -124,6 +126,7 @@
           </div>
         </article>
       </div>
+      <div class="vitrine-chamada"><p>Seu próximo projeto pode começar aqui.</p><a href="../cadastro/Cadastro.html">Faça parte do Nexus <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
     </section>
 
     <!-- PLANOS DE ASSINATURA -->
@@ -258,13 +261,13 @@
   </footer>
 
   <!-- MODAL DE LOGIN -->
-  <div class="overlay" id="overlay">
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="titulo-login" aria-hidden="true">
     <form class="login-box">
-      <img src="../img/nexusCenterWhite.png" alt="Logo Nexus">
+      <img src="../img/logo-orbita-vertical-escura.png" alt="Logo Nexus">
 
       <button type="button" class="btn-close fechar" id="fechar" aria-label="Fechar"></button>
 
-      <h2 class="text-black">Bem-vindo de volta</h2>
+      <h2 id="titulo-login" class="text-black">Bem-vindo de volta</h2>
       <p class="text-black">Faça login para acessar sua conta</p>
 
       <div class="loginIN">
